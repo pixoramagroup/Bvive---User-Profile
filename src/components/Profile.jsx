@@ -158,6 +158,32 @@ const Profile = () => {
           Social 4
         </div>
       </div>
+      <div
+        className="profile-aboutme-main-1"
+        style={{ background: 'red', height: '60vh' }}
+      >
+        <h2>My Specialization</h2>
+        <div class="profile-cards-container">
+          <div class="profile-cards">
+              <h2>Yoga</h2>
+          </div>
+          <div class="profile-cards">
+              <h2>Nutrition</h2>
+          </div>
+          <div class="profile-cards">
+              <h2>SUP</h2>
+          </div>
+          <div class="profile-cards">
+              <h2>Stretching</h2>
+          </div>
+        </div>
+      </div>
+      {/* <div
+        className="profile-aboutme-main"
+        style={{ background: 'yellow   ', height: '20vh' }}
+      >
+        <h2>My Certification</h2>
+      </div> */}
       <div className="profile-aboutme-main">
         <div
           className="profile-aboutme-left-box"
@@ -184,7 +210,7 @@ const Profile = () => {
         </div>
       </div>
 
-      <div className="profile-aboutme-main">
+      {/* <div className="profile-aboutme-main">
         <div
           className="profile-aboutme-left-box"
           style={{ background: 'grey' }}
@@ -197,7 +223,7 @@ const Profile = () => {
           className="profile-aboutme-right-box"
           style={{ background: 'grey' }}
         ></div>
-      </div>
+      </div> */}
 
       <div className="profile-aboutme-main">
         <div
@@ -214,18 +240,7 @@ const Profile = () => {
         ></div>
       </div>
 
-      <div
-        className="profile-aboutme-main"
-        style={{ background: 'red', height: '20vh' }}
-      >
-        <h2>My Specialization</h2>
-      </div>
-      <div
-        className="profile-aboutme-main"
-        style={{ background: 'yellow   ', height: '20vh' }}
-      >
-        <h2>My Certification</h2>
-      </div>
+      
     </div>
   );
 };
