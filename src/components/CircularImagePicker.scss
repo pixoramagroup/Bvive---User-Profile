@@ -1,0 +1,22 @@
+.image-picker-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.image-container {
+  margin: 10px;
+  cursor: pointer;
+}
+
+.circular-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%; /* Makes the image circular */
+  object-fit: cover;
+  border: 2px solid transparent;
+}
+
+.circular-image.selected {
+  border-color: blue; /* Highlight selected image */
+}
