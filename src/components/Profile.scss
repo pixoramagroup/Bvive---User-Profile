@@ -164,31 +164,35 @@ $font-stack: 'Helvetica Neue', sans-serif;
   align-items: center;
   width: 100%;
   height: 50vh;
-  background: greenyellow;
-  border: solid black;
+  color: #ffffff;
+  // background: greenyellow;
+  // border: solid black;
 }
 
 .profile-aboutme-main {
   display: flex;
-  // justify-content: center;
+  justify-content: center;
   // flex-direction: column;
   // align-items: center;
   width: 100%;
   height: 50vh;
-  background: rgb(89, 97, 78);
-  border: solid black;
+  background: #ffffff;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+ 
+  // border: solid black;
 }
 
 .profile-aboutme-left-box {
   display: flex;
   justify-content: center;
-  align-items: center;
+  // align-items: center;
   width: 30%;
-  height: 100%;
-  background: turquoise;
-  border: solid black;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 324px 100%, 0 65%)
+  height: 400px;
+  background: #fce13c;
+  // border: solid black;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 324px 100%, 0 65%);
   //cursor: grab;
+  
 }
 
 .profile-aboutme-right-box {
@@ -198,7 +202,7 @@ $font-stack: 'Helvetica Neue', sans-serif;
   width: 70%;
   height: 100%;
   background: turquoise;
-  border: solid black;
+  // border: solid black;
   flex-direction: column;
 }
 
@@ -306,18 +310,41 @@ $font-stack: 'Helvetica Neue', sans-serif;
 .profile-cards-container {
   display: flex; /* Display cards horizontally */
   justify-content: center; /* Center cards horizontally */
+
 }
 
 .profile-cards {
   width: 300px;
   background-color: pink;
+  color: black;
   padding: 20px;
   margin: 50px; 
   text-align: center;
   height: 300px;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 200px 100%, 0 65%);
-  overflow: hidden;
+ 
 }
   .profile-cards + .profile-cards {
       margin-left: 10px;
   }
+
+  .profile-button {
+    background-color: #000000; /* Green background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 15px 32px; /* Some padding */
+    text-align: center; /* Center text */
+    text-Decoration: none; /* Remove underline */
+    display: inline-block; /* Make it a block element to fill the width */
+    font-size: 16px; /* Increase font size */
+    border-radius: 5px; /* Rounded corners */
+  }
+
+  #img-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+   }
+   
+   #img-wrapper > div {
+    flex: 0 1 33%;
+   }

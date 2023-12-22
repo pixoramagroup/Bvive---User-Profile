@@ -5,6 +5,8 @@ import { useState } from "react";
 import "./Profile.scss";
 import CircularImagePicker from "./CircularImagePicker";
 import StarRatingComponent from "react-star-rating-component";
+import MapComponent from "./MapComponent";
+import ImageGrid from "./ImageGrid";
 
 const Profile = () => {
   // const images = [
@@ -160,22 +162,50 @@ const Profile = () => {
       </div>
       <div
         className="profile-aboutme-main-1"
-        style={{ background: "red", height: "60vh" }}
+        style={{ background: "#3b3b3b", height: "70vh" }}
       >
         <h2>My Specialization</h2>
-        <div class="profile-cards-container">
-          <div class="profile-cards">
+        <div className="profile-cards-container">
+          <div
+            className="profile-cards"
+            style={{
+              backgroundImage: 'url("src/assets/yoga.jpg")',
+              backgroundSize: "cover",
+            }}
+          >
             <h2>Yoga</h2>
           </div>
-          <div class="profile-cards">
+          <div
+            className="profile-cards"
+            style={{
+              backgroundImage: 'url("src/assets/nutrition.jpg")',
+              backgroundSize: "cover",
+            }}
+          >
             <h2>Nutrition</h2>
           </div>
-          <div class="profile-cards">
+
+          <div
+            className="profile-cards"
+            style={{
+              backgroundImage: 'url("src/assets/sup.jpg")',
+              backgroundSize: "cover",
+            }}
+          >
             <h2>SUP</h2>
           </div>
-          <div class="profile-cards">
+          <div
+            className="profile-cards"
+            style={{
+              backgroundImage: 'url("src/assets/stretching.jpg")',
+              backgroundSize: "cover",
+            }}
+          >
             <h2>Stretching</h2>
           </div>
+        </div>
+        <div style={{ textAlign: "center", marginBottom: "10px" }}>
+          <button className="profile-button">Book Now</button>
         </div>
       </div>
       {/* <div
@@ -191,6 +221,14 @@ const Profile = () => {
           onDragStart={(e) => handleOnDrag(e, "about me", "turquoise")}
         >
           <h2>About me</h2>
+          <div
+            style={{
+              transform: "translate(-50%, -50%)",
+              textAlign: "center",
+            }}
+          >
+            <p>Content</p>
+          </div>
         </div>
         <div
           className="profile-aboutme-right-box"
@@ -207,6 +245,29 @@ const Profile = () => {
               {box?.boxType}
             </div>
           ))}
+          <ImageGrid></ImageGrid>
+          {/* <div id="img-wrapper">
+            <img
+              src="src/assets/yoga.jpg"
+              alt="Image 1"
+              style={{ width: "500px", height: "500px" }}
+            />
+            <img
+              src="src/assets/sup.jpg"
+              alt="Image 2"
+              style={{ width: "500px", height: "500px" }}
+            />
+            <img
+              src="src/assets/sup.jpg"
+              alt="Image 2"
+              style={{ width: "500px", height: "500px" }}
+            />
+            <img
+              src="src/assets/sup.jpg"
+              alt="Image 2"
+              style={{ width: "500px", height: "500px" }}
+            />
+          </div> */}
         </div>
       </div>
 
@@ -228,7 +289,7 @@ const Profile = () => {
       <div className="profile-aboutme-main">
         <div
           className="profile-aboutme-left-box"
-          style={{ background: "green" }}
+          style={{ background: "#e64588" }}
           draggable
           onDragStart={(e) => handleOnDrag(e, "contact me", "green")}
         >
@@ -236,8 +297,35 @@ const Profile = () => {
         </div>
         <div
           className="profile-aboutme-right-box"
-          style={{ background: "grey" }}
-        ></div>
+          style={{ background: "#f8f8f8" }}
+        >
+          <MapComponent></MapComponent>
+        </div>
+      </div>
+
+      <div className="profile-aboutme-main">
+        <div
+          className="profile-aboutme-left-box"
+          style={{ background: "#35caaa" }}
+          draggable
+          onDragStart={(e) => handleOnDrag(e, "contact me", "green")}
+        >
+          <h2>Testimonials</h2>
+        </div>
+        <div
+          className="profile-aboutme-right-box"
+          style={{ background: "white" }}
+        >
+          <p>
+            "I can't thank my personal trainer enough for the incredible journey
+            we've embarked on together. From day one, their dedication and
+            expertise have been nothing short of remarkable. Working with my
+            trainer has not only transformed my physique but has also boosted my
+            confidence and overall well-being. Their personalized workout plans
+            and nutritional guidance have been instrumental in helping me
+            achieve my fitness goals."
+          </p>
+        </div>
       </div>
     </div>
   );
