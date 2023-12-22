@@ -170,12 +170,12 @@ $font-stack: 'Helvetica Neue', sans-serif;
 
 .profile-aboutme-main {
   display: flex;
-  justify-content: center;
+  // justify-content: center;
   // flex-direction: column;
   // align-items: center;
   width: 100%;
   height: 50vh;
-  background: greenyellow;
+  background: rgb(89, 97, 78);
   border: solid black;
 }
 
@@ -183,10 +183,11 @@ $font-stack: 'Helvetica Neue', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  width: 30%;
   height: 100%;
   background: turquoise;
   border: solid black;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 324px 100%, 0 65%)
   //cursor: grab;
 }
 
@@ -194,7 +195,7 @@ $font-stack: 'Helvetica Neue', sans-serif;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  width: 50%;
+  width: 70%;
   height: 100%;
   background: turquoise;
   border: solid black;
