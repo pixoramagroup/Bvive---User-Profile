@@ -7,6 +7,9 @@ import CircularImagePicker from "./CircularImagePicker";
 import StarRatingComponent from "react-star-rating-component";
 import MapComponent from "./MapComponent";
 import ImageGrid from "./ImageGrid";
+import LanguageIcon from "@mui/icons-material/Language";
+import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
+import MailOutlineIcon from "@mui/icons-material/MailOutline";
 
 const Profile = () => {
   // const images = [
@@ -225,14 +228,14 @@ const Profile = () => {
       >
         <h2>My Certification</h2>
       </div> */}
-      <div className="profile-aboutme-main" style={{height:"70vh"}}>
+      <div className="profile-aboutme-main">
         <div
           className="profile-aboutme-left-box"
           draggable
           onDragStart={(e) => handleOnDrag(e, "about me", "turquoise")}
           style={{
             clipPath: "polygon(0 0, 100% 0, 100% 100%, 220px 100%, 0 65%)",
-            height:"400px",
+            height: "400px",
           }}
         >
           <h2
@@ -332,13 +335,28 @@ const Profile = () => {
           >
             Contact me
           </h2>
-          <div class="line"></div>
+          <div className="line"></div>
+          <div className="contact-icons">
+      <div className="icon-container">
+        <LanguageIcon color="black" />
+        <span className="text">sales@pixoramagroup.com</span>
+      </div>
+      <div className="icon-container">
+        <PhoneAndroidIcon color="black" />
+        <span className="text">sales@pixoramagroup.com</span>
+      </div>
+      <div className="icon-container">
+        <MailOutlineIcon color="black" />
+        <span className="text">sales@pixoramagroup.com</span>
+      </div>
+    </div>
         </div>
+
         <div
           className="profile-aboutme-right-box"
           style={{ background: "#ffffff", width: "40%" }}
         >
-          <MapComponent ></MapComponent>
+          <MapComponent></MapComponent>
         </div>
       </div>
 

@@ -361,3 +361,23 @@ $font-stack: 'Helvetica Neue', sans-serif;
     width: 100px; 
     margin-top: 10px;
     }
+
+    .contact-icons {
+      display: flex;
+      flex-direction: column;
+      font-size: 20px;
+      color: black;
+      margin-left: 86px;
+      margin-top: 50px;
+      line-height: 50px;
+    }
+    
+    .icon-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    
+    .text {
+      margin-left: 10px;
+    }
