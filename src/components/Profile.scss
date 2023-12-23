@@ -3,6 +3,7 @@ $primary-color: #ffa500; // Example primary color
 $secondary-color: #333; // Example secondary color
 $font-stack: 'Helvetica Neue', sans-serif;
 
+
 // // Reset margin and padding for all elements
 // * {
 //   margin: 0;
@@ -161,10 +162,12 @@ $font-stack: 'Helvetica Neue', sans-serif;
   justify-content: center;
   flex-direction: column;
   overflow: hidden;
-  align-items: center;
+  // align-items: center;
   width: 100%;
   height: 50vh;
   color: #ffffff;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+
   // background: greenyellow;
   // border: solid black;
 }
@@ -184,13 +187,15 @@ $font-stack: 'Helvetica Neue', sans-serif;
 
 .profile-aboutme-left-box {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  // justify-content: center;
   // align-items: center;
-  width: 30%;
+  width: 25%;
   height: 400px;
   background: #fce13c;
+  margin-right: 50px;
   // border: solid black;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 324px 100%, 0 65%);
+  // clip-path: polygon(0 0, 100% 0, 100% 100%, 324px 100%, 0 65%);
   //cursor: grab;
   
 }
@@ -199,7 +204,7 @@ $font-stack: 'Helvetica Neue', sans-serif;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  width: 70%;
+  width: 75%;
   height: 100%;
   background: turquoise;
   // border: solid black;
@@ -308,8 +313,8 @@ $font-stack: 'Helvetica Neue', sans-serif;
 }
 
 .profile-cards-container {
-  display: flex; /* Display cards horizontally */
-  justify-content: center; /* Center cards horizontally */
+  display: flex; 
+  justify-content: center; 
 
 }
 
@@ -320,7 +325,7 @@ $font-stack: 'Helvetica Neue', sans-serif;
   padding: 20px;
   margin: 50px; 
   text-align: center;
-  height: 300px;
+  height: 250px;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 200px 100%, 0 65%);
  
 }
@@ -329,15 +334,15 @@ $font-stack: 'Helvetica Neue', sans-serif;
   }
 
   .profile-button {
-    background-color: #000000; /* Green background */
-    border: none; /* Remove borders */
-    color: white; /* White text */
-    padding: 15px 32px; /* Some padding */
-    text-align: center; /* Center text */
-    text-Decoration: none; /* Remove underline */
-    display: inline-block; /* Make it a block element to fill the width */
-    font-size: 16px; /* Increase font size */
-    border-radius: 5px; /* Rounded corners */
+    background-color: #000000;
+    border: none; 
+    color: white;
+    padding: 15px 32px; 
+    text-align: center; 
+    text-Decoration: none; 
+    display: inline-block; 
+    font-size: 16px; 
+    border-radius: 5px;
   }
 
   #img-wrapper {
@@ -348,3 +353,11 @@ $font-stack: 'Helvetica Neue', sans-serif;
    #img-wrapper > div {
     flex: 0 1 33%;
    }
+
+    .line {
+    height: 4px;
+    margin-left: 80px;
+    background-color: black;
+    width: 100px; 
+    margin-top: 10px;
+    }
