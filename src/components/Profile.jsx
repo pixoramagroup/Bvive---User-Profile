@@ -1,12 +1,13 @@
 // Profile.js
 // import React from 'react';
-import { useState } from "react";
+import { useState } from 'react';
 //import classes from './Profile.module.scss'; // Assume CSS modules are set up
-import "./Profile.scss";
-import CircularImagePicker from "./CircularImagePicker";
-import StarRatingComponent from "react-star-rating-component";
-import MapComponent from "./MapComponent";
-import ImageGrid from "./ImageGrid";
+import './Profile.scss';
+import CircularImagePicker from './CircularImagePicker';
+import StarRatingComponent from 'react-star-rating-component';
+import MapComponent from './MapComponent';
+import ImageGrid from './ImageGrid';
+import TextCarousel from './TextCarousel';
 
 const Profile = () => {
   // const images = [
@@ -16,20 +17,20 @@ const Profile = () => {
   //   // Add more image URLs
   // ];
   const [boxes, setBoxes] = useState([]);
-  const [images, setImages] = useState([""]);
+  const [images, setImages] = useState(['']);
   //const [rating, setRating] = useState({ rating: 2 });
   const [rating, setRating] = useState(5);
   const handleImageChange = (newImage) => {
     setImages([newImage]);
   };
   function handleOnDrag(e, boxType, color) {
-    e.dataTransfer.setData("boxType", boxType);
-    e.dataTransfer.setData("color", color);
+    e.dataTransfer.setData('boxType', boxType);
+    e.dataTransfer.setData('color', color);
   }
 
   function handleOnDrop(e) {
-    const boxType = e.dataTransfer.getData("boxType");
-    const color = e.dataTransfer.getData("color");
+    const boxType = e.dataTransfer.getData('boxType');
+    const color = e.dataTransfer.getData('color');
     setBoxes([...boxes, { boxType, color }]);
   }
 
@@ -39,6 +40,45 @@ const Profile = () => {
   const onStarClick = (nextValue) => {
     setRating(nextValue);
   };
+  const textItems = [
+    {
+      heading: 'Personal Training',
+      subHeading: 'Sub Heading',
+      institute: 'QLD Institute of Tale',
+    },
+    {
+      heading: 'Support Science and Nutrition',
+      subHeading: 'Bachelors Degree 2012',
+      institute: 'Queensland University of Technology',
+    },
+    {
+      heading: 'Group Excercise Freestyle',
+      subHeading: 'Certificate III in Fitness 2014',
+      institute: 'Fitness Institute Australia',
+    },
+    {
+      heading: 'Personal Training 2',
+      subHeading: 'Sub Heading 2',
+      institute: 'QLD Institute of Tale 2',
+    },
+
+    {
+      heading: 'Group Excercise Freestyle 2',
+      subHeading: 'Certificate III in Fitness 2014',
+      institute: 'Fitness Institute Australia 2',
+    },
+    {
+      heading: 'Personal Training 2',
+      subHeading: 'Sub Heading 2',
+      institute: 'QLD Institute of Tale 2',
+    },
+
+    {
+      heading: 'Group Excercise Freestyle 2',
+      subHeading: 'Certificate III in Fitness 2014',
+      institute: 'Fitness Institute Australia 2',
+    },
+  ];
 
   return (
     // <div className={classes.profile}>
@@ -89,7 +129,7 @@ const Profile = () => {
       <div className="profile-second-main">
         <div
           className="profile-second-box"
-          style={{ background: "orange" }}
+          // style={{ background: 'orange' }}
           // draggable
           // onDragStart={(e) => handleOnDrag(e, 'profile box', 'orange')}
         >
@@ -104,7 +144,7 @@ const Profile = () => {
               <div className="profile-card-top-right">
                 <h2>James Osborn</h2>
                 <div>Male, 27</div>
-                <div style={{ fontSize: "30px" }}>
+                <div style={{ fontSize: '30px' }}>
                   <StarRatingComponent
                     name="rate1"
                     starCount={5}
@@ -130,58 +170,62 @@ const Profile = () => {
           </div>
         </div>
       </div>
+      <div className="certificate-main">
+        <h1>My Certifications</h1>
+        <TextCarousel items={textItems} itemsPerView={7} />
+      </div>
       <div className="profile-social-main">
         <div
           className="profile-social-box-1"
           draggable
-          onDragStart={(e) => handleOnDrag(e, "social 1", "blue")}
+          onDragStart={(e) => handleOnDrag(e, 'social 1', 'blue')}
         >
           Social 1
         </div>
         <div
           className="profile-social-box-1"
           draggable
-          onDragStart={(e) => handleOnDrag(e, "social 2", "blue")}
+          onDragStart={(e) => handleOnDrag(e, 'social 2', 'blue')}
         >
           Social 2
         </div>
         <div
           className="profile-social-box-1"
           draggable
-          onDragStart={(e) => handleOnDrag(e, "social 3", "blue")}
+          onDragStart={(e) => handleOnDrag(e, 'social 3', 'blue')}
         >
           Social 3
         </div>
         <div
           className="profile-social-box-1"
           draggable
-          onDragStart={(e) => handleOnDrag(e, "social 4", "blue")}
+          onDragStart={(e) => handleOnDrag(e, 'social 4', 'blue')}
         >
           Social 4
         </div>
       </div>
       <div
         className="profile-aboutme-main-1"
-        style={{ background: "#3b3b3b", height: "70vh" }}
+        style={{ background: '#3b3b3b', height: '70vh' }}
       >
         <h2
           style={{
-            fontSize: "34px",
-            marginBottom: "10px",
-            color: "white",
-            marginLeft: "80px",
-            fontWeight: "500",
+            fontSize: '34px',
+            marginBottom: '10px',
+            color: 'white',
+            marginLeft: '80px',
+            fontWeight: '500',
           }}
         >
           My Specialization
         </h2>
-        <div class="line" style={{ backgroundColor: "white" }}></div>
+        <div class="line" style={{ backgroundColor: 'white' }}></div>
         <div className="profile-cards-container">
           <div
             className="profile-cards"
             style={{
               backgroundImage: 'url("src/assets/yoga.jpg")',
-              backgroundSize: "cover",
+              backgroundSize: 'cover',
             }}
           >
             <h2>Yoga</h2>
@@ -190,7 +234,7 @@ const Profile = () => {
             className="profile-cards"
             style={{
               backgroundImage: 'url("src/assets/nutrition.jpg")',
-              backgroundSize: "cover",
+              backgroundSize: 'cover',
             }}
           >
             <h2>Nutrition</h2>
@@ -200,7 +244,7 @@ const Profile = () => {
             className="profile-cards"
             style={{
               backgroundImage: 'url("src/assets/sup.jpg")',
-              backgroundSize: "cover",
+              backgroundSize: 'cover',
             }}
           >
             <h2>SUP</h2>
@@ -209,13 +253,13 @@ const Profile = () => {
             className="profile-cards"
             style={{
               backgroundImage: 'url("src/assets/stretching.jpg")',
-              backgroundSize: "cover",
+              backgroundSize: 'cover',
             }}
           >
             <h2>Stretching</h2>
           </div>
         </div>
-        <div style={{ textAlign: "center", marginBottom: "10px" }}>
+        <div style={{ textAlign: 'center', marginBottom: '10px' }}>
           <button className="profile-button">Book Now</button>
         </div>
       </div>
@@ -225,24 +269,24 @@ const Profile = () => {
       >
         <h2>My Certification</h2>
       </div> */}
-      <div className="profile-aboutme-main" style={{height:"70vh"}}>
+      <div className="profile-aboutme-main" style={{ height: '70vh' }}>
         <div
           className="profile-aboutme-left-box"
           draggable
-          onDragStart={(e) => handleOnDrag(e, "about me", "turquoise")}
+          onDragStart={(e) => handleOnDrag(e, 'about me', 'turquoise')}
           style={{
-            clipPath: "polygon(0 0, 100% 0, 100% 100%, 220px 100%, 0 65%)",
-            height:"400px",
+            clipPath: 'polygon(0 0, 100% 0, 100% 100%, 220px 100%, 0 65%)',
+            height: '400px',
           }}
         >
           <h2
             style={{
-              fontSize: "34px",
-              marginBottom: "10px",
-              color: "black",
-              marginLeft: "80px",
-              fontWeight: "500",
-              marginTop: "40px",
+              fontSize: '34px',
+              marginBottom: '10px',
+              color: 'black',
+              marginLeft: '80px',
+              fontWeight: '500',
+              marginTop: '40px',
             }}
           >
             About me
@@ -250,8 +294,8 @@ const Profile = () => {
           <div class="line"></div>
           <div
             style={{
-              transform: "translate(-50%, -50%)",
-              textAlign: "center",
+              transform: 'translate(-50%, -50%)',
+              textAlign: 'center',
             }}
           >
             {/* <p>Content</p> */}
@@ -261,7 +305,7 @@ const Profile = () => {
           className="profile-aboutme-right-box"
           onDrop={handleOnDrop}
           onDragOver={handleDragOver}
-          style={{ background: "white" }}
+          style={{ background: 'white' }}
         >
           {boxes.map((box, index) => (
             <div
@@ -316,18 +360,18 @@ const Profile = () => {
       <div className="profile-aboutme-main">
         <div
           className="profile-aboutme-left-box"
-          style={{ background: "white", width: "60%" }}
+          style={{ background: 'white', width: '60%' }}
           draggable
-          onDragStart={(e) => handleOnDrag(e, "contact me", "green")}
+          onDragStart={(e) => handleOnDrag(e, 'contact me', 'green')}
         >
           <h2
             style={{
-              fontSize: "34px",
-              marginBottom: "10px",
-              color: "black",
-              marginLeft: "80px",
-              fontWeight: "500",
-              marginTop: "40px",
+              fontSize: '34px',
+              marginBottom: '10px',
+              color: 'black',
+              marginLeft: '80px',
+              fontWeight: '500',
+              marginTop: '40px',
             }}
           >
             Contact me
@@ -336,27 +380,27 @@ const Profile = () => {
         </div>
         <div
           className="profile-aboutme-right-box"
-          style={{ background: "#ffffff", width: "40%" }}
+          style={{ background: '#ffffff', width: '40%' }}
         >
-          <MapComponent ></MapComponent>
+          <MapComponent></MapComponent>
         </div>
       </div>
 
       <div className="profile-aboutme-main">
         <div
           className="profile-aboutme-left-box"
-          style={{ background: "#35caaa" }}
+          style={{ background: '#35caaa' }}
           draggable
-          onDragStart={(e) => handleOnDrag(e, "contact me", "green")}
+          onDragStart={(e) => handleOnDrag(e, 'contact me', 'green')}
         >
           <h2
             style={{
-              fontSize: "34px",
-              marginBottom: "10px",
-              color: "black",
-              marginLeft: "80px",
-              fontWeight: "500",
-              marginTop: "40px",
+              fontSize: '34px',
+              marginBottom: '10px',
+              color: 'black',
+              marginLeft: '80px',
+              fontWeight: '500',
+              marginTop: '40px',
             }}
           >
             Testimonials
@@ -365,7 +409,7 @@ const Profile = () => {
         </div>
         <div
           className="profile-aboutme-right-box"
-          style={{ background: "white" }}
+          style={{ background: 'white' }}
         >
           <p>
             "I can't thank my personal trainer enough for the incredible journey

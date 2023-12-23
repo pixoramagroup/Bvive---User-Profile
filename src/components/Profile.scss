@@ -3,7 +3,6 @@ $primary-color: #ffa500; // Example primary color
 $secondary-color: #333; // Example secondary color
 $font-stack: 'Helvetica Neue', sans-serif;
 
-
 // // Reset margin and padding for all elements
 // * {
 //   margin: 0;
@@ -94,11 +93,12 @@ $font-stack: 'Helvetica Neue', sans-serif;
   align-items: center;
   flex-direction: column;
   // height: 100vh;
-  background-color: red;
+  background-color: #f8f8f8;
   width: 100%;
   // overflow-x: hidden;
   // overflow-y: scroll;
   // display: none;
+  font-family: sans-serif;
 }
 
 .profile-header {
@@ -108,7 +108,7 @@ $font-stack: 'Helvetica Neue', sans-serif;
   background: yellow;
   width: 100%;
   border: solid black;
-  // display: none;
+  display: none;
 }
 
 .profile-second-main {
@@ -116,7 +116,7 @@ $font-stack: 'Helvetica Neue', sans-serif;
   justify-content: flex-start;
   align-items: flex-end;
   background: green;
-  height: 50vh;
+  height: 60vh;
   width: 100%;
   border: solid black;
   // padding: 0px 20px;
@@ -128,12 +128,13 @@ $font-stack: 'Helvetica Neue', sans-serif;
   align-items: center;
   flex-direction: row;
   margin-left: 30px;
-  background: orange;
+  //background: orange;
   height: 35vh;
-  width: 40%;
-  border: solid black;
+  width: 30%;
+  // border: solid black;
   //cursor: grab;
   padding: 20px;
+  background: rgba(0, 0, 0, 0.3); // Black with 50% opacity
 }
 
 .profile-social-main {
@@ -181,7 +182,7 @@ $font-stack: 'Helvetica Neue', sans-serif;
   height: 50vh;
   background: #ffffff;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
- 
+
   // border: solid black;
 }
 
@@ -197,7 +198,6 @@ $font-stack: 'Helvetica Neue', sans-serif;
   // border: solid black;
   // clip-path: polygon(0 0, 100% 0, 100% 100%, 324px 100%, 0 65%);
   //cursor: grab;
-  
 }
 
 .profile-aboutme-right-box {
@@ -229,8 +229,8 @@ $font-stack: 'Helvetica Neue', sans-serif;
   // margin: 3px;
   width: 100%;
   height: 100%;
-  background: grey;
-  border: solid black;
+  // background: grey;
+  // border: solid black;
   flex-direction: column;
 }
 
@@ -242,8 +242,8 @@ $font-stack: 'Helvetica Neue', sans-serif;
   // height: 100%;
   width: 100%;
   // height: 2vh;
-  background: purple;
-  border: solid black;
+  // background: purple;
+  // border: solid black;
 }
 
 .profile-card-top-right {
@@ -254,9 +254,11 @@ $font-stack: 'Helvetica Neue', sans-serif;
   // height: 100%;
   width: 100%;
   // height: 2vh;
-  background: yellow;
-  border: solid black;
+  // background: yellow;
+  // border: solid black;
+  margin-left: 15px;
   flex-direction: column;
+  color: white;
 }
 
 .profile-card-top-left {
@@ -267,8 +269,8 @@ $font-stack: 'Helvetica Neue', sans-serif;
   // height: 100%;
   width: 20%;
   // height: 2vh;
-  background: red;
-  border: solid black;
+  // background: red;
+  // border: solid black;
 }
 .profile-card-bottom {
   display: flex;
@@ -278,9 +280,10 @@ $font-stack: 'Helvetica Neue', sans-serif;
   width: 100%;
   height: 100%;
   // height: 2vh;
-  background: green;
-  border: solid black;
+  // background: green;
+  // border: solid black;
   flex-direction: column;
+  color: white;
 }
 
 .profile-card-bottom-button {
@@ -313,9 +316,8 @@ $font-stack: 'Helvetica Neue', sans-serif;
 }
 
 .profile-cards-container {
-  display: flex; 
-  justify-content: center; 
-
+  display: flex;
+  justify-content: center;
 }
 
 .profile-cards {
@@ -323,41 +325,50 @@ $font-stack: 'Helvetica Neue', sans-serif;
   background-color: pink;
   color: black;
   padding: 20px;
-  margin: 50px; 
+  margin: 50px;
   text-align: center;
   height: 250px;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 200px 100%, 0 65%);
- 
 }
-  .profile-cards + .profile-cards {
-      margin-left: 10px;
-  }
+.profile-cards + .profile-cards {
+  margin-left: 10px;
+}
 
-  .profile-button {
-    background-color: #000000;
-    border: none; 
-    color: white;
-    padding: 15px 32px; 
-    text-align: center; 
-    text-Decoration: none; 
-    display: inline-block; 
-    font-size: 16px; 
-    border-radius: 5px;
-  }
+.profile-button {
+  background-color: #000000;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+}
 
-  #img-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-   }
-   
-   #img-wrapper > div {
-    flex: 0 1 33%;
-   }
+#img-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
 
-    .line {
-    height: 4px;
-    margin-left: 80px;
-    background-color: black;
-    width: 100px; 
-    margin-top: 10px;
-    }
+#img-wrapper > div {
+  flex: 0 1 33%;
+}
+
+.line {
+  height: 4px;
+  margin-left: 80px;
+  background-color: black;
+  width: 100px;
+  margin-top: 10px;
+}
+.certificate-main {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  background-color: f8f8f8;
+  color: #636363;
+  margin-left: 20px;
+}
