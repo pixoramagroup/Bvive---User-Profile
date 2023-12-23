@@ -1,16 +1,16 @@
-.image-grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 16px;
-  }
-  
-  .image-grid-item {
-    overflow: hidden;
-  }
-  
-  .image-grid-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
+  .image-grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 16px;
+    }
+    
+    .image-grid-item {
+      overflow: hidden;
+    }
+    
+    .image-grid-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
