@@ -28,7 +28,7 @@ const TextCarousel = ({ items, itemsPerView }) => {
             <div key={index} className="carousel-item">
               <div className="carousel-heading">{item?.heading}</div>
               <div className="carousel-subHeading">{item?.subHeading}</div>
-              <div class="line"></div>
+              {/* <div class="line"></div> */}
 
               <div className="carousel-institute">{item?.institute}</div>
             </div>
