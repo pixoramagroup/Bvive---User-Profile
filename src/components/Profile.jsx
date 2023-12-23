@@ -7,6 +7,9 @@ import CircularImagePicker from "./CircularImagePicker";
 import StarRatingComponent from "react-star-rating-component";
 import MapComponent from "./MapComponent";
 import ImageGrid from "./ImageGrid";
+import TextCarousel from "./TextCarousel";
+import TestimonialCarousel from "./Testimonials";
+import Testimonials from "./Testimonials";
 
   const Profile = () => {
     // const images = [
@@ -218,7 +221,7 @@ import ImageGrid from "./ImageGrid";
           >
             My Specialization
           </h2>
-          <div class="line" style={{ backgroundColor: 'white' }}></div>
+          <div class="under-line" style={{ backgroundColor: 'white' }}></div>
           <div className="profile-cards-container">
             <div
               className="profile-cards"
@@ -290,7 +293,7 @@ import ImageGrid from "./ImageGrid";
           >
             About me
           </h2>
-          <div class="line"></div>
+          <div class="under-line"></div>
           <div
             style={{
               transform: "translate(-50%, -50%)",
@@ -375,7 +378,7 @@ import ImageGrid from "./ImageGrid";
           >
             Contact me
           </h2>
-          <div class="line"></div>
+          <div class="under-line"></div>
         </div>
         <div
           className="profile-aboutme-right-box"
@@ -404,21 +407,13 @@ import ImageGrid from "./ImageGrid";
             >
               Testimonials
             </h2>
-            <div class="line"></div>
+            <div class="under-line"></div>
           </div>
           <div
             className="profile-aboutme-right-box"
             style={{ background: 'white' }}
           >
-            <p>
-              "I can't thank my personal trainer enough for the incredible journey
-              we've embarked on together. From day one, their dedication and
-              expertise have been nothing short of remarkable. Working with my
-              trainer has not only transformed my physique but has also boosted my
-              confidence and overall well-being. Their personalized workout plans
-              and nutritional guidance have been instrumental in helping me
-              achieve my fitness goals."
-            </p>
+            <Testimonials></Testimonials>
           </div>
         </div>
       </div>
