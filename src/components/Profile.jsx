@@ -1,13 +1,15 @@
-  // Profile.js
-  // import React from 'react';
-  import { useState } from 'react';
-  //import classes from './Profile.module.scss'; // Assume CSS modules are set up
-  import './Profile.scss';
-  import CircularImagePicker from './CircularImagePicker';
-  import StarRatingComponent from 'react-star-rating-component';
-  import MapComponent from './MapComponent';
-  import ImageGrid from './ImageGrid';
-  import TextCarousel from './TextCarousel';
+// Profile.js
+// import React from 'react';
+import { useState } from "react";
+//import classes from './Profile.module.scss'; // Assume CSS modules are set up
+import "./Profile.scss";
+import CircularImagePicker from "./CircularImagePicker";
+import StarRatingComponent from "react-star-rating-component";
+import MapComponent from "./MapComponent";
+import ImageGrid from "./ImageGrid";
+import TextCarousel from "./TextCarousel";
+import TestimonialCarousel from "./Testimonials";
+import Testimonials from "./Testimonials";
 
   const Profile = () => {
     // const images = [
@@ -219,7 +221,7 @@
           >
             My Specialization
           </h2>
-          <div class="line" style={{ backgroundColor: 'white' }}></div>
+          <div class="under-line" style={{ backgroundColor: 'white' }}></div>
           <div className="profile-cards-container">
             <div
               className="profile-cards"
@@ -240,107 +242,107 @@
               <h2>Nutrition</h2>
             </div>
 
-            <div
-              className="profile-cards"
-              style={{
-                backgroundImage: 'url("src/assets/sup.jpg")',
-                backgroundSize: 'cover',
-              }}
-            >
-              <h2>SUP</h2>
-            </div>
-            <div
-              className="profile-cards"
-              style={{
-                backgroundImage: 'url("src/assets/stretching.jpg")',
-                backgroundSize: 'cover',
-              }}
-            >
-              <h2>Stretching</h2>
-            </div>
-          </div>
-          <div style={{ textAlign: 'center', marginBottom: '10px' }}>
-            <button className="profile-button">Book Now</button>
-          </div>
-        </div>
-        {/* <div
-                className="profile-aboutme-main"
-                style={{ background: 'yellow   ', height: '20vh' }}
-              >
-                <h2>My Certification</h2>
-              </div> */}
-        <div className="profile-aboutme-main" style={{ height: '70vh' }}>
           <div
-            className="profile-aboutme-left-box"
-            draggable
-            onDragStart={(e) => handleOnDrag(e, 'about me', 'turquoise')}
+            className="profile-cards"
             style={{
-              clipPath: 'polygon(0 0, 100% 0, 100% 100%, 220px 100%, 0 65%)',
-              height: '400px',
+              backgroundImage: 'url("src/assets/sup.jpg")',
+              backgroundSize: "cover",
             }}
           >
-            <h2
-              style={{
-                fontSize: '34px',
-                marginBottom: '10px',
-                color: 'black',
-                marginLeft: '80px',
-                fontWeight: '500',
-                marginTop: '40px',
-              }}
-            >
-              About me
-            </h2>
-            <div class="line"></div>
-            <div
-              style={{
-                transform: 'translate(-50%, -50%)',
-                textAlign: 'center',
-              }}
-            >
-              {/* <p>Content</p> */}
-            </div>
+            <h2>SUP</h2>
           </div>
           <div
-            className="profile-aboutme-right-box"
-            onDrop={handleOnDrop}
-            onDragOver={handleDragOver}
-            style={{ background: 'white' }}
+            className="profile-cards"
+            style={{
+              backgroundImage: 'url("src/assets/stretching.jpg")',
+              backgroundSize: "cover",
+            }}
           >
-            {boxes.map((box, index) => (
-              <div
-                className="dropped-box"
-                key={index}
-                style={{ background: box?.color }}
-              >
-                {box?.boxType}
-              </div>
-            ))}
-            <ImageGrid></ImageGrid>
-            {/* <div id="img-wrapper">
-                    <img
-                      src="src/assets/yoga.jpg"
-                      alt="Image 1"
-                      style={{ width: "500px", height: "500px" }}
-                    />
-                    <img
-                      src="src/assets/sup.jpg"
-                      alt="Image 2"
-                      style={{ width: "500px", height: "500px" }}
-                    />
-                    <img
-                      src="src/assets/sup.jpg"
-                      alt="Image 2"
-                      style={{ width: "500px", height: "500px" }}
-                    />
-                    <img
-                      src="src/assets/sup.jpg"
-                      alt="Image 2"
-                      style={{ width: "500px", height: "500px" }}
-                    />
-                  </div> */}
+            <h2>Stretching</h2>
           </div>
         </div>
+        <div style={{ textAlign: "center", marginBottom: "10px" }}>
+          <button className="profile-button">Book Now</button>
+        </div>
+      </div>
+      {/* <div
+        className="profile-aboutme-main"
+        style={{ background: 'yellow   ', height: '20vh' }}
+      >
+        <h2>My Certification</h2>
+      </div> */}
+      <div className="profile-aboutme-main" style={{height:"70vh"}}>
+        <div
+          className="profile-aboutme-left-box"
+          draggable
+          onDragStart={(e) => handleOnDrag(e, "about me", "turquoise")}
+          style={{
+            clipPath: "polygon(0 0, 100% 0, 100% 100%, 220px 100%, 0 65%)",
+            height:"400px",
+          }}
+        >
+          <h2
+            style={{
+              fontSize: "34px",
+              marginBottom: "10px",
+              color: "black",
+              marginLeft: "80px",
+              fontWeight: "500",
+              marginTop: "40px",
+            }}
+          >
+            About me
+          </h2>
+          <div class="under-line"></div>
+          <div
+            style={{
+              transform: "translate(-50%, -50%)",
+              textAlign: "center",
+            }}
+          >
+            {/* <p>Content</p> */}
+          </div>
+        </div>
+        <div
+          className="profile-aboutme-right-box"
+          onDrop={handleOnDrop}
+          onDragOver={handleDragOver}
+          style={{ background: "white" }}
+        >
+          {boxes.map((box, index) => (
+            <div
+              className="dropped-box"
+              key={index}
+              style={{ background: box?.color }}
+            >
+              {box?.boxType}
+            </div>
+          ))}
+          <ImageGrid></ImageGrid>
+          {/* <div id="img-wrapper">
+            <img
+              src="src/assets/yoga.jpg"
+              alt="Image 1"
+              style={{ width: "500px", height: "500px" }}
+            />
+            <img
+              src="src/assets/sup.jpg"
+              alt="Image 2"
+              style={{ width: "500px", height: "500px" }}
+            />
+            <img
+              src="src/assets/sup.jpg"
+              alt="Image 2"
+              style={{ width: "500px", height: "500px" }}
+            />
+            <img
+              src="src/assets/sup.jpg"
+              alt="Image 2"
+              style={{ width: "500px", height: "500px" }}
+            />
+          </div> */}
+        </div>
+      </div>
 
         {/* <div className="profile-aboutme-main">
                 <div
@@ -357,34 +359,34 @@
                 ></div>
               </div> */}
 
-        <div className="profile-aboutme-main">
-          <div
-            className="profile-aboutme-left-box"
-            style={{ background: 'white', width: '60%' }}
-            draggable
-            onDragStart={(e) => handleOnDrag(e, 'contact me', 'green')}
+      <div className="profile-aboutme-main">
+        <div
+          className="profile-aboutme-left-box"
+          style={{ background: "white", width: "60%" }}
+          draggable
+          onDragStart={(e) => handleOnDrag(e, "contact me", "green")}
+        >
+          <h2
+            style={{
+              fontSize: "34px",
+              marginBottom: "10px",
+              color: "black",
+              marginLeft: "80px",
+              fontWeight: "500",
+              marginTop: "40px",
+            }}
           >
-            <h2
-              style={{
-                fontSize: '34px',
-                marginBottom: '10px',
-                color: 'black',
-                marginLeft: '80px',
-                fontWeight: '500',
-                marginTop: '40px',
-              }}
-            >
-              Contact me
-            </h2>
-            <div class="line"></div>
-          </div>
-          <div
-            className="profile-aboutme-right-box"
-            style={{ background: '#ffffff', width: '40%' }}
-          >
-            <MapComponent></MapComponent>
-          </div>
+            Contact me
+          </h2>
+          <div class="under-line"></div>
         </div>
+        <div
+          className="profile-aboutme-right-box"
+          style={{ background: "#ffffff", width: "40%" }}
+        >
+          <MapComponent ></MapComponent>
+        </div>
+      </div>
 
         <div className="profile-aboutme-main">
           <div
@@ -405,21 +407,13 @@
             >
               Testimonials
             </h2>
-            <div class="line"></div>
+            <div class="under-line"></div>
           </div>
           <div
             className="profile-aboutme-right-box"
             style={{ background: 'white' }}
           >
-            <p>
-              "I can't thank my personal trainer enough for the incredible journey
-              we've embarked on together. From day one, their dedication and
-              expertise have been nothing short of remarkable. Working with my
-              trainer has not only transformed my physique but has also boosted my
-              confidence and overall well-being. Their personalized workout plans
-              and nutritional guidance have been instrumental in helping me
-              achieve my fitness goals."
-            </p>
+            <Testimonials></Testimonials>
           </div>
         </div>
       </div>
