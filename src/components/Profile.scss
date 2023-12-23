@@ -93,11 +93,12 @@ $font-stack: 'Helvetica Neue', sans-serif;
   align-items: center;
   flex-direction: column;
   // height: 100vh;
-  background-color: red;
+  background-color: #f8f8f8;
   width: 100%;
   // overflow-x: hidden;
   // overflow-y: scroll;
   // display: none;
+  font-family: sans-serif;
 }
 
 .profile-header {
@@ -107,7 +108,7 @@ $font-stack: 'Helvetica Neue', sans-serif;
   background: yellow;
   width: 100%;
   border: solid black;
-  // display: none;
+  display: none;
 }
 
 .profile-second-main {
@@ -115,7 +116,7 @@ $font-stack: 'Helvetica Neue', sans-serif;
   justify-content: flex-start;
   align-items: flex-end;
   background: green;
-  height: 50vh;
+  height: 60vh;
   width: 100%;
   border: solid black;
   // padding: 0px 20px;
@@ -127,12 +128,13 @@ $font-stack: 'Helvetica Neue', sans-serif;
   align-items: center;
   flex-direction: row;
   margin-left: 30px;
-  background: orange;
+  //background: orange;
   height: 35vh;
-  width: 40%;
-  border: solid black;
+  width: 30%;
+  // border: solid black;
   //cursor: grab;
   padding: 20px;
+  background: rgba(0, 0, 0, 0.3); // Black with 50% opacity
 }
 
 .profile-social-main {
@@ -206,8 +208,8 @@ $font-stack: 'Helvetica Neue', sans-serif;
   // margin: 3px;
   width: 100%;
   height: 100%;
-  background: grey;
-  border: solid black;
+  // background: grey;
+  // border: solid black;
   flex-direction: column;
 }
 
@@ -219,8 +221,8 @@ $font-stack: 'Helvetica Neue', sans-serif;
   // height: 100%;
   width: 100%;
   // height: 2vh;
-  background: purple;
-  border: solid black;
+  // background: purple;
+  // border: solid black;
 }
 
 .profile-card-top-right {
@@ -231,9 +233,11 @@ $font-stack: 'Helvetica Neue', sans-serif;
   // height: 100%;
   width: 100%;
   // height: 2vh;
-  background: yellow;
-  border: solid black;
+  // background: yellow;
+  // border: solid black;
+  margin-left: 15px;
   flex-direction: column;
+  color: white;
 }
 
 .profile-card-top-left {
@@ -244,8 +248,8 @@ $font-stack: 'Helvetica Neue', sans-serif;
   // height: 100%;
   width: 20%;
   // height: 2vh;
-  background: red;
-  border: solid black;
+  // background: red;
+  // border: solid black;
 }
 .profile-card-bottom {
   display: flex;
@@ -255,9 +259,10 @@ $font-stack: 'Helvetica Neue', sans-serif;
   width: 100%;
   height: 100%;
   // height: 2vh;
-  background: green;
-  border: solid black;
+  // background: green;
+  // border: solid black;
   flex-direction: column;
+  color: white;
 }
 
 .profile-card-bottom-button {
@@ -287,4 +292,15 @@ $font-stack: 'Helvetica Neue', sans-serif;
   // background-color: #fdee00; /* Background color on hover (change as needed) */
   border: 2px solid #fdee00; /* Add a border (change color as needed) */
   color: #fdee00; /* Text color on hover */
+}
+
+.certificate-main {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  background-color: f8f8f8;
+  color: #636363;
+  margin-left: 20px;
 }

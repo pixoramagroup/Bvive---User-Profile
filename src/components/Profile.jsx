@@ -5,7 +5,7 @@ import { useState } from 'react';
 import './Profile.scss';
 import CircularImagePicker from './CircularImagePicker';
 import StarRatingComponent from 'react-star-rating-component';
-
+import TextCarousel from './TextCarousel';
 const Profile = () => {
   // const images = [
   //   '',
@@ -37,6 +37,45 @@ const Profile = () => {
   const onStarClick = (nextValue) => {
     setRating(nextValue);
   };
+  const textItems = [
+    {
+      heading: 'Personal Training',
+      subHeading: 'Sub Heading',
+      institute: 'QLD Institute of Tale',
+    },
+    {
+      heading: 'Support Science and Nutrition',
+      subHeading: 'Bachelors Degree 2012',
+      institute: 'Queensland University of Technology',
+    },
+    {
+      heading: 'Group Excercise Freestyle',
+      subHeading: 'Certificate III in Fitness 2014',
+      institute: 'Fitness Institute Australia',
+    },
+    {
+      heading: 'Personal Training 2',
+      subHeading: 'Sub Heading 2',
+      institute: 'QLD Institute of Tale 2',
+    },
+
+    {
+      heading: 'Group Excercise Freestyle 2',
+      subHeading: 'Certificate III in Fitness 2014',
+      institute: 'Fitness Institute Australia 2',
+    },
+    {
+      heading: 'Personal Training 2',
+      subHeading: 'Sub Heading 2',
+      institute: 'QLD Institute of Tale 2',
+    },
+
+    {
+      heading: 'Group Excercise Freestyle 2',
+      subHeading: 'Certificate III in Fitness 2014',
+      institute: 'Fitness Institute Australia 2',
+    },
+  ];
 
   return (
     // <div className={classes.profile}>
@@ -87,7 +126,7 @@ const Profile = () => {
       <div className="profile-second-main">
         <div
           className="profile-second-box"
-          style={{ background: 'orange' }}
+          // style={{ background: 'orange' }}
           // draggable
           // onDragStart={(e) => handleOnDrag(e, 'profile box', 'orange')}
         >
@@ -127,6 +166,10 @@ const Profile = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="certificate-main">
+        <h1>My Certifications</h1>
+        <TextCarousel items={textItems} itemsPerView={7} />
       </div>
       <div className="profile-social-main">
         <div
