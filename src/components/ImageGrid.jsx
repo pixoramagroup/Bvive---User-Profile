@@ -1,45 +1,60 @@
-    import React, { useState } from 'react';
-    import './ImageGrid.scss';
+import React, { useState } from 'react';
+import { Delete, CloudUpload } from '@mui/icons-material';
+import { IconButton } from '@mui/material';
 
-    const ImageGrid = () => {
-      const [imageUrls, setImageUrls] = useState([
-        // existing image URLs
-        'src/assets/sup.jpg',
-        'src/assets/yoga.jpg',
-        'src/assets/nutrition.jpg',
-        'src/assets/stretching.jpg',
-      ]);
+const ImageGrid = () => {
+  const presetImages = [
+    'src/assets/yoga.jpg',
+    'src/assets/nutrition.jpg',
+    'src/assets/sup.jpg',
+    'src/assets/boxing.jpg',
+    'src/assets/stretching.jpg',
+    'src/assets/sup.jpg',
+    'src/assets/nutrition.jpg',
+    'src/assets/yoga.jpg',
+    'src/assets/boxing.jpg',
+    'src/assets/nutrition.jpg',
+  ];
 
+  const [images, setImages] = useState(presetImages);
 
-      const handleFileChange = (event) => {
-        const file = event.target.files[0];
-        if (file) {
-          const imageUrl = URL.createObjectURL(file);
-          setImageUrls([...imageUrls, imageUrl]);
-        }
+  const handleImageChange = (e, index) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const updatedImages = [...images];
+        updatedImages[index] = reader.result;
+        setImages(updatedImages);
       };
+      reader.readAsDataURL(file);
+    }
+  };
 
-      return (
-        <div className="image-grid-container">
-          {imageUrls.map((imageUrl, index) => (
-            <div key={index} className="image-grid-item">
-              <img src={imageUrl} alt={`Image ${index + 1}`} />
-            </div>
-          ))}
-          <div className="image-grid-item add-image">
-            <label htmlFor="fileInput" className="add-image-label">
-              Add Image
-            </label>
-            <input
-              type="file"
-              id="fileInput"
-              accept="image/*"
-              onChange={handleFileChange}
-              style={{ display: 'none' }}
-            />
+  const deleteImage = (index) => {
+    const updatedImages = [...images];
+    updatedImages[index] = presetImages[index]; // Reset to the preset image
+    setImages(updatedImages);
+  };
+
+  return (
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 200px)', gap: '20px', width: '100%', margin: 'auto' }}>
+      {images.map((src, index) => (
+        <div key={index} style={{ position: 'relative', width: '100%', paddingBottom: '100%', overflow: 'hidden', border: '1px solid #ddd' }}>
+          <img src={src || '/placeholder.png'} alt={`Image ${index + 1}`} style={{ position: 'absolute', width: '100%', height: '100%', objectFit: 'cover' }} />
+          <div style={{ position: 'absolute', bottom: 0, right: 0, display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+            <input type="file" name={`file-${index}`} accept="image/*" style={{ display: 'none' }} onChange={(e) => handleImageChange(e, index)} />
+            <IconButton component="span" onClick={() => document.getElementsByName(`file-${index}`)[0].click()}>
+              <CloudUpload />
+            </IconButton>
+            <IconButton onClick={() => deleteImage(index)} style={{ cursor: 'pointer', marginTop: '5px' }}>
+              <Delete />
+            </IconButton>
           </div>
         </div>
-      );
-    };
+      ))}
+    </div>
+  );
+};
 
-    export default ImageGrid;
+export default ImageGrid;

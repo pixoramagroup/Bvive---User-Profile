@@ -1,0 +1,56 @@
+.footer {
+    background-color: rgb(59 59 59); /* Background color of the footer */
+color: white; /* Text color for the footer */
+padding: 40px 0; /* Padding at the top and bottom of the footer */
+width: 100%;
+}
+
+/* Footer Content Container */
+.footer-content {
+max-width: 1200px; /* Set a maximum width for the footer content */
+margin: 0 auto; /* Center the content horizontally */
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+}
+
+/* Footer Logo */
+.footer-logo img {
+max-width: 150px; /* Set a maximum width for the logo */
+}
+
+/* Footer Links */
+.footer-links ul {
+list-style-type: none;
+padding: 0;
+}
+
+.footer-links ul li {
+margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+text-decoration: none;
+color: white; /* Text color for the links */
+transition: color 0.3s ease;
+text-align:center;
+}
+
+.footer-links ul li a:hover {
+color: #ff6600; /* Hover color for the links */
+}
+
+/* Footer Social Icons */
+.footer-social a {
+text-decoration: none;
+color: white; /* Icon color */
+margin-right: 20px;
+font-size: 24px;
+}
+
+/* Footer Bottom (Copyright) */
+.footer-bottom {
+text-align: center;
+margin-top: 20px; /* Add some space between content and copyright */
+font-size: 14px;
+}
