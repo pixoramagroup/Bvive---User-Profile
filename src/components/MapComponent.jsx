@@ -24,7 +24,7 @@ const MapComponent = () => {
   };
 
   return (
-    <div >
+    <div style={{width:"80vh"}}>
       <MapContainer
         center={selectedLocation.coordinates}
         zoom={13}
