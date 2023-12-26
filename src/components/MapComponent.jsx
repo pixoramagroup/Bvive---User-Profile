@@ -24,11 +24,11 @@ const MapComponent = () => {
   };
 
   return (
-    <div>
+    <div >
       <MapContainer
         center={selectedLocation.coordinates}
         zoom={13}
-        style={{ height: '400px', width: '70vh' }}
+        style={{ height: '400px', width: '100%'}}
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
