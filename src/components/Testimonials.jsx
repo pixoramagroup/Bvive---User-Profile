@@ -5,27 +5,27 @@ import './Testimonials.scss';
 const Testimonials = () => {
   const testimonialItems = [
     {
-      heading: 'Testimonial 1',
+      heading: 'MARY',
       subHeading: 'I Really like the exercises and whole community support',
-      institute: 'Institute 1',
+      institute: 'NDIS',
     },
     {
-      heading: 'Testimonial 2',
+      heading: 'JAMES',
       subHeading: 'I Really like the exercises and whole community support',
-      institute: 'Institute 2',
+      institute: 'NDIS',
     },
     {
-        heading: 'Testimonial 3',
+        heading: 'JOHN',
+        subHeading: 'I Really like the exercises and whole community support',
+        institute: 'NDIS',
+      },
+      {
+        heading: 'JANE',
         subHeading: 'I Really like the exercises and whole community support',
         institute: 'Institute 2',
       },
       {
-        heading: 'Testimonial 4',
-        subHeading: 'I Really like the exercises and whole community support',
-        institute: 'Institute 2',
-      },
-      {
-        heading: 'Testimonial 5',
+        heading: 'SMITH',
         subHeading: 'I Really like the exercises and whole community support',
         institute: 'Institute 2',
       },

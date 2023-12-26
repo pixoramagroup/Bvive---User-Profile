@@ -143,8 +143,8 @@
     align-items: center;
     width: 100%;
     height: 10vh;
-    background: purple;
-    border: solid black;
+    background: #ffffff ;
+    // border: solid black;
   }
 
   .profile-social-box-1 {
@@ -153,19 +153,19 @@
     align-items: center;
     width: 10%;
     height: 10vh;
-    background: blue;
-    border: solid black;
+    // background: blue;
+    // border: solid black;
     //cursor: grab;
   }
 
   .profile-aboutme-main-1 {
     display: flex;
-    justify-content: center;
+    // justify-content: center;
     flex-direction: column;
-    overflow: hidden;
+    // overflow: hidden;
     // align-items: center;
     width: 100%;
-    height: 50vh;
+    // height: 50vh;
     color: #ffffff;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 
@@ -192,9 +192,9 @@
     // justify-content: center;
     // align-items: center;
     width: 25%;
-    height: 400px;
+    height: 500px;
     background: #fce13c;
-    margin-right: 50px;
+    // margin-right: 50px;
     // border: solid black;
     // clip-path: polygon(0 0, 100% 0, 100% 100%, 324px 100%, 0 65%);
     //cursor: grab;
@@ -324,8 +324,8 @@
     width: 300px;
     background-color: pink;
     color: black;
-    padding: 20px;
-    margin: 50px;
+    // padding: 20px;
+    margin: 30px;
     text-align: center;
     height: 250px;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 200px 100%, 0 65%);
@@ -358,7 +358,7 @@
   .under-line {
     height: 4px;
     margin-left: 80px;
-    background-color: black;
+    background-color: white;
     width: 100px;
     margin-top: 10px;
 
@@ -390,8 +390,10 @@
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
-    background-color: f8f8f8;
-    color: #636363;
+    background-color: #f8f8f8;
+    color: black;
     margin-left: 20px;
   }
 
+ 
+  
