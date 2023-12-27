@@ -20,7 +20,8 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import Footer from "./Footer";
 import AboutMe from "./AboutMe";
 import MySpecialisations from "./MySpecialisations";
-
+import Fit1 from "../assets/fit1.jpeg";
+import BviveLogo from "../assets/white_logo.png";
 const Profile = () => {
   // const images = [
   //   '',
@@ -136,15 +137,18 @@ const Profile = () => {
       <div className="profile-header">
         <div>
           <img
-            src="src/assets/white_logo.png"
+            src={BviveLogo}
             alt="Header Logo"
-            style={{ maxWidth: "150px", marginTop: "25px", marginLeft: "30px" }}
+            style={{ maxWidth: "150px", marginTop: "25px", marginLeft: "30px", marginBottom:"10px" }}
           ></img>
         </div>
 
         <button className="login-button">LOG IN</button>
       </div>
-      <div className="profile-second-main">
+      <div className="profile-second-main" src="Fit1" style={{
+        //  /backgroundImage: url("../assets/fit1.jpeg")
+
+      }}>
         <div
           className="profile-second-box"
           // style={{ background: 'orange' }}
@@ -202,7 +206,7 @@ const Profile = () => {
         </h1>
         <div class="under-line" style={{ backgroundColor: "black" }}></div>
 
-        <TextCarousel items={textItems} itemsPerView={4} />
+        <TextCarousel items={textItems} itemsPerView={5} />
       </div>
       <div className="profile-social-main">
         <div

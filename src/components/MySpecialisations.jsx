@@ -1,11 +1,14 @@
 import React from "react";
-
+import Yoga1 from "../assets/yoga_1.jpg";
+import Nutrition1 from "../assets/nutrition_1.jpg";
+import Sup from "../assets/sup.jpg";
+import NCoach from "../assets/stretching_1.jpg";
 const MySpecialisations = () => {
   const specializations = [
-    { name: "Body Building", imageUrl: 'url("src/assets/yoga_1.jpg")', id: "BodyBuilding" },
-    { name: "Power Lifting", imageUrl: 'url("src/assets/nutrition_1.jpg")', id: "PowerLifting" },
-    { name: "Prehab & Rehab", imageUrl: 'url("src/assets/sup.jpg")', id: "PrehabRehab" },
-    { name: "Nutritional Coaching", imageUrl: 'url("src/assets/stretching_1.jpg")', id: "NutritionalCoaching" },
+    { name: "Body Building", imageUrl: `url(${Yoga1})`, id: "BodyBuilding" },
+    { name: "Power Lifting", imageUrl: `url(${Nutrition1})`, id: "PowerLifting" },
+    { name: "Prehab & Rehab", imageUrl: `url(${Sup})`, id: "PrehabRehab" },
+    { name: "Nutritional Coaching", imageUrl: `url(${NCoach})`, id: "NutritionalCoaching" },
   ];
 
   return (
