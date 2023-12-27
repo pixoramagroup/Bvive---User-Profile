@@ -1,58 +1,123 @@
-import React, { useState } from 'react';
-import { Delete, CloudUpload } from '@mui/icons-material';
-import { IconButton } from '@mui/material';
+import React, { useState } from "react";
+import { Delete, CloudUpload } from "@mui/icons-material";
+import { IconButton } from "@mui/material";
+import { Modal } from "react-responsive-modal";
+import "react-responsive-modal/styles.css";
 
 const ImageGrid = () => {
-  const presetImages = [
-    'src/assets/yoga.jpg',
-    'src/assets/nutrition.jpg',
-    'src/assets/sup.jpg',
-    'src/assets/boxing.jpg',
-    'src/assets/stretching.jpg',
-    'src/assets/sup.jpg',
-    'src/assets/nutrition.jpg',
-    'src/assets/yoga.jpg',
-    'src/assets/boxing.jpg',
-    'src/assets/nutrition.jpg',
+  const hardcodedImages = [
+    "src/assets/stretching_1.jpg",
+    "src/assets/nutrition_1.jpg",
+    "src/assets/sup.jpg",
+    "src/assets/boxing.jpg",
   ];
 
-  const [images, setImages] = useState(presetImages);
+  const [media, setMedia] = useState(hardcodedImages);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalSrc, setModalSrc] = useState("");
 
-  const handleImageChange = (e, index) => {
+  const handleMediaChange = (e, index) => {
     const file = e.target.files[0];
-    if (file) {
+    if (file && file.type.includes("image")) {
       const reader = new FileReader();
       reader.onload = () => {
-        const updatedImages = [...images];
-        updatedImages[index] = reader.result;
-        setImages(updatedImages);
+        const updatedMedia = [...media];
+        updatedMedia[index] = { src: reader.result, type: file.type };
+        setMedia(updatedMedia);
       };
       reader.readAsDataURL(file);
     }
   };
 
-  const deleteImage = (index) => {
-    const updatedImages = [...images];
-    updatedImages[index] = presetImages[index]; // Reset to the preset image
-    setImages(updatedImages);
+  const deleteMedia = (index) => {
+    const updatedMedia = [...media];
+    updatedMedia[index] = hardcodedImages[index];
+    setMedia(updatedMedia);
+  };
+
+  const openModal = (src) => {
+    setModalSrc(src);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
   };
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 200px)', gap: '20px', width: '100%', margin: 'auto' }}>
-      {images.map((src, index) => (
-        <div key={index} style={{ position: 'relative', width: '100%', paddingBottom: '100%', overflow: 'hidden', border: '1px solid #ddd' }}>
-          <img src={src || '/placeholder.png'} alt={`Image ${index + 1}`} style={{ position: 'absolute', width: '100%', height: '100%', objectFit: 'cover' }} />
-          <div style={{ position: 'absolute', bottom: 0, right: 0, display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
-            <input type="file" name={`file-${index}`} accept="image/*" style={{ display: 'none' }} onChange={(e) => handleImageChange(e, index)} />
-            <IconButton component="span" onClick={() => document.getElementsByName(`file-${index}`)[0].click()}>
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fill, minmax(400px, 1fr))",
+        // gap: "10px",
+        width: "100%",
+        // margin: "0", // Remove fixed margin
+      }}
+    >
+      {media.map((src, index) => (
+        <div
+          key={index}
+          style={{
+            position: "relative",
+            width: "100%",
+            height: "200px",
+            overflow: "hidden",
+            // border: "2px solid yellow",
+          }}
+        >
+          <img
+            src={src}
+            alt={`Media ${index + 1}`}
+            style={{
+              position: "absolute",
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
+            onClick={() => openModal(src)}
+          />
+          <div
+            style={{
+              position: "absolute",
+              bottom: 0,
+              right: 0,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-end",
+            }}
+          >
+            <input
+              type="file"
+              name={`file-${index}`}
+              accept="image/*"
+              style={{ display: "none" }}
+              onChange={(e) => handleMediaChange(e, index)}
+            />
+            <IconButton
+              component="span"
+              onClick={() =>
+                document.getElementsByName(`file-${index}`)[0].click()
+              }
+            >
               <CloudUpload />
             </IconButton>
-            <IconButton onClick={() => deleteImage(index)} style={{ cursor: 'pointer', marginTop: '5px' }}>
+            <IconButton
+              onClick={() => deleteMedia(index)}
+              style={{ cursor: "pointer", marginTop: "5px" }}
+            >
               <Delete />
             </IconButton>
           </div>
         </div>
       ))}
+
+      <Modal open={modalOpen} onClose={closeModal} center>
+        <img
+          src={modalSrc}
+          alt="Modal"
+          style={{ maxWidth: "100%", maxHeight: "100%" }}
+        />
+      </Modal>
     </div>
   );
 };

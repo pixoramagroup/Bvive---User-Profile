@@ -16,8 +16,10 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import TwitterIcon from "@mui/icons-material/Twitter";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 import Footer from "./Footer";
 import AboutMe from "./AboutMe";
+import MySpecialisations from "./MySpecialisations";
 
 const Profile = () => {
   // const images = [
@@ -132,9 +134,15 @@ const Profile = () => {
 
     <div className="profile-main">
       <div className="profile-header">
-        <div>Header Logo</div>
+        <div>
+          <img
+            src="src/assets/white_logo.png"
+            alt="Header Logo"
+            style={{ maxWidth: "150px", marginTop: "25px", marginLeft: "30px" }}
+          ></img>
+        </div>
 
-        <div>Login Button</div>
+        <button className="login-button">LOG IN</button>
       </div>
       <div className="profile-second-main">
         <div
@@ -226,11 +234,9 @@ const Profile = () => {
           <TwitterIcon /> {/* Use Twitter Icon from MUI */}
         </div>
       </div>
-      <div
-        className="profile-aboutme-main-1"
-        style={{ background: "#3b3b3b" }}
-      >
-        <h2
+      <div className="profile-aboutme-main-1" style={{ background: "#3b3b3b" }}>
+        <MySpecialisations></MySpecialisations>
+        {/* <h2
           style={{
             fontSize: "34px",
             marginBottom: "10px",
@@ -280,12 +286,9 @@ const Profile = () => {
           >
             <h2>Stretching</h2>
           </div>
-        </div>
-        <div style={{ textAlign: "center", marginBottom: "10px" }}>
-          <button className="profile-button">Book Now</button>
-        </div>
+        </div> */}
       </div>
-      <div className="profile-aboutme-main">
+      <div className="profile-aboutme-main-2">
         <AboutMe></AboutMe>
         <div
           className="profile-aboutme-right-box"
@@ -324,7 +327,7 @@ const Profile = () => {
       <div className="profile-aboutme-main">
         <div
           className="profile-aboutme-left-box"
-          style={{ background: "white", width: "60%" }}
+          style={{ background: "white", width: "50%" }}
           draggable
           onDragStart={(e) => handleOnDrag(e, "contact me", "green")}
         >
@@ -344,12 +347,16 @@ const Profile = () => {
           <div style={{ display: "flex" }}>
             <div className="contact-icons">
               <div className="icon-container">
+                <LocationOnIcon color="black" />
+                <span className="text">Brisbane</span>
+              </div>
+              <div className="icon-container">
                 <LanguageIcon color="black" />
                 <span className="text">sales@pixoramagroup.com</span>
               </div>
               <div className="icon-container">
                 <PhoneAndroidIcon color="black" />
-                <span className="text">sales@pixoramagroup.com</span>
+                <span className="text">+1 (555) 123-4567</span>
               </div>
               <div className="icon-container">
                 <MailOutlineIcon color="black" />
@@ -363,13 +370,13 @@ const Profile = () => {
         </div>
         <div
           className="profile-aboutme-right-box"
-          style={{ background: "#ffffff", width: "40%" }}
+          style={{ background: "#ffffff", width: "50%" }}
         >
           <MapComponent></MapComponent>
         </div>
       </div>
 
-      <div className="profile-aboutme-main" >
+      <div className="profile-aboutme-main-2">
         <div
           className="profile-aboutme-left-box"
           style={{ background: "rgb(67 206 175)" }}

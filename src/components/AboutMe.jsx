@@ -16,7 +16,7 @@ const AboutMe = () => {
         style={{
           fontSize: "34px",
           marginBottom: "10px",
-          color: "white",
+          color: "black",
           marginLeft: "80px",
           fontWeight: "500",
           marginTop: "40px",
@@ -24,13 +24,13 @@ const AboutMe = () => {
       >
         About me
       </h2>
-      <div className="under-line"></div>
+      <div className="under-line" style={{ backgroundColor: "black" }}></div>
       <div
         style={{
           textAlign: "center",
-          padding: "0 20px", // Add padding to prevent content from touching the edges
+          padding: "0 20px", 
           marginTop:"10vh",
-          color:"white",
+          color:"black",
         }}
         contentEditable
         onInput={handleContentChange}
