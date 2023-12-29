@@ -6,10 +6,10 @@ import "react-responsive-modal/styles.css";
 
 const ImageGrid = () => {
   const hardcodedImages = [
-    "src/assets/stretching_1.jpg",
-    "src/assets/nutrition_1.jpg",
-    "src/assets/sup.jpg",
-    "src/assets/boxing.jpg",
+    "../assets/stretching_1.jpg",
+    "../assets/nutrition_1.jpg",
+    "../assets/sup.jpg",
+    "../assets/boxing.jpg",
   ];
 
   const [media, setMedia] = useState(hardcodedImages);
