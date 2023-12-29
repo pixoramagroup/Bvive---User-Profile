@@ -9,19 +9,24 @@ import MapComponent from "./MapComponent";
 import ImageGrid from "./ImageGrid";
 import TextCarousel from "./TextCarousel";
 import Testimonials from "./Testimonials";
-import Stretching from "../assets/stretching_1.jpg"
-import Nutrition from "../assets/nutrition_1.jpg"
+import Stretching from "../assets/stretching_1.jpg";
+import Nutrition from "../assets/nutrition_1.jpg";
 import Sup from "../assets/sup.jpg";
 import Boxing from "../assets/boxing.jpg";
-import Blog1 from "../assets/Blog1.png"
-import Blog2 from "../assets/Blog2.png"
-import Blog3 from "../assets/Blog3.png"
-import Blog4 from "../assets/Blog4.png"
-import Video1 from "../assets/video1.jpg"
-import Video2 from "../assets/video2.jpg"
-import Video3 from "../assets/video3.jpg"
-import Video4 from "../assets/video4.jpg"
-import Yoga from "../assets/yoga_1.jpg"
+import Blog1 from "../assets/Blog1.png";
+import Blog2 from "../assets/Blog2.png";
+import Blog3 from "../assets/Blog3.png";
+import Blog4 from "../assets/Blog4.png";
+import Body1 from "../assets/Body1.jpg";
+import Body2 from "../assets/Body2.jpg";
+import Body3 from "../assets/Body3.jpg";
+import Body4 from "../assets/Body4.jpg";
+
+import Video1 from "../assets/video1.mp4";
+import Video2 from "../assets/video2.mp4";
+import Video3 from "../assets/video3.mp4";
+import Video4 from "../assets/video4.mp4";
+import Yoga from "../assets/yoga_1.jpg";
 
 // import LanguageIcon from "@mui/icons-material/Language";
 // import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
@@ -108,19 +113,26 @@ const Profile = () => {
     },
   ];
 
-  const blogImages = [
-   Blog1, Blog2, Blog3, Blog4
+  const blogMediaItems = [
+    { type: "image", src: Blog1, caption: "Healthy Day" },
+    { type: "image", src: Blog2, caption: "Nutrition in every bite" },
+    { type: "image", src: Blog3, caption: "Food is Good" },
+    { type: "image", src: Blog4, caption: "Tasty Treats" },
   ];
 
-  const photoImages = [
-   Stretching,Nutrition,Sup,Sup
+  const photoMediaItems = [
+    { type: "image", src: Body1, caption: "Holistic Workout" },
+    { type: "image", src: Body2, caption: "Stretching" },
+    { type: "image", src: Body3, caption: "Crunch the core" },
+    { type: "image", src: Body4, caption: "Fitness is a lifestyle" },
   ];
 
-  const videoImages = [
-   Video1, Video2, Video3, Video4
+  const videoMediaItems = [
+    { key: 1, type: "video", src: Video3, caption: "Be fit" },
+    { key: 2, type: "video", src: Video1, caption: "Be Long Lived" },
+    { key: 3, type: "video", src: Video2, caption: "5 minutes goal" },
+    { key: 4, type: "video", src: Video4, caption: "Do this every day" },
   ];
-
-
   return (
     // <div className={classes.profile}>
     //   {/* Header Section */}
@@ -193,16 +205,10 @@ const Profile = () => {
           // draggable
           // onDragStart={(e) => handleOnDrag(e, 'profile box', 'orange')}
         >
-          
           <div className="profile-card-main">
-          <div class="ribbon-box-red">
-        
-        </div>
-        <div class="ribbon-box-blue">
-        
-        </div>
+            <div className="ribbon-box-red"></div>
+            <div className="ribbon-box-blue"></div>
             <div className="profile-card-top">
-              
               <div className="profile-card-top-left">
                 <CircularImagePicker
                   images={images}
@@ -210,7 +216,7 @@ const Profile = () => {
                 />
               </div>
               <div className="profile-card-top-right">
-              <div>Personal Trainer</div>
+                <div>Personal Trainer</div>
                 <h2>James Osborn</h2>
                 <div>Male, 27</div>
                 <div>Cowandilla, Adelaide </div>
@@ -224,47 +230,32 @@ const Profile = () => {
                 </div> */}
               </div>
             </div>
-            <div  
-            className="star-main"
-            // style={{ fontSize: "30px",width:'100%', justifyContent:'flex-start' }}
+            <div
+              className="star-main"
+              // style={{ fontSize: "30px",width:'100%', justifyContent:'flex-start' }}
             >
-                  <StarRatingComponent
-                    name="rate1"
-                    starCount={5}
-                    value={rating}
-                    onStarClick={onStarClick}
-                  />
-                  <div className="starText">{rating}/5</div>
-                </div>
-                <div className="follow-card">
-                <div className="sessions">
-                  <div className="sessions1">
-                    25
-                  </div>
-                  <div className="sessions1">
-                  Sessions                  
-                  </div>
-                   </div>
-                   <div className="sessions">
-                  <div className="sessions1">
-                    600
-                  </div>
-                  <div className="sessions1">
-                  Hive                  
-                  </div>
-                   </div>
-                   <div className="sessions">
-                  <div className="sessions1">
-                    500
-                  </div>
-                  <div className="sessions1">
-                  Bees                  
-                  </div>
-                   </div>
-                
-
-
-                </div>
+              <StarRatingComponent
+                name="rate1"
+                starCount={5}
+                value={rating}
+                onStarClick={onStarClick}
+              />
+              <div className="starText">{rating}/5</div>
+            </div>
+            <div className="follow-card">
+              <div className="sessions">
+                <div className="sessions1">25</div>
+                <div className="sessions1">Sessions</div>
+              </div>
+              <div className="sessions">
+                <div className="sessions1">600</div>
+                <div className="sessions1">Hive</div>
+              </div>
+              <div className="sessions">
+                <div className="sessions1">500</div>
+                <div className="sessions1">Bees</div>
+              </div>
+            </div>
             <div className="profile-card-bottom">
               <div className="profile-card-bottom-text">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -293,7 +284,7 @@ const Profile = () => {
         >
           My Certifications
         </h1>
-        <div class="under-line" style={{ backgroundColor: "black" }}></div>
+        <div className="under-line" style={{ backgroundColor: "black" }}></div>
 
         <TextCarousel items={textItems} itemsPerView={5} />
       </div>
@@ -340,7 +331,7 @@ const Profile = () => {
         >
           My Specialization
         </h2>
-        <div class="under-line" style={{ backgroundColor: "white" }}></div>
+        <div className="under-line" style={{ backgroundColor: "white" }}></div>
         <div className="profile-cards-container">
           <div
             className="profile-cards"
@@ -382,15 +373,11 @@ const Profile = () => {
         </div> */}
       </div>
       <div className="profile-aboutme-main-2" style={{ display: "flex" }}>
-      {/* First Part */}
-      <AboutMe title="Blogs" images={blogImages} />
-
-      {/* Second Part */}
-      <AboutMe title="Photos" images={photoImages} />
-
-      {/* Third Part */}
-      <AboutMe title="Videos" images={videoImages} />
-    </div>
+        {/* First Part */}
+        <AboutMe title="Blogs" mediaItems={blogMediaItems} />
+        <AboutMe title="Photos" mediaItems={photoMediaItems} />
+        <AboutMe title="Videos" mediaItems={videoMediaItems} />{" "}
+      </div>
 
       {/* <div className="profile-aboutme-main">
                 <div
@@ -426,7 +413,7 @@ const Profile = () => {
           >
             Contact me
           </h2>
-          <div class="under-line" style={{ backgroundColor: "black" }}></div>
+          <div className="under-line" style={{ backgroundColor: "black" }}></div>
           <div style={{ display: "flex" }}>
             <div className="contact-icons">
               <div className="icon-container">
@@ -517,11 +504,27 @@ const Profile = () => {
         </div>
         <div
           className="profile-aboutme-right-box"
-          style={{ background: "white", flexDirection:'row', justifyContent:'center' }}
+          style={{
+            background: "white",
+            flexDirection: "row",
+            justifyContent: "center",
+          }}
         >
-          <PictureTestimonials title={"Clara"} content={"Quick delivery and great prices"} image = {Yoga}></PictureTestimonials>
-          <PictureTestimonials title={"Rob"} content={"Genuine products, loved it"} image={Boxing}></PictureTestimonials>
-          <PictureTestimonials title={"Madie"} content={"Highly recommend it"} image = {Stretching}></PictureTestimonials>
+          <PictureTestimonials
+            title={"Clara"}
+            content={"Quick delivery and great prices"}
+            image={Yoga}
+          ></PictureTestimonials>
+          <PictureTestimonials
+            title={"Rob"}
+            content={"Genuine products, loved it"}
+            image={Boxing}
+          ></PictureTestimonials>
+          <PictureTestimonials
+            title={"Madie"}
+            content={"Highly recommend it"}
+            image={Stretching}
+          ></PictureTestimonials>
           {/* <Testimonials></Testimonials> */}
         </div>
       </div>
