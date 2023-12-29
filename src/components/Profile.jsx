@@ -22,6 +22,10 @@ import AboutMe from "./AboutMe";
 import MySpecialisations from "./MySpecialisations";
 import Fit1 from "../assets/fit1.jpeg";
 import BviveLogo from "../assets/white_logo.png";
+import PictureTestimonials from "./PictureTestimonials";
+import Yoga from "../assets/yoga.jpg";
+import Boxing from "../assets/boxing.jpg";
+import Stretching from "../assets/stretching.jpg";
 const Profile = () => {
   // const images = [
   //   '',
@@ -155,8 +159,16 @@ const Profile = () => {
           // draggable
           // onDragStart={(e) => handleOnDrag(e, 'profile box', 'orange')}
         >
+          
           <div className="profile-card-main">
+          <div class="ribbon-box-red">
+        
+        </div>
+        <div class="ribbon-box-blue">
+        
+        </div>
             <div className="profile-card-top">
+              
               <div className="profile-card-top-left">
                 <CircularImagePicker
                   images={images}
@@ -164,19 +176,61 @@ const Profile = () => {
                 />
               </div>
               <div className="profile-card-top-right">
+              <div>Personal Trainer</div>
                 <h2>James Osborn</h2>
                 <div>Male, 27</div>
-                <div style={{ fontSize: "30px" }}>
+                <div>Cowandilla, Adelaide </div>
+                {/* <div style={{ fontSize: "30px" }}>
                   <StarRatingComponent
                     name="rate1"
                     starCount={5}
                     value={rating}
                     onStarClick={onStarClick}
                   />
-                </div>
+                </div> */}
               </div>
             </div>
+            <div  
+            className="star-main"
+            // style={{ fontSize: "30px",width:'100%', justifyContent:'flex-start' }}
+            >
+                  <StarRatingComponent
+                    name="rate1"
+                    starCount={5}
+                    value={rating}
+                    onStarClick={onStarClick}
+                  />
+                  <div className="starText">{rating}/5</div>
+                </div>
+                <div className="follow-card">
+                <div className="sessions">
+                  <div className="sessions1">
+                    25
+                  </div>
+                  <div className="sessions1">
+                  Sessions                  
+                  </div>
+                   </div>
+                   <div className="sessions">
+                  <div className="sessions1">
+                    600
+                  </div>
+                  <div className="sessions1">
+                  Hive                  
+                  </div>
+                   </div>
+                   <div className="sessions">
+                  <div className="sessions1">
+                    500
+                  </div>
+                  <div className="sessions1">
+                  Bees                  
+                  </div>
+                   </div>
+                
 
+
+                </div>
             <div className="profile-card-bottom">
               <div className="profile-card-bottom-text">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -185,8 +239,9 @@ const Profile = () => {
                 rerum a ipsam repudiandae enim delectus sequi.
               </div>
               <div className="profile-card-bottom-button">
-                <button className="transparent-button">Send Mail</button>
+                <button className="transparent-button">Book Now</button>
                 <button className="transparent-button">View Schedule</button>
+                <button className="transparent-button">Contact Now</button>
               </div>
             </div>
           </div>
@@ -438,9 +493,12 @@ const Profile = () => {
         </div>
         <div
           className="profile-aboutme-right-box"
-          style={{ background: "white" }}
+          style={{ background: "white", flexDirection:'row', justifyContent:'center' }}
         >
-          <Testimonials></Testimonials>
+          <PictureTestimonials title={"Clara"} content={"Quick delivery and great prices"} image = {Yoga}></PictureTestimonials>
+          <PictureTestimonials title={"Rob"} content={"Genuine products, loved it"} image={Boxing}></PictureTestimonials>
+          <PictureTestimonials title={"Madie"} content={"Highly recommend it"} image = {Stretching}></PictureTestimonials>
+          {/* <Testimonials></Testimonials> */}
         </div>
       </div>
       <Footer></Footer>
