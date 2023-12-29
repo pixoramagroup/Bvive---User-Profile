@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import VerifiedIcon from '@mui/icons-material/Verified';
 import './TextCarousel.scss'; // Import the CSS file
 
 const TextCarousel = ({ items, itemsPerView }) => {
@@ -26,11 +27,15 @@ const TextCarousel = ({ items, itemsPerView }) => {
           .slice(currentIndex, currentIndex + itemsPerView)
           .map((item, index) => (
             <div key={index} className="carousel-item">
-              <div className="carousel-heading">{item?.heading}</div>
-              <div className="carousel-subHeading">{item?.subHeading}</div>
-              <div class="line"></div>
-
-              <div className="carousel-institute">{item?.institute}</div>
+              <div className="heading-container">
+                
+                <div className="carousel-heading">{item.heading}
+                <VerifiedIcon className="verified-icon" /></div>
+                
+              </div>
+              <div className="carousel-subHeading">{item.subHeading}</div>
+              <div className="line"></div>
+              <div className="carousel-institute">{item.institute}</div>
             </div>
           ))}
       </div>

@@ -20,6 +20,22 @@
   color: white !important;
   background-color: darkgray !important;
 }
+// .carousel-content {
+//   display: flex;
+//   overflow: hidden;
+//   margin: 0; /* Remove any margin */
+// }
+
+// .carousel-item {
+//   min-width: 100px; /* Adjust as needed */
+//   padding: 10px;
+//   border: 1px solid #dee2e6;
+//   text-align: center;
+//   display: flex;
+//   justify-content: flex-start;
+//   flex-direction: column;
+//   align-items: flex-start;
+// }
 
 .carousel-content {
   display: flex;
@@ -27,8 +43,8 @@
 }
 
 .carousel-item {
-  min-width: 100px; /* Adjust as needed */
-  margin: 5px;
+  min-width: 340px !important; /* Adjust as needed */
+  margin: 0px;
   padding: 10px;
   // background-color: #f8f8f8;
   border: 1px solid #dee2e6;
@@ -38,7 +54,7 @@
   justify-content: flex-start;
   flex-direction: column;
   align-items: flex-start;
-  border-radius: 20px;
+  // border-radius: 20px;
 }
 
 // .carousel-heading {
@@ -65,4 +81,10 @@
   background-color: #e42072; /* Line color */
   //margin: 5px;
   
+}
+
+.verified-icon {
+  color: rgb(5, 158, 247); /* Change the color as needed */
+  margin-left: 5px; /* Adjust spacing as needed */
+  transform: translate(0px,3px);
 }

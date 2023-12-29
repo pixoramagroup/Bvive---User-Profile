@@ -9,14 +9,14 @@ import MapComponent from "./MapComponent";
 import ImageGrid from "./ImageGrid";
 import TextCarousel from "./TextCarousel";
 import Testimonials from "./Testimonials";
-import LanguageIcon from "@mui/icons-material/Language";
-import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
-import MailOutlineIcon from "@mui/icons-material/MailOutline";
+// import LanguageIcon from "@mui/icons-material/Language";
+// import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
+// import MailOutlineIcon from "@mui/icons-material/MailOutline";
+// import LocationOnIcon from "@mui/icons-material/LocationOn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
+// import TwitterIcon from "@mui/icons-material/Twitter";
 import Footer from "./Footer";
 import AboutMe from "./AboutMe";
 import MySpecialisations from "./MySpecialisations";
@@ -96,6 +96,27 @@ const Profile = () => {
       institute: "Fitness Institute Australia 2",
     },
   ];
+  const blogImages = [
+    { src: "src/assets/Blog1.png", alt: "Blog 1" },
+    { src: "src/assets/Blog2.png", alt: "Blog 2" },
+    { src: "src/assets/Blog3.png", alt: "Blog 3" },
+    { src: "src/assets/Blog4.png", alt: "Blog 4" },
+  ];
+
+  const photoImages = [
+    { src: "src/assets/sup.jpg", alt: "Photo 1" },
+    { src: "src/assets/nutrition_1.jpg", alt: "Photo 2" },
+    { src: "src/assets/boxing.jpg", alt: "Photo 3" },
+    { src: "src/assets/stretching_1.jpg", alt: "Photo 4" },
+  ];
+
+  const videoImages = [
+    { src: "src/assets/video1.jpg", alt: "Video 1" },
+    { src: "src/assets/video2.jpg", alt: "Video 2" },
+    { src: "src/assets/video3.jpg", alt: "Video 3" },
+    { src: "src/assets/video4.jpg", alt: "Video 4" },
+  ];
+
 
   return (
     // <div className={classes.profile}>
@@ -143,16 +164,26 @@ const Profile = () => {
           <img
             src={BviveLogo}
             alt="Header Logo"
-            style={{ maxWidth: "150px", marginTop: "25px", marginLeft: "30px", marginBottom:"10px" }}
+            style={{
+              maxWidth: "150px",
+              marginTop: "25px",
+              marginLeft: "30px",
+              marginBottom: "10px",
+            }}
           ></img>
         </div>
 
         <button className="login-button">LOG IN</button>
       </div>
-      <div className="profile-second-main" src="Fit1" style={{
-        //  /backgroundImage: url("../assets/fit1.jpeg")
-
-      }}>
+      <div
+        className="profile-second-main"
+        src="Fit1"
+        style={
+          {
+            //  /backgroundImage: url("../assets/fit1.jpeg")
+          }
+        }
+      >
         <div
           className="profile-second-box"
           // style={{ background: 'orange' }}
@@ -269,29 +300,29 @@ const Profile = () => {
           draggable
           onDragStart={(e) => handleOnDrag(e, "social 1", "blue")}
         >
-          <InstagramIcon /> {/* Use Instagram Icon from MUI */}
+          <InstagramIcon />
         </div>
         <div
           className="profile-social-box-1"
           draggable
           onDragStart={(e) => handleOnDrag(e, "social 2", "blue")}
         >
-          <FacebookIcon /> {/* Use Facebook Icon from MUI */}
+          <FacebookIcon />
         </div>
         <div
           className="profile-social-box-1"
           draggable
           onDragStart={(e) => handleOnDrag(e, "social 3", "blue")}
         >
-          <LinkedInIcon /> {/* Use LinkedIn Icon from MUI */}
+          <LinkedInIcon />
         </div>
-        <div
+        {/* <div
           className="profile-social-box-1"
           draggable
           onDragStart={(e) => handleOnDrag(e, "social 4", "blue")}
         >
-          <TwitterIcon /> {/* Use Twitter Icon from MUI */}
-        </div>
+          <TwitterIcon />
+        </div> */}
       </div>
       <div className="profile-aboutme-main-1" style={{ background: "#3b3b3b" }}>
         <MySpecialisations></MySpecialisations>
@@ -347,26 +378,16 @@ const Profile = () => {
           </div>
         </div> */}
       </div>
-      <div className="profile-aboutme-main-2">
-        <AboutMe></AboutMe>
-        <div
-          className="profile-aboutme-right-box"
-          onDrop={handleOnDrop}
-          onDragOver={handleDragOver}
-          style={{ background: "white" }}
-        >
-          {boxes.map((box, index) => (
-            <div
-              className="dropped-box"
-              key={index}
-              style={{ background: box?.color }}
-            >
-              {box?.boxType}
-            </div>
-          ))}
-          <ImageGrid></ImageGrid>
-        </div>
-      </div>
+      <div className="profile-aboutme-main-2" style={{ display: "flex" }}>
+      {/* First Part */}
+      <AboutMe title="Blogs" images={blogImages} />
+
+      {/* Second Part */}
+      <AboutMe title="Photos" images={photoImages} />
+
+      {/* Third Part */}
+      <AboutMe title="Videos" images={videoImages} />
+    </div>
 
       {/* <div className="profile-aboutme-main">
                 <div
@@ -383,7 +404,7 @@ const Profile = () => {
                 ></div>
               </div> */}
 
-      <div className="profile-aboutme-main">
+      {/* <div className="profile-aboutme-main">
         <div
           className="profile-aboutme-left-box"
           style={{ background: "white", width: "50%" }}
@@ -433,9 +454,9 @@ const Profile = () => {
         >
           <MapComponent></MapComponent>
         </div>
-      </div>
+      </div> */}
 
-      <div className="profile-aboutme-main-2">
+      <div className="profile-aboutme-main">
         <div
           className="profile-aboutme-left-box"
           style={{ background: "rgb(67 206 175)" }}
@@ -454,7 +475,7 @@ const Profile = () => {
           >
             Testimonials
           </h2>
-          <div class="under-line"></div>
+          <div className="under-line"></div>
           <div>
             <h3
               style={{
