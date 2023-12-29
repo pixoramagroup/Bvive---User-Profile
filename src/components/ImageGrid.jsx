@@ -1,6 +1,5 @@
-// ImageGrid.js
-
 import React from "react";
+import "./ImageGrid.scss";
 
 const ImageGrid = ({ images }) => {
   return (
@@ -21,7 +20,7 @@ const ImageGrid = ({ images }) => {
           }}
         >
           <img
-            src={image.src}
+            src={image}
             alt={`Media ${index + 1}`}
             style={{
               position: "absolute",
