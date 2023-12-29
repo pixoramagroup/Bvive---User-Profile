@@ -9,6 +9,20 @@ import MapComponent from "./MapComponent";
 import ImageGrid from "./ImageGrid";
 import TextCarousel from "./TextCarousel";
 import Testimonials from "./Testimonials";
+import Stretching from "../assets/stretching_1.jpg"
+import Nutrition from "../assets/nutrition_1.jpg"
+import Sup from "../assets/sup.jpg";
+import Boxing from "../assets/boxing.jpg";
+import Blog1 from "../assets/Blog1.png"
+import Blog2 from "../assets/Blog2.png"
+import Blog3 from "../assets/Blog3.png"
+import Blog4 from "../assets/Blog4.png"
+import Video1 from "../assets/video1.jpg"
+import Video2 from "../assets/video2.jpg"
+import Video3 from "../assets/video3.jpg"
+import Video4 from "../assets/video4.jpg"
+import Yoga from "../assets/yoga_1.jpg"
+
 // import LanguageIcon from "@mui/icons-material/Language";
 // import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
 // import MailOutlineIcon from "@mui/icons-material/MailOutline";
@@ -23,9 +37,6 @@ import MySpecialisations from "./MySpecialisations";
 import Fit1 from "../assets/fit1.jpeg";
 import BviveLogo from "../assets/white_logo.png";
 import PictureTestimonials from "./PictureTestimonials";
-import Yoga from "../assets/yoga.jpg";
-import Boxing from "../assets/boxing.jpg";
-import Stretching from "../assets/stretching.jpg";
 const Profile = () => {
   // const images = [
   //   '',
@@ -96,25 +107,17 @@ const Profile = () => {
       institute: "Fitness Institute Australia 2",
     },
   ];
+
   const blogImages = [
-    { src: "src/assets/Blog1.png", alt: "Blog 1" },
-    { src: "src/assets/Blog2.png", alt: "Blog 2" },
-    { src: "src/assets/Blog3.png", alt: "Blog 3" },
-    { src: "src/assets/Blog4.png", alt: "Blog 4" },
+   Blog1, Blog2, Blog3, Blog4
   ];
 
   const photoImages = [
-    { src: "src/assets/sup.jpg", alt: "Photo 1" },
-    { src: "src/assets/nutrition_1.jpg", alt: "Photo 2" },
-    { src: "src/assets/boxing.jpg", alt: "Photo 3" },
-    { src: "src/assets/stretching_1.jpg", alt: "Photo 4" },
+   Stretching,Nutrition,Sup,Sup
   ];
 
   const videoImages = [
-    { src: "src/assets/video1.jpg", alt: "Video 1" },
-    { src: "src/assets/video2.jpg", alt: "Video 2" },
-    { src: "src/assets/video3.jpg", alt: "Video 3" },
-    { src: "src/assets/video4.jpg", alt: "Video 4" },
+   Video1, Video2, Video3, Video4
   ];
 
 
