@@ -3,13 +3,20 @@ import { Delete, CloudUpload } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
 import { Modal } from "react-responsive-modal";
 import "react-responsive-modal/styles.css";
-
+import Stretching from "../assets/stretching_1.jpg"
+import Nutrition from "../assets/nutrition_1.jpg"
+import Sup from "../assets/sup.jpg";
+import Boxing from "../assets/boxing.jpg";
 const ImageGrid = () => {
   const hardcodedImages = [
-    "../assets/stretching_1.jpg",
-    "../assets/nutrition_1.jpg",
-    "../assets/sup.jpg",
-    "../assets/boxing.jpg",
+    // "../assets/stretching_1.jpg",
+    // "../assets/nutrition_1.jpg",
+    // "../assets/sup.jpg",
+    // "../assets/boxing.jpg",
+    Stretching,
+    Nutrition,
+    Sup,
+    Boxing
   ];
 
   const [media, setMedia] = useState(hardcodedImages);
