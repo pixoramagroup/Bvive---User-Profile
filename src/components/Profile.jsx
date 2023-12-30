@@ -4,6 +4,7 @@ import { useState } from "react";
 //import classes from './Profile.module.scss'; // Assume CSS modules are set up
 import "./Profile.scss";
 import CircularImagePicker from "./CircularImagePicker";
+import CreditScoreIcon from "@mui/icons-material/CreditScore";
 import StarRatingComponent from "react-star-rating-component";
 import MapComponent from "./MapComponent";
 import ImageGrid from "./ImageGrid";
@@ -206,8 +207,18 @@ const Profile = () => {
           // onDragStart={(e) => handleOnDrag(e, 'profile box', 'orange')}
         >
           <div className="profile-card-main">
-            <div className="ribbon-box-red"></div>
-            <div className="ribbon-box-blue"></div>
+            <div className="creditscore-box-blue">
+              <CreditScoreIcon className="icon-button-creditscore-blue" />
+            </div>
+
+            {/* Yellow CreditScoreIcon */}
+            <div className="creditscore-box-yellow">
+              <CreditScoreIcon className="icon-button-creditscore-yellow" />
+            </div>
+            {/* <div className="ribbon-box-red">
+            </div>
+            <div className="ribbon-box-blue">
+            </div> */}
             <div className="profile-card-top">
               <div className="profile-card-top-left">
                 <CircularImagePicker
@@ -216,9 +227,17 @@ const Profile = () => {
                 />
               </div>
               <div className="profile-card-top-right">
-                <div>Personal Trainer</div>
+                <div
+                  style={{
+                    fontSize: "23px",
+                    backdropFilter: "blur(5px)",
+                    padding: "5px",
+                  }}
+                >
+                  Personal Trainer
+                </div>
                 <h2>James Osborn</h2>
-                <div>Male, 27</div>
+                <div >Male, 27</div>
                 <div>Cowandilla, Adelaide </div>
                 {/* <div style={{ fontSize: "30px" }}>
                   <StarRatingComponent
@@ -241,27 +260,58 @@ const Profile = () => {
                 onStarClick={onStarClick}
               />
               <div className="starText">{rating}/5</div>
+                <a
+                  href="#"
+                  style={{ color: "lightblue", textDecoration: "none", marginLeft:"auto" }}
+                >
+                  bvive.com.au
+                </a>
             </div>
             <div className="follow-card">
               <div className="sessions">
                 <div className="sessions1">25</div>
-                <div className="sessions1">Sessions</div>
+                <div
+                  className="sessions1"
+                  style={{
+                    fontWeight: "normal",
+                    color: "lightgray",
+                    fontSize: "18px",
+                  }}
+                >
+                  Sessions
+                </div>
               </div>
               <div className="sessions">
                 <div className="sessions1">600</div>
-                <div className="sessions1">Hive</div>
+                <div
+                  className="sessions1"
+                  style={{
+                    fontWeight: "normal",
+                    color: "lightgray",
+                    fontSize: "18px",
+                  }}
+                >
+                  Hive
+                </div>
               </div>
               <div className="sessions">
                 <div className="sessions1">500</div>
-                <div className="sessions1">Bees</div>
+                <div
+                  className="sessions1"
+                  style={{
+                    fontWeight: "normal",
+                    color: "lightgray",
+                    fontSize: "18px",
+                  }}
+                >
+                  Bees
+                </div>
               </div>
             </div>
             <div className="profile-card-bottom">
               <div className="profile-card-bottom-text">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Facilis illum quis reprehenderit velit possimus eaque
-                consequuntur labore quam, ducimus impedit aut amet distinctio
-                rerum a ipsam repudiandae enim delectus sequi.
               </div>
               <div className="profile-card-bottom-button">
                 <button className="transparent-button">Book Now</button>
@@ -278,7 +328,7 @@ const Profile = () => {
             fontSize: "34px",
             marginBottom: "10px",
             color: "black",
-            marginLeft: "80px",
+            marginLeft: "60px",
             fontWeight: "500",
           }}
         >
@@ -286,7 +336,7 @@ const Profile = () => {
         </h1>
         <div className="under-line" style={{ backgroundColor: "black" }}></div>
 
-        <TextCarousel items={textItems} itemsPerView={5} />
+        <TextCarousel items={textItems} itemsPerView={4} />
       </div>
       <div className="profile-social-main">
         <div
@@ -449,7 +499,7 @@ const Profile = () => {
       <div className="profile-aboutme-main">
         <div
           className="profile-aboutme-left-box"
-          style={{ background: "rgb(67 206 175)" }}
+          style={{ background: "rgb(67 206 175)", position: "relative" }}
           draggable
           onDragStart={(e) => handleOnDrag(e, "contact me", "green")}
         >
@@ -458,7 +508,7 @@ const Profile = () => {
               fontSize: "34px",
               marginBottom: "10px",
               color: "white",
-              marginLeft: "80px",
+              marginLeft: "60px",
               fontWeight: "500",
               marginTop: "40px",
             }}
@@ -471,7 +521,7 @@ const Profile = () => {
               style={{
                 marginBottom: "10px",
                 color: "white",
-                marginLeft: "80px",
+                marginLeft: "60px",
                 fontWeight: "600",
                 marginTop: "40px",
               }}
@@ -496,10 +546,49 @@ const Profile = () => {
                 padding: "10px 20px",
                 marginTop: "10px",
                 cursor: "pointer",
+                alignContent: "flex-start",
               }}
             >
               Leave Feedback
             </button>
+          </div>
+
+          {/* T-shaped div inside profile-aboutme-left-box */}
+          <div
+            className="t-shape"
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%) skewX(-10deg)",
+              width: "100%",
+              height: "100%",
+            }}
+          >
+            <div
+              className="horizontal-bar"
+              style={{
+                position: "absolute",
+                top: "0",
+                left: "0",
+                width: "90%",
+                height: "60px",
+                backgroundColor: "#b8ebe0",
+                opacity: "0.2",
+              }}
+            ></div>
+            <div
+              className="vertical-bar"
+              style={{
+                position: "absolute",
+                top: "0",
+                left: "37%",
+                width: "60px",
+                height: "100%",
+                backgroundColor: "#b8ebe0",
+                opacity: "0.2",
+              }}
+            ></div>
           </div>
         </div>
         <div
