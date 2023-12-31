@@ -3,6 +3,7 @@ import Yoga1 from "../assets/yoga_1.jpg";
 import Nutrition1 from "../assets/nutrition_1.jpg";
 import Sup from "../assets/sup.jpg";
 import NCoach from "../assets/stretching_1.jpg";
+import ListSpecialisations from "./ListSpecialisations";
 const MySpecialisations = () => {
   const specializations = [
     { name: "Body Building", imageUrl: `url(${Yoga1})`, id: "BodyBuilding" },
@@ -19,7 +20,7 @@ const MySpecialisations = () => {
             fontSize: "34px",
             marginBottom: "10px",
             color: "white",
-            marginLeft: "80px",
+            marginLeft: "60px",
             fontWeight: "500",
             marginTop: "40px",
           }}
@@ -27,13 +28,14 @@ const MySpecialisations = () => {
           My Specializations
         </h2>
         <div className="under-line" style={{ backgroundColor: "white" }}></div>
-        <div className="contact-icons" style={{ color: "white" }}>
-          {specializations.map((spec, index) => (
+        {/* <div className="contact-icons" style={{ color: "white" }}> */}
+          {/* {specializations.map((spec, index) => (
             <a key={index} href={``} className="specialization-link" style={{ color: "white", textDecoration: "none" }}>
               {spec.name}
             </a>
-          ))}
-        </div>
+          ))} */}
+          <ListSpecialisations></ListSpecialisations>
+        {/* </div> */}
       </div>
       <div
         className="profile-aboutme-right-box"

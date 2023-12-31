@@ -419,7 +419,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    // margin: 3px;
+    margin-top: 10px;
     width: 100%;
     height: 100%;
     // height: 2vh;
@@ -498,7 +498,7 @@
 
   .under-line {
     height: 4px;
-    margin-left: 80px;
+    margin-left: 60px;
     background-color: white;
     width: 100px;
     margin-top: 10px;
@@ -510,7 +510,7 @@
     flex-direction: column;
     font-size: 20px;
     color: black;
-    margin-left: 86px;
+    margin-left: 60px;
     margin-top: 50px;
     line-height: 50px;
   }
@@ -537,12 +537,12 @@
   }
 
   .star-main {
-    font-size: 30px;
+    font-size: 20px;
     width: 100%;
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
-    margin: 10px 0px 10px 0px;
+    margin: 10px 0px 0px 0px;
 
   }
 
@@ -564,17 +564,17 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: 80%;
   }
 
   .sessions {
     // border: 1px solid white;
     color: white;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin: 10px 0px 10px 0px;
     cursor: pointer;
-    background-color: #333;
+    // background-color: #333;
 
   }
 
@@ -582,21 +582,22 @@
     // border: 1px solid white;
     color: white;
     width: 60px;
-    padding: 10px;
+    padding: 1px;
     display: flex;
     justify-content: center;
-    border-radius: 5px;
-    font-weight: 700;
+    // border-radius: 5px;
+    font-size: xx-large;
+    // font-weight: 800;
     // background-color: #333;
   }
 
-  .sessions:hover {
-    //color: #f90303 ;
-    // transform: scale(1.1);
-    background-color: black !important;
-    transition: all 0.3s ease;
-    /* Smooth transition for hover effects */
-  }
+  // .sessions:hover {
+  //   //color: #f90303 ;
+  //   // transform: scale(1.1);
+  //   // background-color: black !important;
+  //   // transition: all 0.3s ease;
+  //   /* Smooth transition for hover effects */
+  // }
 
   .starText:hover {
     cursor: pointer;
@@ -605,3 +606,46 @@
     transition: all 0.3s ease;
     /* Smooth transition for hover effects */
   }
+
+  .creditscore-box-blue {
+    position: relative;
+    width: 100%;
+    margin-top: 20px; /* Adjust the margin as needed */
+  }
+  
+  .creditscore-box-blue .icon-button-creditscore-blue {
+    position: absolute;
+    top: 0;
+    right: 60px;
+    cursor: pointer;
+    color: #039cff; /* Set the desired color */
+    font-size: 40px; /* Adjust the font size as needed */
+    transition: all 0.3s ease;
+  }
+  
+  .creditscore-box-blue:hover .icon-button-creditscore-blue {
+    color: lightskyblue; /* Change color on hover */
+    transform: scale(1.1); /* Optional: Increase size on hover */
+  }
+  
+  .creditscore-box-yellow {
+    position: relative;
+    width: 100%;
+    // margin-top: 20px; /* Adjust the margin as needed */
+  }
+  
+  .creditscore-box-yellow .icon-button-creditscore-yellow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    color: yellow; /* Set the desired color */
+    font-size: 40px; /* Adjust the font size as needed */
+    transition: all 0.3s ease;
+  }
+  
+  .creditscore-box-yellow:hover .icon-button-creditscore-yellow {
+    color: #cccc00; /* Change color on hover */
+    transform: scale(1.1); /* Optional: Increase size on hover */
+  }
+  
