@@ -12,19 +12,20 @@ function PictureTestimonials({ title, content, image }) {
   return (
     <div className="card">
       <div className='upper-main'>
+        <h3>What Our Client Says</h3>
       <img className="circle" src= {image}></img>
       <div className='title'>
-      <h3>{title}</h3>
+      <h4>{title}</h4>
       </div>
       </div>
-      <div style={{ fontSize: "30px",justifyContent:'flex-start', display:'flex', width:'100%' }}>
+      <div style={{ fontSize: "30px",justifyContent:'center', display:'flex', width:'100%' }}>
       <StarRatingComponent
                     name="rate1"
                     starCount={5}
                    value={rating}
                  //  onStarClick={onStarClick}
                   />
-                        <div className="starText">{rating}/5</div>
+                        {/* <div className="starText_1">{rating}/5</div> */}
                   </div>
       <p>{content}</p>
     </div>

@@ -37,9 +37,20 @@ ul {
   }
   .list-container {
     max-height: 300px;
-    overflow-y: auto;
+    overflow-y: scroll;
     position: relative;
   }
+  
+ 
   .list-container::-webkit-scrollbar {
-    width: 0;
+    width: 11px; /* Adjust the width as needed */
+  }
+  
+  .list-container::-webkit-scrollbar-thumb {
+    background-color: #888; /* Color of the scrollbar thumb */
+    border-radius: 6px; /* Round the corners of the thumb */
+  }
+  
+  .list-container::-webkit-scrollbar-track {
+    background-color:#3b3b3b; /* Color of the scrollbar track */
   }

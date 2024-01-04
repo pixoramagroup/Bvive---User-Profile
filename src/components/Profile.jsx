@@ -22,12 +22,13 @@ import Body1 from "../assets/Body1.jpg";
 import Body2 from "../assets/Body2.jpg";
 import Body3 from "../assets/Body3.jpg";
 import Body4 from "../assets/Body4.jpg";
-
+import FitLogo from "../assets/fitnessCartel.png";
 import Video1 from "../assets/video1.mp4";
 import Video2 from "../assets/video2.mp4";
 import Video3 from "../assets/video3.mp4";
 import Video4 from "../assets/video4.mp4";
 import Yoga from "../assets/yoga_1.jpg";
+import VerifiedIcon from "@mui/icons-material/Verified";
 
 // import LanguageIcon from "@mui/icons-material/Language";
 // import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
@@ -115,26 +116,40 @@ const Profile = () => {
   ];
 
   const blogMediaItems = [
-    { type: "image", src: Blog1, caption: "Healthy Day" },
-    { type: "image", src: Blog2, caption: "Nutrition in every bite" },
-    { type: "image", src: Blog3, caption: "Food is Good" },
-    { type: "image", src: Blog4, caption: "Tasty Treats" },
+    { type: "image", src: Blog1, caption: "Healthy Day", date: "12-2-2023" },
+    { type: "image", src: Blog2, caption: "Nutrition in every bite",date: "12-2-2023" },
+    { type: "image", src: Blog3, caption: "Food is Good",date: "12-2-2023" },
+    { type: "image", src: Blog4, caption: "Tasty Treats", date: "12-2-2023" },
   ];
 
   const photoMediaItems = [
-    { type: "image", src: Body1, caption: "Holistic Workout" },
-    { type: "image", src: Body2, caption: "Stretching" },
-    { type: "image", src: Body3, caption: "Crunch the core" },
-    { type: "image", src: Body4, caption: "Fitness is a lifestyle" },
+    { type: "image", src: Body1, caption: "Holistic Workout" ,date: "12-2-2023"},
+    { type: "image", src: Body2, caption: "Stretching" ,date: "12-2-2023"},
+    { type: "image", src: Body3, caption: "Crunch the core" ,date: "12-2-2023"},
+    { type: "image", src: Body4, caption: "Fitness is a lifestyle", date: "12-2-2023" },
   ];
 
   const videoMediaItems = [
-    { key: 1, type: "video", src: Video3, caption: "Be fit" },
-    { key: 2, type: "video", src: Video1, caption: "Be Long Lived" },
-    { key: 3, type: "video", src: Video2, caption: "5 minutes goal" },
-    { key: 4, type: "video", src: Video4, caption: "Do this every day" },
+    { key: 1, type: "video", src: Video3, caption: "Be fit", date: "12-2-2023" },
+    { key: 2, type: "video", src: Video1, caption: "Be Long Lived", date: "12-2-2023" },
+    { key: 3, type: "video", src: Video2, caption: "5 minutes goal", date: "12-2-2023" },
+    { key: 4, type: "video", src: Video4, caption: "Do this every day", date: "12-2-2023" },
   ];
+
+  const [introVideo, setIntroVideo] = useState(null)
+  const handleProfilePicClick = () => {
+    <video
+    width="320"
+    height="240"
+    controls
+    autoPlay
+    onEnded={() => setIntroVideo(null)} // Remove video after it ends
+    >
+    <source src={Video1} type="video/mp4"></source>
+    </video>
+  }
   return (
+   
     // <div className={classes.profile}>
     //   {/* Header Section */}
     //   <header className={classes.header}>{/* Logo and Navigation */}</header>
@@ -189,7 +204,7 @@ const Profile = () => {
           ></img>
         </div>
 
-        <button className="login-button">LOG IN</button>
+       <a href="/SignUpPage"> <button className="login-button">LOG IN</button></a>
       </div>
       <div
         className="profile-second-main"
@@ -224,7 +239,9 @@ const Profile = () => {
                 <CircularImagePicker
                   images={images}
                   onImageChange={handleImageChange}
+                  onClick = {handleProfilePicClick}
                 />
+                {introVideo}
               </div>
               <div className="profile-card-top-right">
                 <div
@@ -236,8 +253,12 @@ const Profile = () => {
                 >
                   Personal Trainer
                 </div>
-                <h2>James Osborn</h2>
-                <div >Male, 27</div>
+                <div style={{display:"flex", alignItems:"baseline"}}>
+                  <h2 style={{marginBottom:"4px"}}>James Osborn</h2>
+                  <VerifiedIcon className="verified-icon"></VerifiedIcon>
+                  <VerifiedIcon className="verified-icon" style={{color:"gold"}}></VerifiedIcon>
+                </div>
+                <div>Male, 27</div>
                 <div>Cowandilla, Adelaide </div>
                 {/* <div style={{ fontSize: "30px" }}>
                   <StarRatingComponent
@@ -251,6 +272,7 @@ const Profile = () => {
             </div>
             <div
               className="star-main"
+              // style={{ height: "10px" }}
               // style={{ fontSize: "30px",width:'100%', justifyContent:'flex-start' }}
             >
               <StarRatingComponent
@@ -260,12 +282,24 @@ const Profile = () => {
                 onStarClick={onStarClick}
               />
               <div className="starText">{rating}/5</div>
-                <a
-                  href="#"
-                  style={{ color: "lightblue", textDecoration: "none", marginLeft:"auto" }}
-                >
-                  bvive.com.au
-                </a>
+              <a
+                href="https://www.fitnesscartel.com.au/"
+                target="_blank"
+                style={{
+                  color: "lightblue",
+                  textDecoration: "none",
+                  marginLeft: "auto",
+                  marginTop: "-15px",
+                }}
+              >
+                <img
+                  src={FitLogo}
+                  alt="Fitness Cartel"
+                  style={{
+                    maxWidth: "150px",
+                  }}
+                ></img>
+              </a>
             </div>
             <div className="follow-card">
               <div className="sessions">
@@ -275,7 +309,7 @@ const Profile = () => {
                   style={{
                     fontWeight: "normal",
                     color: "lightgray",
-                    fontSize: "18px",
+                    fontSize: "14px",
                   }}
                 >
                   Sessions
@@ -288,7 +322,7 @@ const Profile = () => {
                   style={{
                     fontWeight: "normal",
                     color: "lightgray",
-                    fontSize: "18px",
+                    fontSize: "14px",
                   }}
                 >
                   Hive
@@ -301,7 +335,7 @@ const Profile = () => {
                   style={{
                     fontWeight: "normal",
                     color: "lightgray",
-                    fontSize: "18px",
+                    fontSize: "14px",
                   }}
                 >
                   Bees
@@ -311,7 +345,9 @@ const Profile = () => {
             <div className="profile-card-bottom">
               <div className="profile-card-bottom-text">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Facilis illum quis reprehenderit velit possimus eaque
+                Facilis illum quis reprehenderit velit possimus eaque Lorem
+                ipsum dolor sit amet, consectetur adipisicing elit. Facilis
+                illum quis reprehenderit velit possimus eaque
               </div>
               <div className="profile-card-bottom-button">
                 <button className="transparent-button">Book Now</button>
