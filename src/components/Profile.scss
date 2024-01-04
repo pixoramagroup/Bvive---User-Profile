@@ -2,6 +2,7 @@
   $primary-color: #ffa500; // Example primary color
   $secondary-color: #333; // Example secondary color
   $font-stack: 'Helvetica Neue', sans-serif;
+  
 
   // // Reset margin and padding for all elements
   // * {
@@ -422,6 +423,7 @@
     margin-top: 10px;
     width: 100%;
     height: 100%;
+  margin-bottom: 30px;
     // height: 2vh;
     //background: green;
     //border: solid black;
@@ -537,10 +539,10 @@
   }
 
   .star-main {
-    font-size: 20px;
+    font-size: 25px;
     width: 100%;
     display: flex;
-    justify-content: flex-start;
+    // justify-content: flex-start;
     flex-direction: row;
     margin: 10px 0px 0px 0px;
 
@@ -551,12 +553,12 @@
     justify-content: center;
     align-items: center;
     margin-left: 10px;
-    font-size: 18px;
+    font-size: 16px;
     background-color: #333;
     color: white;
     border-radius: 10px;
-    padding: 5px;
-    font-weight: 700;
+    padding: 0 5px 0 5px;
+    font-weight: 500;
   }
 
   .follow-card {
@@ -586,7 +588,7 @@
     display: flex;
     justify-content: center;
     // border-radius: 5px;
-    font-size: xx-large;
+    font-size: large;
     // font-weight: 800;
     // background-color: #333;
   }

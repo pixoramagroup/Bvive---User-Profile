@@ -34,7 +34,7 @@ const ImageCarousel = ({ mediaItems }) => {
           <video
             className="Image-carousel-image"
             controls
-            autoPlay
+            // autoPlay
             loop
             muted
             key={mediaItems[currentIndex].src}
@@ -43,7 +43,10 @@ const ImageCarousel = ({ mediaItems }) => {
             <source src={currentMedia.src} type="video/mp4" />
           </video>
         )}
-        <div className="Image-carousel-caption">{currentMedia.caption}</div>
+        <div  className="Image-carousel-overlay">
+          <div className="Image-carousel-caption">{currentMedia.caption}</div>
+          <div className="Image-carousel-date"> {currentMedia.date}</div>
+        </div>
       </div>
       <button className="Image-carousel-button" onClick={nextSlide}>
         {">"}
