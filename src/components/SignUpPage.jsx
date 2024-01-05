@@ -34,9 +34,14 @@ export default function SignUpPage() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    
     console.log({
       email: data.get('email'),
       password: data.get('password'),
+      birthday: data.get('birthday'),
+      gender: data.get('gender'),
+      mobile: data.get('mobile'),
+
     });
   };
 
@@ -90,8 +95,8 @@ export default function SignUpPage() {
                   name="email"
                   autoComplete="email"
                 />
-              </Grid>
-              <Grid item xs={12}>
+                </Grid>
+                <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
@@ -100,6 +105,39 @@ export default function SignUpPage() {
                   type="password"
                   id="password"
                   autoComplete="new-password"
+                />
+              </Grid>
+                 <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  id="mobile"
+                  label="Mobile Nummber"
+                  name="mobile"
+                  autoComplete="phone-number"
+                />
+              </Grid>
+
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="birthday"
+                  label="BirthDay"
+                  type="date"
+                  id="birthday"
+                  autoComplete="birthday"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="gender"
+                  label="gender"
+                  // type="radio"
+                  id="gender"
+                  autoComplete="gender"
                 />
               </Grid>
               <Grid item xs={12}>
