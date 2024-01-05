@@ -266,7 +266,7 @@
     height: 10vh;
     // background: blue;
     // border: solid black;
-    //cursor: grab;
+    cursor: pointer;
   }
 
   .profile-aboutme-main {
@@ -463,12 +463,12 @@
 
   .profile-cards {
     width: 100%;
-    background-color: pink;
-    color: white;
+    // background-color: gold;
+    color: black;
     // padding: 20px;
     // margin: 30px;
     text-align: center;
-    height: 47vh;
+    height: 100%;
     // clip-path: polygon(0 0, 100% 0, 100% 100%, 200px 100%, 0 65%);
   }
 

@@ -40,10 +40,11 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 // import TwitterIcon from "@mui/icons-material/Twitter";
 import Footer from "./Footer";
 import AboutMe from "./AboutMe";
-import MySpecialisations from "./MySpecialisations";
+import MySpecializations from "./MySpecializations";
 import Fit1 from "../assets/fit1.jpeg";
 import BviveLogo from "../assets/white_logo.png";
 import PictureTestimonials from "./PictureTestimonials";
+import SignUpPage from "./SignUpPage";
 const Profile = () => {
   // const images = [
   //   '',
@@ -405,7 +406,7 @@ const Profile = () => {
         </div> */}
       </div>
       <div className="profile-aboutme-main-1" style={{ background: "#3b3b3b" }}>
-        <MySpecialisations></MySpecialisations>
+        <MySpecializations></MySpecializations>
         {/* <h2
           style={{
             fontSize: "34px",
@@ -654,6 +655,7 @@ const Profile = () => {
         </div>
       </div>
       <Footer></Footer>
+      <SignUpPage></SignUpPage>
     </div>
   );
 };
