@@ -44,7 +44,7 @@ import MySpecializations from "./MySpecializations";
 import Fit1 from "../assets/fit1.jpeg";
 import BviveLogo from "../assets/white_logo.png";
 import PictureTestimonials from "./PictureTestimonials";
-import SignUpPage from "./SignUpPage";
+// import SignUpPage from "./SignUpPage";
 const Profile = () => {
   // const images = [
   //   '',
@@ -655,7 +655,7 @@ const Profile = () => {
         </div>
       </div>
       <Footer></Footer>
-      <SignUpPage></SignUpPage>
+      {/* <SignUpPage></SignUpPage> */}
     </div>
   );
 };
