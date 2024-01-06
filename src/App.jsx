@@ -53,6 +53,7 @@ import { useEffect, useState } from 'react';
 
 import Profile from './components/Profile';
 import SignUpPage from './components/SignUpPage';
+import SignIn from './components/SignIn';
 
 export default function App() {
   return (
@@ -61,6 +62,8 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Profile />} />
           <Route path="/SignUpPage" element={<SignUpPage />} />
+          <Route path="/SignIn" element={<SignIn />} />
+
         </Routes>
       </BrowserRouter>
     </div>
