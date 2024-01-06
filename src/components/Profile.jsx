@@ -206,7 +206,7 @@ const Profile = () => {
           ></img>
         </div>
 
-       <Link to="/SignUpPage"> <button className="login-button">LOG IN</button></Link>
+       <Link to="/SignIn"> <button className="login-button">LOG IN</button></Link>
       </div>
       <div
         className="profile-second-main"
