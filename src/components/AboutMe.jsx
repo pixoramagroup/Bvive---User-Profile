@@ -1,8 +1,7 @@
 import React from "react";
 import ImageCarousel from "./ImageCarousel";
 
-const AboutMe = ({ title, mediaItems }) => {
-  return (
+const AboutMe = ({ title, mediaItems, onViewAll }) => {  return (
     <div
       className="profile-aboutme-left-box"
       style={{ flex: 1, backgroundColor: "white", marginRight: "5px" }}
@@ -34,6 +33,7 @@ const AboutMe = ({ title, mediaItems }) => {
             boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
             transition: "background 0.3s, color 0.3s",
           }}
+          onClick={onViewAll}
         >
           View All {title}
         </button>

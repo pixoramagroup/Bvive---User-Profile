@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./ImageCarousel.scss";
 
-const ImageCarousel = ({ mediaItems }) => {
+const ImageCarousel = ({ mediaItems  }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextSlide = () => {
@@ -17,12 +17,16 @@ const ImageCarousel = ({ mediaItems }) => {
   };
 
   const currentMedia = mediaItems[currentIndex];
+  const shouldShowButtons = mediaItems.length > 1;
 
   return (
     <div className="Image-carousel">
-      <button className="Image-carousel-button" onClick={prevSlide}>
-        {"<"}
-      </button>
+       {shouldShowButtons && (
+         <button className="Image-carousel-button" onClick={prevSlide}>
+         {"<"}
+       </button>
+      )}
+     
       <div className="Image-carousel-container">
         {currentMedia.type === "image" ? (
           <img
@@ -48,9 +52,11 @@ const ImageCarousel = ({ mediaItems }) => {
           <div className="Image-carousel-date"> {currentMedia.date}</div>
         </div>
       </div>
-      <button className="Image-carousel-button" onClick={nextSlide}>
-        {">"}
-      </button>
+      {shouldShowButtons && (
+        <button className="Image-carousel-button" onClick={nextSlide}>
+          {">"}
+        </button>
+      )}
     </div>
   );
 };
