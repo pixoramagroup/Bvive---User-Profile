@@ -30,7 +30,7 @@ const Modal = ({ show, onClose, specialization }) => {
             </p>
           </div>
           <div style={{display:"flex" ,flexDirection:"column", alignItems:"center"}}>
-          <button className="cost">$100</button>
+          {/* <button className="cost">$100</button> */}
           <button className="availability">Availability</button>
           <button className="bookNow" type="submit">Book Now</button>
           </div>
@@ -84,7 +84,7 @@ const MySpecializations = () => {
             color: "white",
             marginLeft: "60px",
             fontWeight: "500",
-            marginTop: "40px",
+            marginTop: "20px",
           }}
         >
           My Specializations

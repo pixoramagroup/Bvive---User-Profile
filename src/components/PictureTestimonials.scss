@@ -60,3 +60,34 @@
     font-weight: 500;
 
   }
+
+  .next-button{
+    background-color: transparent !important;
+  color: grey !important;
+  border: none;
+  padding: 10px 15px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 40px;
+  height: 10vh;
+  }
+
+  .prev-button{
+    background-color: transparent !important;
+  color: grey !important;
+  border: none;
+  padding: 10px 15px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 40px;
+  height: 10vh;
+  }
+
+  .testimonials-wrapper{
+    display: flex;
+    align-items: center;
+  }

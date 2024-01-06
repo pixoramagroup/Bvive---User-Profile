@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -39,7 +39,7 @@ export default function SignUpPage() {
       email: data.get('email'),
       password: data.get('password'),
       birthday: data.get('birthday'),
-      gender: data.get('gender'),
+      // gender: data.get('gender'),
       mobile: data.get('mobile'),
 
     });
@@ -112,7 +112,7 @@ export default function SignUpPage() {
                   required
                   fullWidth
                   id="mobile"
-                  label="Mobile Nummber"
+                  label="Mobile Number"
                   name="mobile"
                   autoComplete="phone-number"
                 />
@@ -129,7 +129,7 @@ export default function SignUpPage() {
                   autoComplete="birthday"
                 />
               </Grid>
-              <Grid item xs={12}>
+              {/* <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
@@ -139,7 +139,7 @@ export default function SignUpPage() {
                   id="gender"
                   autoComplete="gender"
                 />
-              </Grid>
+              </Grid> */}
               <Grid item xs={12}>
                 <FormControlLabel
                   control={<Checkbox value="allowExtraEmails" color="primary" />}

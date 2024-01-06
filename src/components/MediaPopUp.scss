@@ -1,0 +1,61 @@
+.media-popup-dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+  }
+  
+  .media-popup-content {
+    background: black;
+    // padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 80%;
+    max-height: 70%;
+    overflow: auto;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .close-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #ffffff;
+    z-index: 3;
+  }
+  
+  .media-items-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    padding: 20px;
+
+  }
+  
+  .media-item {
+    text-align: center;
+  }
+  
+  .media-item img {
+    max-width: 100%;
+  }
+  
+  .media-popup-title {
+    text-align: center;
+    position: sticky;
+    top: 0; // Make sure to add this line to set the top position
+    background: black; // Optionally, you can add a background color if needed
+    color: white;
+    z-index: 2; // Adjust the z-index as needed
+    font-size: xx-large;
+    padding: 10px;
+  }
+  

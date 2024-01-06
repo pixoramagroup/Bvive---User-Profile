@@ -29,7 +29,7 @@ import Video3 from "../assets/video3.mp4";
 import Video4 from "../assets/video4.mp4";
 import Yoga from "../assets/yoga_1.jpg";
 import VerifiedIcon from "@mui/icons-material/Verified";
-
+import { Link } from 'react-router-dom';
 // import LanguageIcon from "@mui/icons-material/Language";
 // import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
 // import MailOutlineIcon from "@mui/icons-material/MailOutline";
@@ -44,7 +44,8 @@ import MySpecializations from "./MySpecializations";
 import Fit1 from "../assets/fit1.jpeg";
 import BviveLogo from "../assets/white_logo.png";
 import PictureTestimonials from "./PictureTestimonials";
-// import SignUpPage from "./SignUpPage";
+import SignUpPage from "./SignUpPage";
+import MediaPopup from "./MediaPopUp";
 const Profile = () => {
   // const images = [
   //   '',
@@ -136,19 +137,19 @@ const Profile = () => {
     { key: 3, type: "video", src: Video2, caption: "5 minutes goal", date: "12-2-2023" },
     { key: 4, type: "video", src: Video4, caption: "Do this every day", date: "12-2-2023" },
   ];
+   
+  const [selectedMediaType, setSelectedMediaType] = useState(null);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
-  const [introVideo, setIntroVideo] = useState(null)
-  const handleProfilePicClick = () => {
-    <video
-    width="320"
-    height="240"
-    controls
-    autoPlay
-    onEnded={() => setIntroVideo(null)} // Remove video after it ends
-    >
-    <source src={Video1} type="video/mp4"></source>
-    </video>
-  }
+  const openPopup = (mediaType) => {
+    setSelectedMediaType(mediaType);
+    setIsPopupOpen(true);
+  };
+
+  const closePopup = () => {
+    setIsPopupOpen(false);
+  };
+ 
   return (
    
     // <div className={classes.profile}>
@@ -205,7 +206,7 @@ const Profile = () => {
           ></img>
         </div>
 
-       <a href="/SignUpPage"> <button className="login-button">LOG IN</button></a>
+       <Link to="/SignUpPage"> <button className="login-button">LOG IN</button></Link>
       </div>
       <div
         className="profile-second-main"
@@ -240,9 +241,9 @@ const Profile = () => {
                 <CircularImagePicker
                   images={images}
                   onImageChange={handleImageChange}
-                  onClick = {handleProfilePicClick}
+                  // onClick = {handleProfilePicClick}
                 />
-                {introVideo}
+                {/* {introVideo} */}
               </div>
               <div className="profile-card-top-right">
                 <div
@@ -461,10 +462,21 @@ const Profile = () => {
       </div>
       <div className="profile-aboutme-main-2" style={{ display: "flex" }}>
         {/* First Part */}
-        <AboutMe title="Blogs" mediaItems={blogMediaItems} />
-        <AboutMe title="Photos" mediaItems={photoMediaItems} />
-        <AboutMe title="Videos" mediaItems={videoMediaItems} />{" "}
+        <AboutMe title="Blogs" mediaItems={blogMediaItems}  onViewAll={() => openPopup("blogs")} />
+        <AboutMe title="Photos" mediaItems={photoMediaItems}  onViewAll={() => openPopup("photos")}/>
+        <AboutMe title="Videos" mediaItems={videoMediaItems}  onViewAll={() => openPopup("videos")}/>
       </div>
+
+      {isPopupOpen && (
+        <MediaPopup
+          mediaItems={selectedMediaType === "blogs" ? blogMediaItems :
+                      selectedMediaType === "photos" ? photoMediaItems :
+                      selectedMediaType === "videos" ? videoMediaItems : []}
+                      type={selectedMediaType.charAt(0).toUpperCase() + selectedMediaType.substring(1)}
+                      onClose={closePopup}
+          
+        />
+      )}
 
       {/* <div className="profile-aboutme-main">
                 <div
@@ -547,7 +559,7 @@ const Profile = () => {
               color: "white",
               marginLeft: "60px",
               fontWeight: "500",
-              marginTop: "40px",
+              marginTop: "20px",
             }}
           >
             Testimonials
@@ -618,10 +630,10 @@ const Profile = () => {
               className="vertical-bar"
               style={{
                 position: "absolute",
-                top: "0",
+                top: "60px",
                 left: "37%",
                 width: "60px",
-                height: "100%",
+                height: "85%",
                 backgroundColor: "#b8ebe0",
                 opacity: "0.2",
               }}
@@ -636,7 +648,8 @@ const Profile = () => {
             justifyContent: "center",
           }}
         >
-          <PictureTestimonials
+          <PictureTestimonials ></PictureTestimonials>
+          {/* <PictureTestimonials
             title={"Clara"}
             content={"Quick delivery and great prices"}
             image={Yoga}
@@ -650,7 +663,7 @@ const Profile = () => {
             title={"Madie"}
             content={"Highly recommend it"}
             image={Stretching}
-          ></PictureTestimonials>
+          ></PictureTestimonials> */}
           {/* <Testimonials></Testimonials> */}
         </div>
       </div>
