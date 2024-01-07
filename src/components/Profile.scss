@@ -302,8 +302,10 @@
     justify-content: center;
     // flex-direction: column;
     // align-items: center;
+    // width: 100%;
     width: 100%;
-    height: 50vh;
+    width: 75%;
+    height: 47vh;
     background: #ffffff;
     box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.1);
 
@@ -384,7 +386,7 @@
     // height: 2vh;
     // background: yellow;
     // border: solid black;
-    margin-left: 15px;
+    margin-left: 30px;
     flex-direction: column;
     color: white;
     font-family: $font-stack;
@@ -462,7 +464,7 @@
   }
 
   .profile-cards {
-    width: 100%;
+    // width: 100%;
     // background-color: gold;
     color: black;
     // padding: 20px;
@@ -651,4 +653,35 @@
     color: #cccc00; /* Change color on hover */
     transform: scale(1.1); /* Optional: Increase size on hover */
   }
+  .list-items {
+    // counter-increment: index; 
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
   
+  
+  /* Element counter */
+  .list-items::before {
+    content: counters(index, ".", decimal-leading-zero);
+    font-size: 1.5rem;
+    text-align: right;
+    font-weight: bold;
+    min-width: 50px;
+    padding-right: 12px;
+    font-variant-numeric: tabular-nums;
+    align-self: flex-start;
+    background-image: linear-gradient(to bottom, aquamarine, orangered);
+    background-attachment: fixed;
+   background-clip: text;
+    -webkit-text-fill-color: transparent;
+    visibility: hidden; 
+  }
+  
+  
+  /* Element separation */
+  .list-items + .list-items {
+    border-top: 1px solid rgba(255,255,255,0.2)
+  }

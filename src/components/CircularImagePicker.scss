@@ -17,11 +17,39 @@
   height: 100px;
   border-radius: 50%; /* Makes the image circular */
   object-fit: cover;
-  // border: 2px solid transparent;
-  border: 2px dotted skyblue;
+  border: 2px solid #039cff;
+  // border: 2px dotted skyblue;
+  border-width: thick;
+  // border-color: "#ff8501";
+
 
 }
 
 .circular-image.selected {
   border-color: blue; /* Highlight selected image */
+}
+
+.popup-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.popup-option {
+  cursor: pointer;
+  padding: 8px;
+  margin-bottom: 8px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #f0f0f0;
+  }
 }

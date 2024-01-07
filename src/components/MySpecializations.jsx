@@ -110,8 +110,8 @@ const MySpecializations = () => {
           background: "#ffffff",
           display: "grid",
           gridTemplateColumns: "repeat(4, 1fr)",
-          gap: "1px",
-          padding: "1px",
+          // gap: "1px",
+          // padding: "1px",
         }}
       >
         {specializations.map(

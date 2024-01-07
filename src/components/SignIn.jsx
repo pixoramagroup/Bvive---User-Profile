@@ -14,35 +14,43 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-function Copyright(props) {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
-
-// TODO remove, this demo shouldn't need to reset the theme.
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
 
 const defaultTheme = createTheme();
 
 export default function SignIn() {
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [emailError, setEmailError] = React.useState(null);
+  const [passwordError, setPasswordError] = React.useState(null);
+
+  const validateEmail = () => {
+    setEmailError(emailRegex.test(email) ? null : "Invalid email address");
+  };
+
+  const validatePassword = () => {
+    setPasswordError(passwordRegex.test(password) ? null : "The password must contain at least one lowercase letter, one uppercase letter, one digit, and be at least 8 characters in length.");
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
+
+    // Validate email
+    validateEmail();
+
+    // Validate password
+    validatePassword();
+
+    // If there are validation errors, do not proceed with form submission
+    if (emailError || passwordError) {
+      return;
+    }
+
+    // Proceed with form submission
     console.log({
-      email: data.get("email"),
-      password: data.get("password"),
+      email,
+      password,
     });
   };
 
@@ -79,6 +87,11 @@ export default function SignIn() {
               name="email"
               autoComplete="email"
               autoFocus
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              onBlur={validateEmail}
+              error={Boolean(emailError)}
+              helperText={emailError}
             />
             <TextField
               margin="normal"
@@ -89,6 +102,11 @@ export default function SignIn() {
               type="password"
               id="password"
               autoComplete="current-password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              onBlur={validatePassword}
+              error={Boolean(passwordError)}
+              helperText={passwordError}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -111,14 +129,13 @@ export default function SignIn() {
                 </RouterLink>
               </Grid>
               <Grid item>
-                <RouterLink to="/SignUpPage" >
+                <RouterLink to="/SignUpPage">
                   <Link variant="body2">{"Don't have an account? Sign Up"}</Link>
                 </RouterLink>
               </Grid>
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
     </ThemeProvider>
   );

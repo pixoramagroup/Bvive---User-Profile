@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -13,35 +13,59 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
-// TODO remove, this demo shouldn't need to reset the theme.
-
 const defaultTheme = createTheme();
 
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+const mobileRegex = /^\d{10,15}$/;
+
 export default function SignUpPage() {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [birthday, setBirthday] = useState('');
+  // const [gender, setGender] = useState(''); // Uncomment this line if you decide to use gender
+  const [mobile, setMobile] = useState('');
+
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const [mobileError, setMobileError] = useState('');
+
+  const validateEmail = () => {
+    setEmailError(emailRegex.test(email) ? '' : 'Invalid email address');
+  };
+
+  const validatePassword = () => {
+    setPasswordError(passwordRegex.test(password) ? '' : 'The password must contain at least one lowercase letter, one uppercase letter, one digit, and be at least 8 characters in length.');
+  };
+
+  const validateMobile = () => {
+    setMobileError(mobileRegex.test(mobile) ? '' : 'Invalid mobile number');
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-      birthday: data.get('birthday'),
-      // gender: data.get('gender'),
-      mobile: data.get('mobile'),
 
+    // Validate each field
+    validateEmail();
+    validatePassword();
+    validateMobile();
+
+    // If there are validation errors, do not proceed with form submission
+    if (emailError || passwordError || mobileError) {
+      return;
+    }
+
+    // Proceed with form submission
+    console.log({
+      firstName,
+      lastName,
+      email,
+      password,
+      birthday,
+      // gender,
+      mobile,
     });
   };
 
@@ -74,6 +98,8 @@ export default function SignUpPage() {
                   id="firstName"
                   label="First Name"
                   autoFocus
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -84,6 +110,8 @@ export default function SignUpPage() {
                   label="Last Name"
                   name="lastName"
                   autoComplete="family-name"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -94,9 +122,14 @@ export default function SignUpPage() {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  onBlur={validateEmail}
+                  error={Boolean(emailError)}
+                  helperText={emailError}
                 />
-                </Grid>
-                <Grid item xs={12}>
+              </Grid>
+              <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
@@ -105,9 +138,14 @@ export default function SignUpPage() {
                   type="password"
                   id="password"
                   autoComplete="new-password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  onBlur={validatePassword}
+                  error={Boolean(passwordError)}
+                  helperText={passwordError}
                 />
               </Grid>
-                 <Grid item xs={12}>
+              <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
@@ -115,9 +153,13 @@ export default function SignUpPage() {
                   label="Mobile Number"
                   name="mobile"
                   autoComplete="phone-number"
+                  value={mobile}
+                  onChange={(e) => setMobile(e.target.value)}
+                  onBlur={validateMobile}
+                  error={Boolean(mobileError)}
+                  helperText={mobileError}
                 />
               </Grid>
-
               <Grid item xs={12}>
                 <TextField
                   required
@@ -127,6 +169,8 @@ export default function SignUpPage() {
                   type="date"
                   id="birthday"
                   autoComplete="birthday"
+                  value={birthday}
+                  onChange={(e) => setBirthday(e.target.value)}
                 />
               </Grid>
               {/* <Grid item xs={12}>
@@ -138,6 +182,8 @@ export default function SignUpPage() {
                   // type="radio"
                   id="gender"
                   autoComplete="gender"
+                  value={gender}
+                  onChange={(e) => setGender(e.target.value)}
                 />
               </Grid> */}
               <Grid item xs={12}>
@@ -164,7 +210,6 @@ export default function SignUpPage() {
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 5 }} />
       </Container>
     </ThemeProvider>
   );
