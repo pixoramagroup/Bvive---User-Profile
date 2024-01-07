@@ -4,7 +4,7 @@ import "./MediaPopUp.scss";
 
 const MediaPopup = ({ mediaItems, onClose,type}) => {
   return (
-    <div className="media-popup-dialog">
+    <div className="media-popup-dialog" onClick={onClose}>
 
 
       <div className="media-popup-content">

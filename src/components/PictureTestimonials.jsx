@@ -68,6 +68,13 @@ const PictureTestimonials = () => {
           rating={5}
           onStarClick={() => {}}
         />
+         <IndividualTestimonial
+          title={testimonialsData[(currentIndex + 2) % testimonialsData.length].title}
+          content={testimonialsData[(currentIndex + 2) % testimonialsData.length].content}
+          image={testimonialsData[(currentIndex + 2) % testimonialsData.length].image}
+          rating={5}
+          onStarClick={() => {}}
+        />
      
       <button onClick={nextTestimonial} className="next-button">
         &gt;

@@ -1,14 +1,15 @@
 import React from "react";
 import ImageCarousel from "./ImageCarousel";
 
-const AboutMe = ({ title, mediaItems, onViewAll }) => {  return (
+const MyContent = ({ title, mediaItems, onViewAll }) => {  return (
     <div
       className="profile-aboutme-left-box"
-      style={{ flex: 1, backgroundColor: "white", marginRight: "5px" }}
+      style={{ flex: 1, backgroundColor: "white",     border: "1px solid gold",padding:"1px" , gap:"1px"
+    }}
     >
       <h2
         style={{
-          fontSize: "34px",
+          fontSize: "28px",
           marginBottom: "10px",
           color: "black",
           fontWeight: "500",
@@ -23,9 +24,9 @@ const AboutMe = ({ title, mediaItems, onViewAll }) => {  return (
           style={{
             marginLeft: "auto",
             color: "#333",
-            padding: "10px 20px",
+            padding: "10px 15px",
             fontSize: "16px",
-            marginRight: "30px",
+            marginRight: "20px",
             fontWeight: "normal",
             borderRadius: "5px",
             border: " 1px solid grey",
@@ -43,4 +44,4 @@ const AboutMe = ({ title, mediaItems, onViewAll }) => {  return (
   );
 };
 
-export default AboutMe;
+export default MyContent;

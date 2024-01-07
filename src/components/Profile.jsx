@@ -29,7 +29,7 @@ import Video3 from "../assets/video3.mp4";
 import Video4 from "../assets/video4.mp4";
 import Yoga from "../assets/yoga_1.jpg";
 import VerifiedIcon from "@mui/icons-material/Verified";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 // import LanguageIcon from "@mui/icons-material/Language";
 // import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
 // import MailOutlineIcon from "@mui/icons-material/MailOutline";
@@ -39,13 +39,13 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 // import TwitterIcon from "@mui/icons-material/Twitter";
 import Footer from "./Footer";
-import AboutMe from "./AboutMe";
 import MySpecializations from "./MySpecializations";
 import Fit1 from "../assets/fit1.jpeg";
 import BviveLogo from "../assets/white_logo.png";
 import PictureTestimonials from "./PictureTestimonials";
 import SignUpPage from "./SignUpPage";
 import MediaPopup from "./MediaPopUp";
+import MyContent from "./MyContent";
 const Profile = () => {
   // const images = [
   //   '',
@@ -116,28 +116,83 @@ const Profile = () => {
       institute: "Fitness Institute Australia 2",
     },
   ];
+  const PostMediaItems = [
+    { type: "image", src: Body4, caption: "Healthy Day", date: "12-2-2023" },
+    {
+      type: "image",
+      src: Body2,
+      caption: "Nutrition in every bite",
+      date: "12-2-2023",
+    },
+    { type: "image", src: Body3, caption: "Food is Good", date: "12-2-2023" },
+    { type: "image", src: Body1, caption: "Tasty Treats", date: "12-2-2023" },
+  ];
 
   const blogMediaItems = [
     { type: "image", src: Blog1, caption: "Healthy Day", date: "12-2-2023" },
-    { type: "image", src: Blog2, caption: "Nutrition in every bite",date: "12-2-2023" },
-    { type: "image", src: Blog3, caption: "Food is Good",date: "12-2-2023" },
+    {
+      type: "image",
+      src: Blog2,
+      caption: "Nutrition in every bite",
+      date: "12-2-2023",
+    },
+    { type: "image", src: Blog3, caption: "Food is Good", date: "12-2-2023" },
     { type: "image", src: Blog4, caption: "Tasty Treats", date: "12-2-2023" },
   ];
 
   const photoMediaItems = [
-    { type: "image", src: Body1, caption: "Holistic Workout" ,date: "12-2-2023"},
-    { type: "image", src: Body2, caption: "Stretching" ,date: "12-2-2023"},
-    { type: "image", src: Body3, caption: "Crunch the core" ,date: "12-2-2023"},
-    { type: "image", src: Body4, caption: "Fitness is a lifestyle", date: "12-2-2023" },
+    {
+      type: "image",
+      src: Body1,
+      caption: "Holistic Workout",
+      date: "12-2-2023",
+    },
+    { type: "image", src: Body2, caption: "Stretching", date: "12-2-2023" },
+    {
+      type: "image",
+      src: Body3,
+      caption: "Crunch the core",
+      date: "12-2-2023",
+    },
+    {
+      type: "image",
+      src: Body4,
+      caption: "Fitness is a lifestyle",
+      date: "12-2-2023",
+    },
   ];
 
   const videoMediaItems = [
-    { key: 1, type: "video", src: Video3, caption: "Be fit", date: "12-2-2023" },
-    { key: 2, type: "video", src: Video1, caption: "Be Long Lived", date: "12-2-2023" },
-    { key: 3, type: "video", src: Video2, caption: "5 minutes goal", date: "12-2-2023" },
-    { key: 4, type: "video", src: Video4, caption: "Do this every day", date: "12-2-2023" },
+    {
+      key: 1,
+      type: "video",
+      src: Video3,
+      caption: "Be fit",
+      date: "12-2-2023",
+    },
+    {
+      key: 2,
+      type: "video",
+      src: Video1,
+      caption: "Be Long Lived",
+      date: "12-2-2023",
+    },
+    {
+      key: 3,
+      type: "video",
+      src: Video2,
+      caption: "5 minutes goal",
+      date: "12-2-2023",
+    },
+    {
+      key: 4,
+      type: "video",
+      src: Video4,
+      caption: "Do this every day",
+      date: "12-2-2023",
+    },
   ];
-   
+
   const [selectedMediaType, setSelectedMediaType] = useState(null);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
@@ -149,9 +204,8 @@ const Profile = () => {
   const closePopup = () => {
     setIsPopupOpen(false);
   };
- 
+
   return (
-   
     // <div className={classes.profile}>
     //   {/* Header Section */}
     //   <header className={classes.header}>{/* Logo and Navigation */}</header>
@@ -205,8 +259,14 @@ const Profile = () => {
             }}
           ></img>
         </div>
-
-       <Link to="/SignIn"> <button className="login-button">LOG IN</button></Link>
+        <div>
+          <Link to="/SignIn">
+            <button className="login-button">LOG IN</button>
+          </Link>
+          <Link to="/SignUpPage">
+            <button className="login-button" style={{background:"lightblue"}}>SIGN UP</button>
+          </Link>
+        </div>
       </div>
       <div
         className="profile-second-main"
@@ -255,11 +315,26 @@ const Profile = () => {
                 >
                   Personal Trainer
                 </div>
-                <div style={{display:"flex", alignItems:"baseline"}}>
-                  <h2 style={{marginBottom:"4px"}}>James Osborn</h2>
+                <div style={{ display: "flex", alignItems: "baseline" }}>
+                  <h2 style={{ marginBottom: "4px", marginTop: "0px" }}>
+                    James Osborn
+                  </h2>
                   <VerifiedIcon className="verified-icon"></VerifiedIcon>
-                  <VerifiedIcon className="verified-icon" style={{color:"gold"}}></VerifiedIcon>
+                  <VerifiedIcon
+                    className="verified-icon"
+                    style={{ color: "gold" }}
+                  ></VerifiedIcon>
                 </div>
+                <h4
+                  style={{
+                    marginBottom: "4px",
+                    marginTop: "0px",
+                    color: "white",
+                  }}
+                >
+                  @jamesosborn
+                </h4>
+
                 <div>Male, 27</div>
                 <div>Cowandilla, Adelaide </div>
                 {/* <div style={{ fontSize: "30px" }}>
@@ -460,21 +535,86 @@ const Profile = () => {
           </div>
         </div> */}
       </div>
-      <div className="profile-aboutme-main-2" style={{ display: "flex" }}>
-        {/* First Part */}
-        <AboutMe title="Blogs" mediaItems={blogMediaItems}  onViewAll={() => openPopup("blogs")} />
-        <AboutMe title="Photos" mediaItems={photoMediaItems}  onViewAll={() => openPopup("photos")}/>
-        <AboutMe title="Videos" mediaItems={videoMediaItems}  onViewAll={() => openPopup("videos")}/>
-      </div>
+      <div className="profile-aboutme-main">
+        <div
+          className="profile-aboutme-left-box"
+          style={{ background: "#e64588" }}
+        >
+          <h2
+            style={{
+              fontSize: "34px",
+              marginBottom: "10px",
+              color: "white",
+              marginLeft: "60px",
+              fontWeight: "500",
+              marginTop: "20px",
+            }}
+          >
+            My Content
+          </h2>
+          <div
+            className="under-line"
+            style={{ backgroundColor: "white" }}
+          ></div>
+          <div className="list-container" style={{ overflow: "hidden" }}>
+            <ul className="list" style={{ color: "white" }}>
+              {["Posts","Blogs", "Photos", "Videos"].map((title, index) => (
+                <li
+                  className="list-items"
+                  key={index}
+                  onClick={() => openPopup(title.toLowerCase())}
+                >
+                  {title}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
 
+        <div className="profile-aboutme-main-2" style={{ display: "flex" }}>
+          {/* <div className="profile-aboutme-right-box" style={{ display: "flex" }}> */}
+
+          {/* First Part */}
+          <MyContent
+            title="Posts"
+            mediaItems={PostMediaItems}
+            onViewAll={() => openPopup("posts")}
+          />
+          <MyContent
+            title="Blogs"
+            mediaItems={blogMediaItems}
+            onViewAll={() => openPopup("blogs")}
+          />
+          <MyContent
+            title="Photos"
+            mediaItems={photoMediaItems}
+            onViewAll={() => openPopup("photos")}
+          />
+          <MyContent
+            title="Videos"
+            mediaItems={videoMediaItems}
+            onViewAll={() => openPopup("videos")}
+          />
+        </div>
+      </div>
       {isPopupOpen && (
         <MediaPopup
-          mediaItems={selectedMediaType === "blogs" ? blogMediaItems :
-                      selectedMediaType === "photos" ? photoMediaItems :
-                      selectedMediaType === "videos" ? videoMediaItems : []}
-                      type={selectedMediaType.charAt(0).toUpperCase() + selectedMediaType.substring(1)}
-                      onClose={closePopup}
-          
+          mediaItems={
+            selectedMediaType === "posts"
+              ? PostMediaItems
+              : selectedMediaType === "blogs"
+              ? blogMediaItems
+              : selectedMediaType === "photos"
+              ? photoMediaItems
+              : selectedMediaType === "videos"
+              ? videoMediaItems
+              : []
+          }
+          type={
+            selectedMediaType.charAt(0).toUpperCase() +
+            selectedMediaType.substring(1)
+          }
+          onClose={closePopup}
         />
       )}
 
@@ -648,7 +788,7 @@ const Profile = () => {
             justifyContent: "center",
           }}
         >
-          <PictureTestimonials ></PictureTestimonials>
+          <PictureTestimonials></PictureTestimonials>
           {/* <PictureTestimonials
             title={"Clara"}
             content={"Quick delivery and great prices"}
