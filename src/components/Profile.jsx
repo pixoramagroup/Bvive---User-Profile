@@ -7,9 +7,7 @@ import CircularImagePicker from "./CircularImagePicker";
 import CreditScoreIcon from "@mui/icons-material/CreditScore";
 import StarRatingComponent from "react-star-rating-component";
 import MapComponent from "./MapComponent";
-// import ImageGrid from "./ImageGrid";
 import TextCarousel from "./TextCarousel";
-// import Testimonials from "./Testimonials";
 import Stretching from "../assets/stretching_1.jpg";
 import Nutrition from "../assets/nutrition_1.jpg";
 import Sup from "../assets/sup.jpg";
@@ -46,6 +44,7 @@ import PictureTestimonials from "./PictureTestimonials";
 import SignUpPage from "./SignUpPage";
 import MediaPopup from "./MediaPopUp";
 import MyContent from "./MyContent";
+import SearchBar from "./SearchBar";
 const Profile = () => {
   // const images = [
   //   '',
@@ -260,6 +259,7 @@ const Profile = () => {
           ></img>
         </div>
         <div>
+          <SearchBar></SearchBar>
           <Link to="/SignIn">
             <button className="login-button">LOG IN</button>
           </Link>
@@ -325,15 +325,16 @@ const Profile = () => {
                     style={{ color: "gold" }}
                   ></VerifiedIcon>
                 </div>
-                <h4
+                <p
                   style={{
+                    fontStyle:"italic",
                     marginBottom: "4px",
                     marginTop: "0px",
                     color: "white",
                   }}
                 >
                   @jamesosborn
-                </h4>
+                </p>
 
                 <div>Male, 27</div>
                 <div>Cowandilla, Adelaide </div>
@@ -550,7 +551,7 @@ const Profile = () => {
               marginTop: "20px",
             }}
           >
-            My Content
+            Media
           </h2>
           <div
             className="under-line"

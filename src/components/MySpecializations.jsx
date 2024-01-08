@@ -87,7 +87,7 @@ const MySpecializations = () => {
             marginTop: "20px",
           }}
         >
-          My Specializations
+         Services
         </h2>
         <div className="under-line" style={{ backgroundColor: "white" }}></div>
         <div className="list-container">
