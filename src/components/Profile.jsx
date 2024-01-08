@@ -7,9 +7,7 @@ import CircularImagePicker from "./CircularImagePicker";
 import CreditScoreIcon from "@mui/icons-material/CreditScore";
 import StarRatingComponent from "react-star-rating-component";
 import MapComponent from "./MapComponent";
-// import ImageGrid from "./ImageGrid";
 import TextCarousel from "./TextCarousel";
-// import Testimonials from "./Testimonials";
 import Stretching from "../assets/stretching_1.jpg";
 import Nutrition from "../assets/nutrition_1.jpg";
 import Sup from "../assets/sup.jpg";
@@ -46,6 +44,7 @@ import PictureTestimonials from "./PictureTestimonials";
 import SignUpPage from "./SignUpPage";
 import MediaPopup from "./MediaPopUp";
 import MyContent from "./MyContent";
+import SearchBar from "./SearchBar";
 const Profile = () => {
   // const images = [
   //   '',
@@ -116,16 +115,14 @@ const Profile = () => {
       institute: "Fitness Institute Australia 2",
     },
   ];
-  const PostMediaItems = [
-    { type: "image", src: Body4, caption: "Healthy Day", date: "12-2-2023" },
+  //
+  const textMediaItems = [
     {
-      type: "image",
-      src: Body2,
-      caption: "Nutrition in every bite",
+      type: "text",
+      text: "Lorem ipsum dolor sit amet, consectetur adipisicing eli  ipsum dolor sit amet, consectetur adipisicing elit. Facilisillum quis reprehenderit velit possimus eaque",
       date: "12-2-2023",
     },
-    { type: "image", src: Body3, caption: "Food is Good", date: "12-2-2023" },
-    { type: "image", src: Body1, caption: "Tasty Treats", date: "12-2-2023" },
+    // Add more text posts
   ];
 
   const blogMediaItems = [
@@ -260,11 +257,17 @@ const Profile = () => {
           ></img>
         </div>
         <div>
+          <SearchBar></SearchBar>
           <Link to="/SignIn">
             <button className="login-button">LOG IN</button>
           </Link>
           <Link to="/SignUpPage">
-            <button className="login-button" style={{background:"lightblue"}}>SIGN UP</button>
+            <button
+              className="login-button"
+              style={{ background: "lightblue" }}
+            >
+              SIGN UP
+            </button>
           </Link>
         </div>
       </div>
@@ -325,15 +328,17 @@ const Profile = () => {
                     style={{ color: "gold" }}
                   ></VerifiedIcon>
                 </div>
-                <h4
+                <p
                   style={{
+                    fontStyle: "italic",
                     marginBottom: "4px",
                     marginTop: "0px",
                     color: "white",
+                    fontSize: "16px",
                   }}
                 >
                   @jamesosborn
-                </h4>
+                </p>
 
                 <div>Male, 27</div>
                 <div>Cowandilla, Adelaide </div>
@@ -550,7 +555,7 @@ const Profile = () => {
               marginTop: "20px",
             }}
           >
-            My Content
+            Media
           </h2>
           <div
             className="under-line"
@@ -558,7 +563,7 @@ const Profile = () => {
           ></div>
           <div className="list-container" style={{ overflow: "hidden" }}>
             <ul className="list" style={{ color: "white" }}>
-              {["Posts","Blogs", "Photos", "Videos"].map((title, index) => (
+              {["Posts", "Blogs", "Photos", "Videos"].map((title, index) => (
                 <li
                   className="list-items"
                   key={index}
@@ -577,7 +582,7 @@ const Profile = () => {
           {/* First Part */}
           <MyContent
             title="Posts"
-            mediaItems={PostMediaItems}
+            mediaItems={textMediaItems}
             onViewAll={() => openPopup("posts")}
           />
           <MyContent
@@ -601,7 +606,7 @@ const Profile = () => {
         <MediaPopup
           mediaItems={
             selectedMediaType === "posts"
-              ? PostMediaItems
+              ? textMediaItems
               : selectedMediaType === "blogs"
               ? blogMediaItems
               : selectedMediaType === "photos"
