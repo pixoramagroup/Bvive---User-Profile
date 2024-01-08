@@ -1,7 +1,32 @@
+
+.verified-icon {
+  color: rgb(5, 158, 247); /* Change the color as needed */
+  margin-left: 5px; /* Adjust spacing as needed */
+  transform: translate(0px,3px);
+}
+
+.watermark {
+  width: 130px; /* Adjust the width as needed */
+  height: auto; /* Maintain the aspect ratio */
+  position: absolute;
+  top: 10px; /* Adjust the top position as needed */
+  left: 5px; /* Adjust the left position as needed */
+  opacity: 0.4; /* Adjust the opacity as needed */
+  z-index: 1; /* Ensure the image is behind the text */
+}
+
+.heading-container {
+  z-index: 1;
+  // margin: 5px;
+  // font-weight: 800;
+  // color: #e42072;
+}
+
 .carousel-container {
   display: flex;
   align-items: center;
   position: relative;
+
 }
 
 .carousel-button {
@@ -21,36 +46,23 @@
   color: white !important;
   background-color: darkgray !important;
 }
-// .carousel-content {
-//   display: flex;
-//   overflow: hidden;
-//   margin: 0; /* Remove any margin */
-// }
-
-// .carousel-item {
-//   min-width: 100px; /* Adjust as needed */
-//   padding: 10px;
-//   border: 1px solid #dee2e6;
-//   text-align: center;
-//   display: flex;
-//   justify-content: flex-start;
-//   flex-direction: column;
-//   align-items: flex-start;
-// }
 
 .carousel-content {
   display: flex;
   overflow: hidden;
+  margin-top: 50px;
+  margin-bottom: 30px;
 }
 
 .carousel-item {
   min-width: 330px !important; /* Adjust as needed */
   margin: 0px;
-  padding: 10px;
+  padding: 15px;
   // background-color: #f8f8f8;
   border: 1px solid #dee2e6;
   // border-radius: 5px;
-  text-align: center;
+  // text-align: center;
+  text-align: left;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
@@ -59,47 +71,31 @@
   // border-radius: 20px;
 }
 
-.heading-container {
-  z-index: 1;
-  // margin: 5px;
-  // font-weight: 800;
-  // color: #e42072;
+
+.carousel-heading {
+  margin-bottom: 10px;
+  font-weight: 800;
+  color: #e42072;
+  font-size: 18px; /* Adjust as needed */
 }
 
 .carousel-subHeading {
-  z-index: 1;
-  // color: #959595;
-  // margin: 5px;
+  color: #959595;
+  margin-bottom: 10px;
+    z-index: 1;
+
 }
 
 .carousel-institute {
-  z-index: 1;
-  // margin-top: 10px;
-  // margin: 5px;
-  // color: #959595;
-  // font-size: 12px;
+  color: #959595;
+  font-size: 14px;
+    z-index: 1;
+
 }
 
 .line {
-  width: 20%; /* Line width */
-  height: 2px; /* Line thickness */
-  background-color: #e42072; /* Line color */
-  //margin: 5px;
-  
-}
-
-.verified-icon {
-  color: rgb(5, 158, 247); /* Change the color as needed */
-  margin-left: 5px; /* Adjust spacing as needed */
-  transform: translate(0px,3px);
-}
-
-.watermark {
-  width: 130px; /* Adjust the width as needed */
-  height: auto; /* Maintain the aspect ratio */
-  position: absolute;
-  top: 10px; /* Adjust the top position as needed */
-  left: 5px; /* Adjust the left position as needed */
-  opacity: 0.4; /* Adjust the opacity as needed */
-  z-index: 1; /* Ensure the image is behind the text */
+  width: 30%;
+  height: 2px;
+  background-color: #e42072;
+  margin: 10px 0;
 }
