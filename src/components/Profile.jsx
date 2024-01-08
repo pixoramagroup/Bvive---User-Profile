@@ -115,16 +115,14 @@ const Profile = () => {
       institute: "Fitness Institute Australia 2",
     },
   ];
-  const PostMediaItems = [
-    { type: "image", src: Body4, caption: "Healthy Day", date: "12-2-2023" },
+  //
+  const textMediaItems = [
     {
-      type: "image",
-      src: Body2,
-      caption: "Nutrition in every bite",
+      type: "text",
+      text: "Lorem ipsum dolor sit amet, consectetur adipisicing eli  ipsum dolor sit amet, consectetur adipisicing elit. Facilisillum quis reprehenderit velit possimus eaque",
       date: "12-2-2023",
     },
-    { type: "image", src: Body3, caption: "Food is Good", date: "12-2-2023" },
-    { type: "image", src: Body1, caption: "Tasty Treats", date: "12-2-2023" },
+    // Add more text posts
   ];
 
   const blogMediaItems = [
@@ -264,7 +262,12 @@ const Profile = () => {
             <button className="login-button">LOG IN</button>
           </Link>
           <Link to="/SignUpPage">
-            <button className="login-button" style={{background:"lightblue"}}>SIGN UP</button>
+            <button
+              className="login-button"
+              style={{ background: "lightblue" }}
+            >
+              SIGN UP
+            </button>
           </Link>
         </div>
       </div>
@@ -327,10 +330,11 @@ const Profile = () => {
                 </div>
                 <p
                   style={{
-                    fontStyle:"italic",
+                    fontStyle: "italic",
                     marginBottom: "4px",
                     marginTop: "0px",
                     color: "white",
+                    fontSize: "16px",
                   }}
                 >
                   @jamesosborn
@@ -559,7 +563,7 @@ const Profile = () => {
           ></div>
           <div className="list-container" style={{ overflow: "hidden" }}>
             <ul className="list" style={{ color: "white" }}>
-              {["Posts","Blogs", "Photos", "Videos"].map((title, index) => (
+              {["Posts", "Blogs", "Photos", "Videos"].map((title, index) => (
                 <li
                   className="list-items"
                   key={index}
@@ -578,7 +582,7 @@ const Profile = () => {
           {/* First Part */}
           <MyContent
             title="Posts"
-            mediaItems={PostMediaItems}
+            mediaItems={textMediaItems}
             onViewAll={() => openPopup("posts")}
           />
           <MyContent
@@ -602,7 +606,7 @@ const Profile = () => {
         <MediaPopup
           mediaItems={
             selectedMediaType === "posts"
-              ? PostMediaItems
+              ? textMediaItems
               : selectedMediaType === "blogs"
               ? blogMediaItems
               : selectedMediaType === "photos"
