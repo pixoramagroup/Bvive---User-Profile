@@ -131,6 +131,7 @@ const MySpecializations = () => {
               >
                 <h3>{specialization.name}</h3>
               </div>
+          
             )
         )}
       </div>

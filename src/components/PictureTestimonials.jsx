@@ -36,6 +36,15 @@ function IndividualTestimonial({ title, content, image, rating, onStarClick }) {
 
 const PictureTestimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   const nextTestimonial = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonialsData.length);
@@ -49,11 +58,10 @@ const PictureTestimonials = () => {
 
   return (
     <div className="testimonial-container">
-      
       <div className="testimonials-wrapper">
-      <button onClick={prevTestimonial} className="prev-button">
-        &lt;
-      </button>
+        <button onClick={prevTestimonial} className="prev-button">
+          &lt;
+        </button>
         <IndividualTestimonial
           title={testimonialsData[currentIndex].title}
           content={testimonialsData[currentIndex].content}
@@ -61,25 +69,52 @@ const PictureTestimonials = () => {
           rating={5}
           onStarClick={() => {}}
         />
-        <IndividualTestimonial
-          title={testimonialsData[(currentIndex + 1) % testimonialsData.length].title}
-          content={testimonialsData[(currentIndex + 1) % testimonialsData.length].content}
-          image={testimonialsData[(currentIndex + 1) % testimonialsData.length].image}
+         <IndividualTestimonial
+          title={testimonialsData[currentIndex +1].title}
+          content={testimonialsData[currentIndex+1].content}
+          image={testimonialsData[currentIndex+1].image}
           rating={5}
           onStarClick={() => {}}
         />
          <IndividualTestimonial
-          title={testimonialsData[(currentIndex + 2) % testimonialsData.length].title}
-          content={testimonialsData[(currentIndex + 2) % testimonialsData.length].content}
-          image={testimonialsData[(currentIndex + 2) % testimonialsData.length].image}
+          title={testimonialsData[currentIndex +2].title}
+          content={testimonialsData[currentIndex+2].content}
+          image={testimonialsData[currentIndex+2].image}
           rating={5}
           onStarClick={() => {}}
         />
-     
-      <button onClick={nextTestimonial} className="next-button">
-        &gt;
-      </button>
+       
+        <button onClick={nextTestimonial} className="next-button">
+          &gt;
+        </button>
       </div>
+      <div style={{textAlign:"center"}} >
+      <button onClick={openModal}className="show-all-button">
+          Show All Testimonials
+        </button>
+      </div>
+      
+
+      {isModalOpen && (
+        <div className="modal-overlay-testimonial" onClick={closeModal}>
+        <div className="modal-testimonial">
+        <h2>Testimonials</h2>
+          {testimonialsData.map((testimonial, index) => (
+            <IndividualTestimonial
+              key={index}
+              title={testimonial.title}
+              content={testimonial.content}
+              image={testimonial.image}
+              rating={5}
+              onStarClick={() => {}}
+            />
+          ))}
+          <button onClick={closeModal} className="close-button">
+            &times;
+          </button>
+        </div>
+      </div>
+    )}
     </div>
   );
 };
