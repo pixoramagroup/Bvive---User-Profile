@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import "./SearchBar.scss";
 
@@ -19,6 +19,20 @@ function SearchBar() {
     setActiveButton(buttonText);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (modalVisible) {
+        closeModal();
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [modalVisible]);
+
   return (
     <div className="wrap">
       <div className="search">
@@ -29,7 +43,8 @@ function SearchBar() {
           onFocus={openModal}
           // onBlur={closeModal}
         />
-        <button type="submit" className="searchButton">
+        <button type="submit" className="searchButton"
+        onFocus={openModal}>
           <SearchIcon />
         </button>
       </div>
@@ -62,7 +77,7 @@ function SearchBar() {
                   className={activeButton === "PostalCode" ? "active" : ""}
                   onClick={() => handleButtonClick("PostalCode")}
                 >
-                  Postal Code
+                  Services
                 </button>
               </div>
               <div className="search">

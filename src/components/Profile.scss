@@ -2,7 +2,7 @@
   $primary-color: #ffa500; // Example primary color
   $secondary-color: #333; // Example secondary color
   $font-stack: 'Helvetica Neue', sans-serif;
-  
+
 
   // // Reset margin and padding for all elements
   // * {
@@ -102,18 +102,39 @@
     font-family: sans-serif;
   }
 
+  // .profile-header {
+  //   display: flex;
+  //   justify-content: space-between;
+  //   align-items: center;
+  //   // background: yellow;
+  //   background: #3b3b3b;
+  //   width: 100%;
+  //   position: sticky !important;
+  //   top: 0;
+  //   z-index: 10000;
+  //   // border: solid black;
+  //   // display: none;
+  // }
   .profile-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    // background: yellow;
     background: #3b3b3b;
     width: 100%;
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 10000;
-    // border: solid black;
-    // display: none;
+
+
+  }
+
+  .profile-logo {
+
+    max-width: 150px;
+    margin-top: 25px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+
   }
 
   .login-button {
@@ -128,6 +149,63 @@
     cursor: pointer;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: background 0.3s, color 0.3s;
+
+
+
+  }
+
+  /* Additional styles for hamburger menu */
+  .hamburger-menu {
+    display: none;
+    /* Hide by default on larger screens */
+    cursor: pointer;
+    margin-right: 20px;
+  }
+
+  .menu-links {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Media query for small screens */
+  @media only screen and (max-width: 768px) {
+
+    /* Hamburger menu icon */
+    .hamburger-menu {
+      display: block;
+    }
+
+    /* Hide the menu links on small screens by default */
+    .menu-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      background: #3b3b3b;
+      padding: 10px;
+      width: 150px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Style the menu links */
+    .menu-links a {
+      color: white;
+      text-decoration: none;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    /* Style the login button for mobile view */
+    .login-button {
+      padding: 10px;
+      /* Adjust padding for smaller screens */
+      margin: 10px 0;
+      /* Add margin to separate from other elements */
+      font-size: 14px;
+      /* Adjust font size for smaller screens */
+    }
   }
 
   .profile-second-main {
@@ -425,7 +503,7 @@
     margin-top: 10px;
     width: 100%;
     height: 100%;
-  margin-bottom: 30px;
+    margin-bottom: 30px;
     // height: 2vh;
     //background: green;
     //border: solid black;
@@ -615,44 +693,54 @@
   .creditscore-box-blue {
     position: relative;
     width: 100%;
-    margin-top: 20px; /* Adjust the margin as needed */
+    margin-top: 20px;
+    /* Adjust the margin as needed */
   }
-  
+
   .creditscore-box-blue .icon-button-creditscore-blue {
     position: absolute;
     top: 0;
     right: 60px;
     cursor: pointer;
-    color: #039cff; /* Set the desired color */
-    font-size: 40px; /* Adjust the font size as needed */
+    color: #039cff;
+    /* Set the desired color */
+    font-size: 40px;
+    /* Adjust the font size as needed */
     transition: all 0.3s ease;
   }
-  
+
   .creditscore-box-blue:hover .icon-button-creditscore-blue {
-    color: lightskyblue; /* Change color on hover */
-    transform: scale(1.1); /* Optional: Increase size on hover */
+    color: lightskyblue;
+    /* Change color on hover */
+    transform: scale(1.1);
+    /* Optional: Increase size on hover */
   }
-  
+
   .creditscore-box-yellow {
     position: relative;
     width: 100%;
     // margin-top: 20px; /* Adjust the margin as needed */
   }
-  
+
   .creditscore-box-yellow .icon-button-creditscore-yellow {
     position: absolute;
     top: 0;
     right: 0;
     cursor: pointer;
-    color: yellow; /* Set the desired color */
-    font-size: 40px; /* Adjust the font size as needed */
+    color: yellow;
+    /* Set the desired color */
+    font-size: 40px;
+    /* Adjust the font size as needed */
     transition: all 0.3s ease;
   }
-  
+
   .creditscore-box-yellow:hover .icon-button-creditscore-yellow {
-    color: #cccc00; /* Change color on hover */
-    transform: scale(1.1); /* Optional: Increase size on hover */
+    color: #cccc00;
+    /* Change color on hover */
+    transform: scale(1.1);
+    /* Optional: Increase size on hover */
   }
+
   .list-items {
     // counter-increment: index; 
     display: flex;
@@ -661,8 +749,8 @@
     box-sizing: border-box;
     cursor: pointer;
   }
-  
-  
+
+
   /* Element counter */
   .list-items::before {
     content: counters(index, ".", decimal-leading-zero);
@@ -675,13 +763,66 @@
     align-self: flex-start;
     background-image: linear-gradient(to bottom, aquamarine, orangered);
     background-attachment: fixed;
-   background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
-    visibility: hidden; 
+    visibility: hidden;
   }
-  
-  
+
+
   /* Element separation */
-  .list-items + .list-items {
-    border-top: 1px solid rgba(255,255,255,0.2)
+  .list-items+.list-items {
+    border-top: 1px solid rgba(255, 255, 255, 0.2)
+  }
+
+
+  @media only screen and (max-width: 425px) {
+    .profile-second-main {
+      height: 100vh;
+      /* Adjust height for smaller screens */
+    }
+
+    .profile-second-box {
+      width: 90%;
+      /* Adjust width for smaller screens */
+      margin: 10px 10px 0 10px;
+      height: 70%;
+    }
+
+   
+
+    .profile-card-top-left {
+      width: 30%;
+      /* Take full width on smaller screens */
+      margin-bottom: 10px;
+    }
+
+    .profile-card-top-right {
+      width: 100%;
+      /* Take full width on smaller screens */
+      margin-bottom: 5%;
+      margin-left: 30px;
+    }
+
+    .profile-card-bottom-button {
+     margin-bottom: 0px;
+     height: 40%;
+    }
+
+    .transparent-button {
+      width: 100%;
+      /* Take full width on smaller screens */
+      margin-right: 10px;
+      /* Add spacing between buttons */
+    }
+
+    #img-wrapper {
+      width: 100%;
+    }
+  
+    .creditscore-box-blue,
+    .creditscore-box-yellow {
+      width: 100%;
+      margin-top: 10px; 
+      position: static;/* Add spacing between image and credit cards */
+    }
   }

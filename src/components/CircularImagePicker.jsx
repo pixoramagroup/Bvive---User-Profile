@@ -1,33 +1,19 @@
-import React, { useState, useRef,useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './CircularImagePicker.scss';
 
 const CircularImagePicker = ({ images, onImageChange }) => {
   const [localImages, setLocalImages] = useState(images);
   const [showPopup, setShowPopup] = useState(false);
+  const [showOverlay, setShowOverlay] = useState(false);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(null);
   const fileInputRef = useRef(null);
   const popupRef = useRef(null);
-  const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+  const overlayRef = useRef(null);
 
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (popupRef.current && !popupRef.current.contains(event.target)) {
-        // Clicked outside the popup, so close it
-        setShowPopup(false);
-      }
-    };
-
-    // Add event listener to handle clicks outside the popup
-    document.addEventListener('mousedown', handleClickOutside);
-
-    // Cleanup the event listener to avoid memory leaks
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
-
-  const handleImageClick = (index) => {
-    setShowPopup(true);
+  const handleImageClick = (index, event) => {
+    event.stopPropagation(); // Prevent the click event from reaching the window listener
     setSelectedImageIndex(index);
+    setShowPopup(true);
   };
 
   const handleFileChange = (event) => {
@@ -36,45 +22,72 @@ const CircularImagePicker = ({ images, onImageChange }) => {
       const fileUrl = URL.createObjectURL(file);
       setLocalImages([fileUrl]);
       onImageChange(fileUrl);
-      setShowPopup(false); // Close the pop-up after selecting the new image
+      setShowPopup(false);
+      setShowOverlay(false);
     }
   };
 
   const handleOptionClick = (option) => {
     if (option === 'seeProfilePic') {
-      // Handle zoomed version of the existing profile pic
-      // You can use a modal or any other component to display the zoomed version
-      // For now, let's log the action to the console
-      console.log('See Profile Pic:', localImages[selectedImageIndex]);
+      setShowOverlay(true);
     } else if (option === 'changeProfilePic') {
-      fileInputRef.current.click(); // Trigger file input when "Change or Add Profile Pic" is clicked
+      fileInputRef.current.click();
     } else if (option === 'seeIntroVideo') {
-      // Handle the "See Intro Video" option
-      // You can replace this with your logic to show the intro video
       console.log('See Intro Video');
     }
 
-    setShowPopup(false); // Close the pop-up after handling the option
+    setShowPopup(false);
   };
+
+  const handleOutsideClick = (event) => {
+    // Close the popup if clicked outside of it
+    if (popupRef.current && !popupRef.current.contains(event.target)) {
+      setShowPopup(false);
+    }
+
+    // Close the overlay if clicked outside of it
+    if (overlayRef.current && overlayRef.current === event.target) {
+      setShowOverlay(false);
+    }
+  };
+
+  useEffect(() => {
+    // Attach the click event listener to the window
+    window.addEventListener('click', handleOutsideClick);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener('click', handleOutsideClick);
+    };
+  }, []); // Empty dependency array ensures that this effect runs only once on mount
 
   return (
     <div className="image-picker-container">
       {localImages.map((image, index) => (
-        <div key={index} className="image-container" onClick={() => handleImageClick(index)}>
+        <div key={index} className="image-container" onClick={(event) => handleImageClick(index, event)}>
           <img src={image} alt={`image-${index}`} className="circular-image" />
         </div>
       ))}
       {showPopup && (
         <div ref={popupRef} className="popup-container">
           <div className="popup-option" onClick={() => handleOptionClick('seeProfilePic')}>
-            See Profile Pic
+            See Profile Picture
           </div>
           <div className="popup-option" onClick={() => handleOptionClick('changeProfilePic')}>
-            Change or Add Profile Pic
+            Change or Add Profile Picture
           </div>
           <div className="popup-option" onClick={() => handleOptionClick('seeIntroVideo')}>
             See Intro Video
           </div>
+        </div>
+      )}
+      {showOverlay && (
+        <div ref={overlayRef} className="profile-overlay" onClick={() => setShowOverlay(false)}>
+          <img
+            src={localImages[selectedImageIndex]}
+            alt={`overlay-${selectedImageIndex}`}
+            className="overlay-image"
+          />
         </div>
       )}
       <input
@@ -89,6 +102,11 @@ const CircularImagePicker = ({ images, onImageChange }) => {
 };
 
 export default CircularImagePicker;
+
+
+
+
+
 
 
 // import React, { useState, useRef } from 'react';

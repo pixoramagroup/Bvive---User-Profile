@@ -202,6 +202,12 @@ const Profile = () => {
     setIsPopupOpen(false);
   };
 
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
   return (
     // <div className={classes.profile}>
     //   {/* Header Section */}
@@ -242,35 +248,65 @@ const Profile = () => {
     //   <footer className={classes.Footer}>{/* Footer Content */}</footer>
     // </div>
 
+    // <div className="profile-main">
+    //   <div className="profile-header">
+    //     <div>
+    //       <img
+    //       className="profile-logo"
+    //         src={BviveLogo}
+    //         alt="Header Logo"
+            
+    //       ></img>
+    //     </div>
+    //     <div>
+    //       <SearchBar></SearchBar>
+    //       <Link to="/SignIn">
+    //         <button className="login-button">LOG IN</button>
+    //       </Link>
+    //       <Link to="/SignUpPage">
+    //         <button
+    //           className="login-button"
+    //           style={{ background: "lightblue" }}
+    //         >
+    //           SIGN UP
+    //         </button>
+    //       </Link>
+    //     </div>
+    //   </div>
     <div className="profile-main">
-      <div className="profile-header">
-        <div>
-          <img
-            src={BviveLogo}
-            alt="Header Logo"
-            style={{
-              maxWidth: "150px",
-              marginTop: "25px",
-              marginLeft: "30px",
-              marginBottom: "10px",
-            }}
-          ></img>
-        </div>
-        <div>
-          <SearchBar></SearchBar>
-          <Link to="/SignIn">
-            <button className="login-button">LOG IN</button>
-          </Link>
-          <Link to="/SignUpPage">
-            <button
-              className="login-button"
-              style={{ background: "lightblue" }}
-            >
-              SIGN UP
-            </button>
-          </Link>
-        </div>
+    {/* Header Section */}
+    <header className="profile-header">
+      <div>
+        <img
+          className="profile-logo"
+          src={BviveLogo}
+          alt="Header Logo"
+        ></img>
       </div>
+      <SearchBar />
+      {/* Hamburger Menu for Small Screens */}
+      <div className="hamburger-menu" onClick={toggleMobileMenu}>
+        {/* Implement your hamburger menu here */}
+        <button className="menu-button">&#9776;</button>
+      </div>
+      
+      <div className="menu-links" style={{ display: mobileMenuOpen ? 'flex' : "" }} >
+    
+        <Link to="/SignIn">
+          <button className="login-button">LOG IN</button>
+        </Link>
+        <Link to="/SignUpPage">
+          <button
+            className="login-button"
+            style={{ background: "lightblue" }}
+          >
+            SIGN UP
+          </button>
+        </Link>
+       
+      </div>
+    </header>
+    
       <div
         className="profile-second-main"
         src="Fit1"
@@ -487,6 +523,7 @@ const Profile = () => {
         </div> */}
       </div>
       <div className="profile-aboutme-main-1" style={{ background: "#3b3b3b" }}>
+      
         <MySpecializations></MySpecializations>
         {/* <h2
           style={{
