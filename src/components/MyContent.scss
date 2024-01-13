@@ -1,0 +1,24 @@
+.media-headings {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: black;
+    font-weight: 500;
+    margin: 20px 00px 16px 17px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.media-button {
+    margin-left: auto;
+    color: #333;
+    padding: 10px 15px;
+    font-size: 16px;
+    margin-right: 20px;
+    font-weight: normal;
+    border-radius: 5px;
+    border: 1px solid grey;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s, color 0.3s;
+}

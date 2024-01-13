@@ -1,6 +1,6 @@
 // Profile.js
 // import React from 'react';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 //import classes from './Profile.module.scss'; // Assume CSS modules are set up
 import "./Profile.scss";
 import CircularImagePicker from "./CircularImagePicker";
@@ -255,7 +255,7 @@ const Profile = () => {
     //       className="profile-logo"
     //         src={BviveLogo}
     //         alt="Header Logo"
-            
+
     //       ></img>
     //     </div>
     //     <div>
@@ -274,39 +274,36 @@ const Profile = () => {
     //     </div>
     //   </div>
     <div className="profile-main">
-    {/* Header Section */}
-    <header className="profile-header">
-      <div>
-        <img
-          className="profile-logo"
-          src={BviveLogo}
-          alt="Header Logo"
-        ></img>
-      </div>
-      <SearchBar />
-      {/* Hamburger Menu for Small Screens */}
-      <div className="hamburger-menu" onClick={toggleMobileMenu}>
-        {/* Implement your hamburger menu here */}
-        <button className="menu-button">&#9776;</button>
-      </div>
-      
-      <div className="menu-links" style={{ display: mobileMenuOpen ? 'flex' : "" }} >
-    
-        <Link to="/SignIn">
-          <button className="login-button">LOG IN</button>
-        </Link>
-        <Link to="/SignUpPage">
-          <button
-            className="login-button"
-            style={{ background: "lightblue" }}
-          >
-            SIGN UP
-          </button>
-        </Link>
-       
-      </div>
-    </header>
-    
+      {/* Header Section */}
+      <header className="profile-header">
+        <div>
+          <img className="profile-logo" src={BviveLogo} alt="Header Logo"></img>
+        </div>
+        <SearchBar />
+        {/* Hamburger Menu for Small Screens */}
+        <div className="hamburger-menu" onClick={toggleMobileMenu}>
+          {/* Implement your hamburger menu here */}
+          <button className="menu-button">&#9776;</button>
+        </div>
+
+        <div
+          className="menu-links"
+          style={{ display: mobileMenuOpen ? "flex" : "" }}
+        >
+          <Link to="/SignIn">
+            <button className="login-button">LOG IN</button>
+          </Link>
+          <Link to="/SignUpPage">
+            <button
+              className="login-button"
+              style={{ background: "lightblue" }}
+            >
+              SIGN UP
+            </button>
+          </Link>
+        </div>
+      </header>
+
       <div
         className="profile-second-main"
         src="Fit1"
@@ -345,16 +342,8 @@ const Profile = () => {
                 {/* {introVideo} */}
               </div>
               <div className="profile-card-top-right">
-                <div
-                  style={{
-                    fontSize: "23px",
-                    backdropFilter: "blur(5px)",
-                    padding: "5px",
-                  }}
-                >
-                  Personal Trainer
-                </div>
-                <div style={{ display: "flex", alignItems: "baseline" }}>
+                <div className="profile-tag">Personal Trainer</div>
+                <div className="profile-name">
                   <h2 style={{ marginBottom: "4px", marginTop: "0px" }}>
                     James Osborn
                   </h2>
@@ -477,19 +466,8 @@ const Profile = () => {
         </div>
       </div>
       <div className="certificate-main">
-        <h1
-          style={{
-            fontSize: "34px",
-            marginBottom: "10px",
-            color: "black",
-            marginLeft: "60px",
-            fontWeight: "500",
-          }}
-        >
-          My Certifications
-        </h1>
+        <h1>My Certifications</h1>
         <div className="under-line" style={{ backgroundColor: "black" }}></div>
-
         <TextCarousel items={textItems} itemsPerView={4} />
       </div>
       <div className="profile-social-main">
@@ -523,7 +501,6 @@ const Profile = () => {
         </div> */}
       </div>
       <div className="profile-aboutme-main-1" style={{ background: "#3b3b3b" }}>
-      
         <MySpecializations></MySpecializations>
         {/* <h2
           style={{
@@ -727,109 +704,7 @@ const Profile = () => {
         </div>
       </div> */}
 
-      <div className="profile-aboutme-main">
-        <div
-          className="profile-aboutme-left-box"
-          style={{ background: "rgb(67 206 175)", position: "relative" }}
-          draggable
-          onDragStart={(e) => handleOnDrag(e, "contact me", "green")}
-        >
-          <h2
-            style={{
-              fontSize: "34px",
-              marginBottom: "10px",
-              color: "white",
-              marginLeft: "60px",
-              fontWeight: "500",
-              marginTop: "20px",
-            }}
-          >
-            Testimonials
-          </h2>
-          <div className="under-line"></div>
-          <div>
-            <h3
-              style={{
-                marginBottom: "10px",
-                color: "white",
-                marginLeft: "60px",
-                fontWeight: "600",
-                marginTop: "40px",
-              }}
-            >
-              Rating 4
-              <span
-                style={{
-                  fontStyle: "italic",
-                  display: "block",
-                  fontWeight: "lighter",
-                }}
-              >
-                based on 52 testimonials
-              </span>
-            </h3>
-          </div>
-          <div className="profile-card-bottom-button">
-            <button
-              className="transparent-button"
-              style={{
-                color: "white",
-                padding: "10px 20px",
-                marginTop: "10px",
-                cursor: "pointer",
-                alignContent: "flex-start",
-              }}
-            >
-              Leave Feedback
-            </button>
-          </div>
-
-          {/* T-shaped div inside profile-aboutme-left-box */}
-          <div
-            className="t-shape"
-            style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%) skewX(-10deg)",
-              width: "100%",
-              height: "100%",
-            }}
-          >
-            <div
-              className="horizontal-bar"
-              style={{
-                position: "absolute",
-                top: "0",
-                left: "0",
-                width: "90%",
-                height: "60px",
-                backgroundColor: "#b8ebe0",
-                opacity: "0.2",
-              }}
-            ></div>
-            <div
-              className="vertical-bar"
-              style={{
-                position: "absolute",
-                top: "60px",
-                left: "37%",
-                width: "60px",
-                height: "85%",
-                backgroundColor: "#b8ebe0",
-                opacity: "0.2",
-              }}
-            ></div>
-          </div>
-        </div>
-        <div
-          className="profile-aboutme-right-box"
-          style={{
-            background: "white",
-            flexDirection: "row",
-            justifyContent: "center",
-          }}
-        >
+     
           <PictureTestimonials></PictureTestimonials>
           {/* <PictureTestimonials
             title={"Clara"}
@@ -847,8 +722,8 @@ const Profile = () => {
             image={Stretching}
           ></PictureTestimonials> */}
           {/* <Testimonials></Testimonials> */}
-        </div>
-      </div>
+        {/* </div> */}
+      {/* </div> */}
       <Footer></Footer>
       {/* <SignUpPage></SignUpPage> */}
     </div>

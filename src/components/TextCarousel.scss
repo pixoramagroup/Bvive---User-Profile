@@ -1,18 +1,25 @@
-
 .verified-icon {
-  color: rgb(5, 158, 247); /* Change the color as needed */
-  margin-left: 5px; /* Adjust spacing as needed */
-  transform: translate(0px,3px);
+  color: rgb(5, 158, 247);
+  /* Change the color as needed */
+  margin-left: 5px;
+  /* Adjust spacing as needed */
+  transform: translate(0px, 3px);
 }
 
 .watermark {
-  width: 130px; /* Adjust the width as needed */
-  height: auto; /* Maintain the aspect ratio */
+  width: 130px;
+  /* Adjust the width as needed */
+  height: auto;
+  /* Maintain the aspect ratio */
   position: absolute;
-  top: 10px; /* Adjust the top position as needed */
-  left: 5px; /* Adjust the left position as needed */
-  opacity: 0.4; /* Adjust the opacity as needed */
-  z-index: 1; /* Ensure the image is behind the text */
+  top: 10px;
+  /* Adjust the top position as needed */
+  left: 5px;
+  /* Adjust the left position as needed */
+  opacity: 0.4;
+  /* Adjust the opacity as needed */
+  z-index: 1;
+  /* Ensure the image is behind the text */
 }
 
 .heading-container {
@@ -55,7 +62,8 @@
 }
 
 .carousel-item {
-  min-width: 330px !important; /* Adjust as needed */
+  min-width: 330px !important;
+  /* Adjust as needed */
   margin: 0px;
   padding: 15px;
   // background-color: #f8f8f8;
@@ -76,20 +84,21 @@
   margin-bottom: 10px;
   font-weight: 800;
   color: #e42072;
-  font-size: 18px; /* Adjust as needed */
+  font-size: 18px;
+  /* Adjust as needed */
 }
 
 .carousel-subHeading {
   color: #959595;
   margin-bottom: 10px;
-    z-index: 1;
+  z-index: 1;
 
 }
 
 .carousel-institute {
   color: #959595;
   font-size: 14px;
-    z-index: 1;
+  z-index: 1;
 
 }
 
@@ -99,4 +108,45 @@
   background-color: #e42072;
   margin: 10px 0;
   z-index: 1;
+}
+
+/* Add this media query at the end of your existing CSS */
+@media (max-width: 768px) {
+  .carousel-content {
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .carousel-item {
+    min-width: unset !important;
+    /* Remove the minimum width for flexibility */
+    width: 100%;
+    /* Set width to 100% for full width on smaller screens */
+    margin: 0px 0px 0px 15px     /* Add margin between items for better spacing */
+  }
+
+
+
+  .carousel-heading {
+    font-size: 16px;
+    /* Adjust heading font size for smaller screens */
+    margin-bottom: 5px;
+    /* Adjust margin for smaller screens */
+  }
+
+  .carousel-button,
+  .carousel-subHeading,
+  .carousel-institute,
+  .line,
+  .watermark {
+    display: none
+  }
+
+  .verified-icon {
+    transform: none;
+    /* Reset the transformation for smaller screens */
+  }
+
+
 }
