@@ -15,6 +15,10 @@
     justify-content: space-between;
 }
 
+.footer-info{
+    width: 50vh;
+}
+
 .footer-logo img {
     max-width: 150px;
 }
@@ -51,4 +55,28 @@
     text-align: center;
     margin-top: 20px;
     font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .footer{
+        padding: 20px 0;
+    }
+    .footer-content {
+        flex-direction: column;  /* Stack sections vertically on small screens */
+        align-items: center;  /* Center the sections */
+    }
+
+    .footer-info{
+        padding: 5px;
+        /* width: 238%; */
+        width: auto;
+    }
+    .footer-logo img {
+        margin-bottom: 20px;  /* Add some spacing below the logo */
+    }
+
+    .footer-links, .footer-social {
+        width: 100%;  /* Take full width on small screens */
+        text-align: center;
+    }
 }

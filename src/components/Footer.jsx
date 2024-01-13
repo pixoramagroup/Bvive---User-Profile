@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="footer-logo">
           <img src="src/assets/white_logo.png" alt="Your Logo"></img>
         </div>
-        <div style={{ width: "50vh" }}>
+        <div className="footer-info" >
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis
           illum quis reprehenderit velit possimus eaque consequuntur labore
           quam, ducimus impedit aut amet distinctio rerum a ipsam repudiandae

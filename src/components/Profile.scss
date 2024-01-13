@@ -569,6 +569,17 @@
     // border-radius: 5px;
   }
 
+  .profile-tag {
+    font-size: 23px;
+    backdrop-filter: blur(5px);
+    padding: 5px;
+  }
+
+  .profile-name {
+    display: flex;
+    align-items: baseline;
+  }
+
   #img-wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -615,7 +626,15 @@
     width: 100%;
     background-color: #f8f8f8;
     color: black;
-    margin-left: 20px;
+    // margin-left: 20px;
+  }
+
+  .certificate-main h1 {
+    font-size: 34px;
+    margin-bottom: 10px;
+    color: black;
+    margin-left: 60px;
+    font-weight: 500;
   }
 
   .star-main {
@@ -700,7 +719,7 @@
   .creditscore-box-blue .icon-button-creditscore-blue {
     position: absolute;
     top: 0;
-    right: 60px;
+    right: 50px;
     cursor: pointer;
     color: #039cff;
     /* Set the desired color */
@@ -774,10 +793,9 @@
     border-top: 1px solid rgba(255, 255, 255, 0.2)
   }
 
-
-  @media only screen and (max-width: 425px) {
+  @media (max-width: 375px) {
     .profile-second-main {
-      height: 100vh;
+      height: 70vh;
       /* Adjust height for smaller screens */
     }
 
@@ -785,10 +803,10 @@
       width: 90%;
       /* Adjust width for smaller screens */
       margin: 10px 10px 0 10px;
-      height: 70%;
+      height: 55vh;
     }
 
-   
+
 
     .profile-card-top-left {
       width: 30%;
@@ -799,13 +817,13 @@
     .profile-card-top-right {
       width: 100%;
       /* Take full width on smaller screens */
-      margin-bottom: 5%;
-      margin-left: 30px;
+      // margin-bottom: 5%;
+      // margin-left: 30px;
     }
 
     .profile-card-bottom-button {
-     margin-bottom: 0px;
-     height: 40%;
+      margin-bottom: 0px;
+      height: 40%;
     }
 
     .transparent-button {
@@ -815,14 +833,190 @@
       /* Add spacing between buttons */
     }
 
+
+    .profile-tag {
+      font-size: 20px;
+    }
+
+    .profile-name h2 {
+      font-size: 19px;
+    }
+
     #img-wrapper {
       width: 100%;
     }
-  
+
     .creditscore-box-blue,
     .creditscore-box-yellow {
       width: 100%;
-      margin-top: 10px; 
-      position: static;/* Add spacing between image and credit cards */
+      margin-top: 10px;
+      position: static;
+      /* Add spacing between image and credit cards */
+    }
+
+    .creditscore-box-blue .icon-button-creditscore-blue {
+      font-size: 35px;
+      right: 40px;
+    }
+
+    .creditscore-box-yellow .icon-button-creditscore-yellow {
+      font-size: 35px;
+    }
+
+    .certificate-main h1 {
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+
+    .profile-social-main {
+      gap: 50px;
+
+    }
+
+    .profile-aboutme-left-box {
+      width: 100%;
+    }
+
+    .profile-aboutme-right-box {
+      display: none !important;
+    }
+
+    .profile-aboutme-main-2 {
+      display: none !important;
+    }
+
+  }
+
+
+  @media (min-width: 376px) and (max-width: 425px) {
+    .profile-second-main {
+      height: 70vh;
+      /* Adjust height for smaller screens */
+    }
+
+    .profile-second-box {
+      width: 90%;
+      /* Adjust width for smaller screens */
+      margin: 10px 10px 0 10px;
+      height: 55vh;
+    }
+
+
+
+    .profile-card-top-left {
+      width: 30%;
+      /* Take full width on smaller screens */
+      margin-bottom: 10px;
+    }
+
+    .profile-card-top-right {
+      width: 100%;
+      /* Take full width on smaller screens */
+      // margin-bottom: 5%;
+      // margin-left: 30px;
+    }
+
+    .profile-card-bottom-button {
+      margin-bottom: 0px;
+      height: 40%;
+    }
+
+    .transparent-button {
+      width: 100%;
+      /* Take full width on smaller screens */
+      margin-right: 10px;
+      /* Add spacing between buttons */
+    }
+
+
+    .profile-tag {
+      font-size: 20px;
+    }
+
+    .profile-name h2 {
+      font-size: 20px;
+    }
+
+    #img-wrapper {
+      width: 100%;
+    }
+
+    .creditscore-box-blue,
+    .creditscore-box-yellow {
+      width: 100%;
+      margin-top: 10px;
+      position: static;
+      /* Add spacing between image and credit cards */
+    }
+
+    .certificate-main h1 {
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+
+    .profile-social-main {
+      gap: 50px;
+
+    }
+
+    .profile-aboutme-left-box {
+      width: 100%;
+    }
+
+    .profile-aboutme-right-box {
+      display: none !important;
+    }
+
+    .profile-aboutme-main-2 {
+      display: none !important;
+    }
+  }
+
+  @media only screen and (min-width: 426px) and (max-width: 768px) {
+    .profile-second-box {
+      width: 60%;
+      /* margin: 10px; */
+      height: 70%;
+    }
+
+    .profile-card-top-right {
+      margin-left: 40px;
+    }
+
+    .profile-social-main {
+      gap: 50px;
+
+    }
+
+    .profile-aboutme-left-box {
+      width: 40%;
+    }
+
+    .profile-cards {
+      background-position: bottom;
+    }
+
+    .profile-aboutme-left-box {
+      width: 100%;
+    }
+
+    .profile-aboutme-right-box {
+      display: none !important;
+    }
+
+    .profile-aboutme-main-2 {
+      display: none !important;
+    }
+
+    // .profile-aboutme-main-2 {
+    //   display: none !important;
+    // }
+  }
+
+  @media only screen and (min-width: 769px) and (max-width: 1024px) {
+    .profile-second-box {
+      width: 50%;
+      /* margin: 10px; */
+      height: 70%;
     }
   }
