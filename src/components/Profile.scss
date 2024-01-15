@@ -358,7 +358,7 @@
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 
 
-   
+
 
 
     // border: solid black;
@@ -381,7 +381,7 @@
 
   .profile-aboutme-main-2 {
     display: flex;
-    justify-content:  flex-start;
+    justify-content: flex-start;
     // flex-direction: column;
     // align-items: center;
     // width: 100%;
@@ -421,8 +421,8 @@
     flex-direction: column;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 
-   
-    
+
+
   }
 
   .dropped-box {
@@ -548,7 +548,7 @@
     justify-content: center;
   }
 
-  
+
 
   // .profile-cards + .profile-cards {
   //   // margin-left: 10px;
@@ -630,7 +630,8 @@
 
   .certificate-main h1 {
     font-size: 34px;
-    margin-bottom: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     color: black;
     margin-left: 60px;
     font-weight: 500;
@@ -792,7 +793,7 @@
     border-top: 1px solid rgba(255, 255, 255, 0.2)
   }
 
-  
+
   @media (max-width: 374px) {
     .profile-second-main {
       height: 570px;
@@ -831,7 +832,8 @@
       // width: 100%;
       /* Take full width on smaller screens */
       margin-right: 5px;
-      margin-left: 5px;      /* Add spacing between buttons */
+      margin-left: 5px;
+      /* Add spacing between buttons */
     }
 
 
@@ -925,7 +927,7 @@
       // width: 100%;
       margin-right: 5px;
       margin-left: 5px;
-            height: 50px;
+      height: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1065,7 +1067,7 @@
 
     }
 
-   
+
 
     // .profile-aboutme-right-box {
     //   display: none !important;
@@ -1078,18 +1080,19 @@
 
   @media only screen and (max-width: 768px) {
     .profile-aboutme-main {
-      flex-direction: column; /* Change to column layout */
-      height: auto; /* Allow content to determine height */
+      flex-direction: column;
+      /* Change to column layout */
+      height: auto;
+      /* Allow content to determine height */
     }
-  
+
     .profile-aboutme-left-box {
-      width: 100%; /* Occupy full width */
+      width: 100%;
+      /* Occupy full width */
     }
-  
-    .profile-aboutme-main-2{
+
+    .profile-aboutme-main-2 {
       width: 100%;
     }
-   
+
   }
-
-
