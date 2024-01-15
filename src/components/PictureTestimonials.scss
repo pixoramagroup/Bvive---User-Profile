@@ -10,6 +10,11 @@
     border-radius: 8px;
     background-color: #fff;
     border: 3px solid gold;
+
+    @media (max-width: 375px) {
+      width: 210px;
+      margin: 10px;
+    }
   }
   
   .circle {
@@ -93,6 +98,7 @@
   }
 
   .show-all-button{
+    margin-bottom: 10px;
     text-align: center;
     margin-left: auto;
     color: rgb(51, 51, 51);
@@ -165,4 +171,53 @@
     z-index: 1; /* Ensure it's above other content */
   }
   
+  .testimonial-feedback-button{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 30px;
+  }
+  .testimonial-container {
+      display: flex;
+      align-items: center;
+      flex-direction: row; /* Adjust to a column layout for a single card */
+    }
   
+   
+
+  @media only screen and (max-width: 768px) {
+    
+    .profile-aboutme-right-box {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .prev-button,
+    .next-button {
+      font-size: 24px;
+      height: auto;
+      padding: 5px;
+    }
+  
+    .show-all-button {
+      margin-right: 0;
+    }
+
+    .testimonials-wrapper{
+      height: 400px;
+    }
+
+    .rating-content{
+      display: none;
+    }
+    .testimonial-feedback-button{
+      display: none;
+    }
+    
+    .t-shape{
+      display: none;
+    }
+  }

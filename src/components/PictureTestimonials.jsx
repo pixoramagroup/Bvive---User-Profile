@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./PictureTestimonials.scss";
 import StarRatingComponent from "react-star-rating-component";
 import Yoga from "../assets/yoga_1.jpg";
@@ -9,9 +9,9 @@ const testimonialsData = [
   { title: "Clara", content: "Quick delivery and great prices", image: Yoga },
   { title: "Rob", content: "Genuine products, loved it", image: Boxing },
   { title: "Madie", content: "Highly recommend it", image: Stretching },
-  { title: "Clara", content: "Quick delivery and great prices", image: Yoga },
-  { title: "Rob", content: "Genuine products, loved it", image: Boxing },
-  { title: "Madie", content: "Highly recommend it", image: Stretching },
+  { title: "Sara", content: "Quick delivery and great prices", image: Yoga },
+  { title: "Mob", content: "Genuine products, loved it", image: Boxing },
+  { title: "Manny", content: "Highly recommend it", image: Stretching },
 ];
 
 function IndividualTestimonial({ title, content, image, rating, onStarClick }) {
@@ -47,6 +47,7 @@ function IndividualTestimonial({ title, content, image, rating, onStarClick }) {
 const PictureTestimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [cardsToShow, setCardsToShow] = useState(1);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -66,6 +67,27 @@ const PictureTestimonials = () => {
     );
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setCardsToShow(1);
+      } else if (window.innerWidth >= 768 && window.innerWidth < 1440) {
+        setCardsToShow(2);
+      } else {
+        setCardsToShow(3); // You can adjust this based on your requirement for larger screens
+      }
+    };
+
+    // Initial setup
+    handleResize();
+
+    // Listen to window resize events
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup the event listener on component unmount
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <div className="profile-aboutme-main">
       <div
@@ -77,17 +99,17 @@ const PictureTestimonials = () => {
         <h2
           style={{
             fontSize: "34px",
-            marginBottom: "10px",
             color: "white",
             marginLeft: "60px",
             fontWeight: "500",
-            marginTop: "20px",
+            marginTop: "5px",
+            marginBottom: "5px",
           }}
         >
           Testimonials
         </h2>
-        <div className="under-line"></div>
-        <div>
+        <div className="under-line" ></div>
+        <div className="rating-content">
           <h3
             style={{
               marginBottom: "10px",
@@ -109,13 +131,12 @@ const PictureTestimonials = () => {
             </span>
           </h3>
         </div>
-        <div className="profile-card-bottom-button">
+        <div className="testimonial-feedback-button">
           <button
             className="transparent-button"
             style={{
               color: "white",
               padding: "10px 20px",
-              marginTop: "10px",
               cursor: "pointer",
               alignContent: "flex-start",
               marginRight: "0px",
@@ -171,12 +192,24 @@ const PictureTestimonials = () => {
           justifyContent: "center",
         }}
       >
-        <div className="testimonial-container">
+        {/* <div className="testimonial-container"> */}
+        <div className="testmonial-container">
           <div className="testimonials-wrapper">
             <button onClick={prevTestimonial} className="prev-button">
               &lt;
             </button>
-            <IndividualTestimonial
+            {/* Show 1 or 2 cards based on the state */}
+            {[...Array(cardsToShow)].map((_, index) => (
+              <IndividualTestimonial
+                key={index}
+                title={testimonialsData[currentIndex + index].title}
+                content={testimonialsData[currentIndex + index].content}
+                image={testimonialsData[currentIndex + index].image}
+                rating={5}
+                onStarClick={() => {}}
+              />
+            ))}
+            {/* <IndividualTestimonial
               title={testimonialsData[currentIndex].title}
               content={testimonialsData[currentIndex].content}
               image={testimonialsData[currentIndex].image}
@@ -200,7 +233,7 @@ const PictureTestimonials = () => {
                 rating={5}
                 onStarClick={() => {}}
               />
-            )}
+            )} */}
 
             <button onClick={nextTestimonial} className="next-button">
               &gt;
