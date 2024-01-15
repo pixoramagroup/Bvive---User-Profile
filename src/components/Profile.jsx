@@ -562,18 +562,17 @@ const Profile = () => {
           <h2
             style={{
               fontSize: "34px",
-              marginBottom: "10px",
               color: "white",
               marginLeft: "60px",
               fontWeight: "500",
-              marginTop: "20px",
+              marginTop: "5px",
+              marginBottom: "5px",
             }}
           >
             Media
           </h2>
           <div
             className="under-line"
-            style={{ backgroundColor: "white" }}
           ></div>
           <div className="list-container" style={{ overflow: "hidden" }}>
             <ul className="list" style={{ color: "white" }}>

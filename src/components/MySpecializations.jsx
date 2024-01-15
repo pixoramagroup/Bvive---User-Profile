@@ -80,16 +80,17 @@ const MySpecializations = () => {
         <h2
           style={{
             fontSize: "34px",
-            marginBottom: "10px",
             color: "white",
             marginLeft: "60px",
             fontWeight: "500",
-            marginTop: "20px",
+            marginTop: "5px",
+            marginBottom: "5px",
+
           }}
         >
          Services
         </h2>
-        <div className="under-line" style={{ backgroundColor: "white" }}></div>
+        <div className="under-line" ></div>
         <div className="list-container">
           <ul className="list">
             {specializations.map((specialization, index) => (
@@ -105,14 +106,8 @@ const MySpecializations = () => {
         </div>
       </div>
       <div
-        className="profile-aboutme-right-box"
-        style={{
-          background: "#ffffff",
-          display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          // gap: "1px",
-          // padding: "1px",
-        }}
+        className="profile-aboutme-right-box-1"
+       
       >
         {specializations.map(
           (specialization, index) =>
