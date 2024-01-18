@@ -1,3 +1,23 @@
+.certificate-main {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  // align-items: flex-start;
+  width: 100%;
+  background-color: #f8f8f8;
+  color: black;
+  // margin-left: 20px;
+}
+
+.certificate-main h1 {
+  font-size: 34px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: black;
+  margin-left: 60px;
+  font-weight: 500;
+}
+
 .verified-icon {
   color: rgb(5, 158, 247);
   /* Change the color as needed */
@@ -111,42 +131,39 @@
 }
 
 /* Add this media query at the end of your existing CSS */
+/* Add this media query at the end of your existing CSS */
 @media (max-width: 768px) {
   .carousel-content {
-    flex-direction: column;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    overflow-x: scroll;
+    white-space: nowrap;
+    margin-bottom: 0px;
+   
+    &::-webkit-scrollbar {
+      width: 0px;
+      /* Adjust the width as needed */
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #888;
+      /* Color of the scrollbar thumb */
+      border-radius: 8px;
+      /* Round the corners of the thumb */
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: white;
+      /* Color of the scrollbar track */
+    }
   }
 
   .carousel-item {
     min-width: unset !important;
-    /* Remove the minimum width for flexibility */
-    width: 100%;
-    /* Set width to 100% for full width on smaller screens */
-    margin: 0px 0px 0px 15px     /* Add margin between items for better spacing */
+    width: auto; /* Set width to auto to allow natural width for items */
+    margin: 0 10px; /* Add margin between items for better spacing */
+    scroll-snap-align: start; /* Add this line for better snapping behavior */
   }
 
-
-
-  .carousel-heading {
-    font-size: 16px;
-    /* Adjust heading font size for smaller screens */
-    margin-bottom: 5px;
-    /* Adjust margin for smaller screens */
+  .carousel-button {
+    display: none;
   }
-
-  .carousel-button,
-  .carousel-subHeading,
-  .carousel-institute,
-  .line,
-  .watermark {
-    display: none
-  }
-
-  .verified-icon {
-    transform: none;
-    /* Reset the transformation for smaller screens */
-  }
-
-
 }

@@ -8,10 +8,6 @@ import CreditScoreIcon from "@mui/icons-material/CreditScore";
 import StarRatingComponent from "react-star-rating-component";
 import MapComponent from "./MapComponent";
 import TextCarousel from "./TextCarousel";
-import Stretching from "../assets/stretching_1.jpg";
-import Nutrition from "../assets/nutrition_1.jpg";
-import Sup from "../assets/sup.jpg";
-import Boxing from "../assets/boxing.jpg";
 import Blog1 from "../assets/Blog1.png";
 import Blog2 from "../assets/Blog2.png";
 import Blog3 from "../assets/Blog3.png";
@@ -35,7 +31,6 @@ import { Link } from "react-router-dom";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-// import TwitterIcon from "@mui/icons-material/Twitter";
 import Footer from "./Footer";
 import MySpecializations from "./MySpecializations";
 import Fit1 from "../assets/fit1.jpeg";
@@ -465,11 +460,12 @@ const Profile = () => {
           </div>
         </div>
       </div>
-      <div className="certificate-main">
+      <TextCarousel items={textItems} itemsPerView={4} />
+      {/* <div className="certificate-main">
         <h1>My Certifications</h1>
         <div className="under-line" style={{ backgroundColor: "black" ,marginBottom:"0px" }}></div>
         <TextCarousel items={textItems} itemsPerView={4} />
-      </div>
+      </div> */}
       <div className="profile-social-main">
         <div
           className="profile-social-box-1"
