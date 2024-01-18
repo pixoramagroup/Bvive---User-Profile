@@ -6,11 +6,11 @@ import Stretching from "../assets/stretching_1.jpg";
 import Boxing from "../assets/boxing.jpg";
 
 const testimonialsData = [
-  { title: "Clara", content: "Quick delivery and great prices", image: Yoga },
+  { title: "Clara", content: "Quick delivery ", image: Yoga },
   { title: "Rob", content: "Genuine products, loved it", image: Boxing },
   { title: "Madie", content: "Highly recommend it", image: Stretching },
-  { title: "Sara", content: "Quick delivery and great prices", image: Yoga },
-  { title: "Mob", content: "Genuine products, loved it", image: Boxing },
+  { title: "Sara", content: "Quick delivery ", image: Yoga },
+  { title: "Mob", content: "Genuine products,loved it", image: Boxing },
   { title: "Manny", content: "Highly recommend it", image: Stretching },
 ];
 
@@ -47,7 +47,7 @@ function IndividualTestimonial({ title, content, image, rating, onStarClick }) {
 const PictureTestimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [cardsToShow, setCardsToShow] = useState(1);
+  const [cardsToShow, setCardsToShow] = useState(3);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -69,12 +69,10 @@ const PictureTestimonials = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 768) {
-        setCardsToShow(1);
-      } else if (window.innerWidth >= 768 && window.innerWidth < 1440) {
-        setCardsToShow(2);
+      if (window.innerWidth <= 768) {
+        setCardsToShow(testimonialsData.length);
       } else {
-        setCardsToShow(3); // You can adjust this based on your requirement for larger screens
+        setCardsToShow(3);
       }
     };
 
@@ -193,13 +191,23 @@ const PictureTestimonials = () => {
         }}
       >
         {/* <div className="testimonial-container"> */}
-        <div className="testmonial-container">
+        <div className="testimonial-container">
           <div className="testimonials-wrapper">
             <button onClick={prevTestimonial} className="prev-button">
               &lt;
             </button>
             {/* Show 1 or 2 cards based on the state */}
-            {[...Array(cardsToShow)].map((_, index) => (
+            {/* {[...Array(cardsToShow)].map((_, index) => (
+              <IndividualTestimonial
+                key={index}
+                title={testimonialsData[currentIndex + index].title}
+                content={testimonialsData[currentIndex + index].content}
+                image={testimonialsData[currentIndex + index].image}
+                rating={5}
+                onStarClick={() => {}}
+              />
+            ))} */}
+              {[...Array(cardsToShow)].map((_, index) => (
               <IndividualTestimonial
                 key={index}
                 title={testimonialsData[currentIndex + index].title}
@@ -239,11 +247,11 @@ const PictureTestimonials = () => {
               &gt;
             </button>
           </div>
-          <div style={{ textAlign: "center" }}>
+          {/* <div style={{ textAlign: "center" }}>
             <button onClick={openModal} className="show-all-button">
               Show All Testimonials
             </button>
-          </div>
+          </div> */}
 
           {isModalOpen && (
             <div className="modal-overlay-testimonial" onClick={closeModal}>

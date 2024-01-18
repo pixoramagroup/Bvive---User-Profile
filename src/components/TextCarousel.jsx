@@ -19,6 +19,9 @@ const TextCarousel = ({ items, itemsPerView }) => {
   };
 
   return (
+    <div className="certificate-main">
+        <h1>My Certifications</h1>
+        <div className="under-line" style={{ backgroundColor: "black" ,marginBottom:"0px" }}></div>      
     <div className="carousel-container">
       <button className="carousel-button" onClick={goToPrev}>
         &lt;
@@ -46,6 +49,7 @@ const TextCarousel = ({ items, itemsPerView }) => {
       <button className="carousel-button" onClick={goToNext}>
         &gt;
       </button>
+    </div>
     </div>
   );
 };
