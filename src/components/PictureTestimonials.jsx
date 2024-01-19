@@ -94,19 +94,8 @@ const PictureTestimonials = () => {
         draggable
         onDragStart={(e) => handleOnDrag(e, "contact me", "green")}
       >
-        <h2
-          style={{
-            fontSize: "34px",
-            color: "white",
-            marginLeft: "60px",
-            fontWeight: "500",
-            marginTop: "5px",
-            marginBottom: "5px",
-          }}
-        >
-          Testimonials
-        </h2>
-        <div className="under-line" ></div>
+        <h2 className="testimonial-heading">Testimonials</h2>
+        <div className="testimonial-under-line"></div>
         <div className="rating-content">
           <h3
             style={{
@@ -207,7 +196,7 @@ const PictureTestimonials = () => {
                 onStarClick={() => {}}
               />
             ))} */}
-              {[...Array(cardsToShow)].map((_, index) => (
+            {[...Array(cardsToShow)].map((_, index) => (
               <IndividualTestimonial
                 key={index}
                 title={testimonialsData[currentIndex + index].title}
@@ -247,11 +236,14 @@ const PictureTestimonials = () => {
               &gt;
             </button>
           </div>
-          {/* <div style={{ textAlign: "center" }}>
+          <div
+            className="All-Testimonials-button"
+            style={{ textAlign: "center" }}
+          >
             <button onClick={openModal} className="show-all-button">
               Show All Testimonials
             </button>
-          </div> */}
+          </div>
 
           {isModalOpen && (
             <div className="modal-overlay-testimonial" onClick={closeModal}>

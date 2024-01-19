@@ -391,8 +391,28 @@
     background: #ffffff;
     box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.1);
 
-    // border: solid black;
+    @media (max-width: 768px){
+      display: none;
+    }
   }
+
+  .tab-component{
+    display: none;
+    justify-content: flex-start;
+    // flex-direction: column;
+    // align-items: center;
+    // width: 100%;
+    // width: 100%;
+    height: 47vh;
+    background: #ffffff;
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.1);
+
+    @media (max-width:768px){
+      display: block;
+    }
+  
+  }
+
 
   .profile-aboutme-left-box {
     display: flex;
@@ -587,15 +607,7 @@
     flex: 0 1 33%;
   }
 
-  .under-line {
-    height: 4px;
-    margin-left: 60px;
-    background-color: white;
-    width: 100px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-
-  }
+  
 
   .contact-icons {
     display: flex;
@@ -775,6 +787,37 @@
     border-top: 1px solid rgba(255, 255, 255, 0.2)
   }
 
+  .media-heading{
+    font-size: 34px;
+    color: white;
+    margin-left: 60px;
+    font-weight: 500;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    @media (max-width:768px){
+    margin-left: 0px;
+    text-align: center;
+    }
+  }
+  .media-under-line {
+    height: 4px;
+    margin-left: 60px;
+    background-color: white;
+    width: 100px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+
+    @media (max-width:768px){
+      margin-left: 0px;
+      margin-bottom: 15px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 90px;
+      height: 3px;
+      }
+  }
+
 
   @media (max-width: 374px) {
     .profile-second-main {
@@ -789,8 +832,6 @@
       margin: 10px 10px 0 10px;
       height: 450px;
     }
-
-
 
     .profile-card-top-left {
       width: 30%;
@@ -818,7 +859,6 @@
       /* Add spacing between buttons */
     }
 
-
     .profile-tag {
       font-size: 20px;
     }
@@ -841,12 +881,14 @@
 
     .creditscore-box-blue .icon-button-creditscore-blue {
       font-size: 35px;
-      right: 80px;
+      right: 60px;
+      top: 3px;
     }
 
     .creditscore-box-yellow .icon-button-creditscore-yellow {
       font-size: 35px;
-      right: 40px;
+      right: 20px;
+      top: 3px;
     }
 
     .certificate-main h1 {
@@ -861,15 +903,7 @@
 
     .profile-aboutme-left-box {
       width: 100%;
-    }
-
-    // .profile-aboutme-right-box {
-    //   display: none !important;
-    // }
-
-    // .profile-aboutme-main-2 {
-    //   display: none !important;
-    // }
+    }  
 
   }
 
@@ -931,18 +965,21 @@
     .creditscore-box-blue,
     .creditscore-box-yellow {
       width: 100%;
-      margin-top: 10px;
+      margin-top: 0px;
       position: static;
-      /* Add spacing between image and credit cards */
     }
 
     .creditscore-box-blue .icon-button-creditscore-blue {
       font-size: 35px;
       right: 40px;
+      top: 5px;
+
     }
 
     .creditscore-box-yellow .icon-button-creditscore-yellow {
       font-size: 35px;
+      top: 5px;
+
     }
 
     .certificate-main h1 {
@@ -1025,18 +1062,22 @@
     .creditscore-box-blue,
     .creditscore-box-yellow {
       width: 100%;
-      margin-top: 10px;
+      margin-top: 0px;
       position: static;
-      /* Add spacing between image and credit cards */
+
     }
 
     .creditscore-box-blue .icon-button-creditscore-blue {
       font-size: 35px;
       right: 40px;
+      top: 5px;
+
     }
 
     .creditscore-box-yellow .icon-button-creditscore-yellow {
       font-size: 35px;
+      top: 5px;
+
     }
 
     .certificate-main h1 {
@@ -1076,5 +1117,7 @@
     .profile-aboutme-main-2 {
       width: 100%;
     }
+
+   
 
   }

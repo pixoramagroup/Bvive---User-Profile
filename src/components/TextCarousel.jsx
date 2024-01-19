@@ -20,8 +20,10 @@ const TextCarousel = ({ items, itemsPerView }) => {
 
   return (
     <div className="certificate-main">
+      <div style={{backgroundColor: "#ae87ff"}}>
         <h1>My Certifications</h1>
-        <div className="under-line" style={{ backgroundColor: "black" ,marginBottom:"0px" }}></div>      
+        <div className="certificate-under-line"></div>   
+        </div>   
     <div className="carousel-container">
       <button className="carousel-button" onClick={goToPrev}>
         &lt;

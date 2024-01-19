@@ -1,3 +1,22 @@
+.testimonial-heading {
+  font-size: 34px;
+  color: white;
+  margin-left: 60px;
+  font-weight: 500;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.testimonial-under-line {
+  background-color: white;
+  height: 4px;
+  margin-left: 60px;
+  width: 100px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+
+}
+
 .card {
   display: flex;
   flex-direction: column;
@@ -191,6 +210,19 @@ p {
 
 
 @media (max-width: 768px) {
+  .testimonial-heading{
+    margin-left: 0px;
+    text-align: center;
+  }
+
+  .testimonial-under-line{
+    margin-left: 0px;
+    margin-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 180px;
+    height: 3px;
+  }
 
   .profile-aboutme-right-box {
     width: 100%;
@@ -200,6 +232,10 @@ p {
   .prev-button,
   .next-button {
 
+    display: none;
+  }
+
+  .All-Testimonials-button {
     display: none;
   }
 
@@ -250,6 +286,7 @@ p {
     overflow-x: scroll;
     width: fit-content;
     overflow-y: hidden;
+    background-color:rgb(67 206 175) ;
   }
 
 }

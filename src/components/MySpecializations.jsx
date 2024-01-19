@@ -29,10 +29,18 @@ const Modal = ({ show, onClose, specialization }) => {
               sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
           </div>
-          <div style={{display:"flex" ,flexDirection:"column", alignItems:"center"}}>
-          {/* <button className="cost">$100</button> */}
-          <button className="availability">Availability</button>
-          <button className="bookNow" type="submit">Book Now</button>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            {/* <button className="cost">$100</button> */}
+            <button className="availability">Availability</button>
+            <button className="bookNow" type="submit">
+              Book Now
+            </button>
           </div>
         </div>
       </div>
@@ -77,20 +85,8 @@ const MySpecializations = () => {
         className="profile-aboutme-left-box"
         style={{ background: "#3b3b3b" }}
       >
-        <h2
-          style={{
-            fontSize: "34px",
-            color: "white",
-            marginLeft: "60px",
-            fontWeight: "500",
-            marginTop: "5px",
-            marginBottom: "5px",
-
-          }}
-        >
-         Services
-        </h2>
-        <div className="under-line" ></div>
+        <h2 className="services-heading">Services</h2>
+        <div className="services-under-line"></div>
         <div className="list-container">
           <ul className="list">
             {specializations.map((specialization, index) => (
@@ -105,10 +101,7 @@ const MySpecializations = () => {
           </ul>
         </div>
       </div>
-      <div
-        className="profile-aboutme-right-box-1"
-       
-      >
+      <div className="profile-aboutme-right-box-1">
         {specializations.map(
           (specialization, index) =>
             index < 8 && (
@@ -126,7 +119,6 @@ const MySpecializations = () => {
               >
                 <h3>{specialization.name}</h3>
               </div>
-          
             )
         )}
       </div>
