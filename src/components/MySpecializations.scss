@@ -1,3 +1,19 @@
+.services-heading{
+  font-size: 34px;
+    color: white;
+    margin-left: 60px;
+    font-weight: 500;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.services-under-line{
+  background-color: white;
+    height: 4px;
+    margin-left: 60px;
+    width: 100px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
 .list {
     counter-reset: index;  
     padding: 0;
@@ -183,6 +199,19 @@
   
 }
 @media (max-width: 768px) {
+  .services-heading{
+    margin-left: 0px;
+    text-align: center;
+  }
+
+  .services-under-line{
+    margin-left: 0px;
+    margin-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 125px;
+    height: 3px;
+  }
   .list-container{
     display: none;
   }

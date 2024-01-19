@@ -1,4 +1,3 @@
-// Profile.js
 // import React from 'react';
 import { useState, useEffect } from "react";
 //import classes from './Profile.module.scss'; // Assume CSS modules are set up
@@ -33,6 +32,7 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Footer from "./Footer";
 import MySpecializations from "./MySpecializations";
+import TabComponent from "./TabComponent";
 import Fit1 from "../assets/fit1.jpeg";
 import BviveLogo from "../assets/white_logo.png";
 import PictureTestimonials from "./PictureTestimonials";
@@ -110,14 +110,16 @@ const Profile = () => {
       institute: "Fitness Institute Australia 2",
     },
   ];
-  //
+  
+  const [selectedTab, setSelectedTab] = useState('posts');
+
+
   const textMediaItems = [
     {
       type: "text",
       text: "Lorem ipsum dolor sit amet, consectetur adipisicing eli  ipsum dolor sit amet, consectetur adipisicing elit. Facilisillum quis reprehenderit velit possimus eaque",
       date: "12-2-2023",
     },
-    // Add more text posts
   ];
 
   const blogMediaItems = [
@@ -184,7 +186,14 @@ const Profile = () => {
       date: "12-2-2023",
     },
   ];
-
+  const mediaItems =
+  selectedTab === 'posts'
+    ? textMediaItems
+    : selectedTab === 'photos'
+    ? photoMediaItems
+    : selectedTab === 'videos'
+    ? videoMediaItems
+    : [];
   const [selectedMediaType, setSelectedMediaType] = useState(null);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
@@ -461,11 +470,6 @@ const Profile = () => {
         </div>
       </div>
       <TextCarousel items={textItems} itemsPerView={4} />
-      {/* <div className="certificate-main">
-        <h1>My Certifications</h1>
-        <div className="under-line" style={{ backgroundColor: "black" ,marginBottom:"0px" }}></div>
-        <TextCarousel items={textItems} itemsPerView={4} />
-      </div> */}
       <div className="profile-social-main">
         <div
           className="profile-social-box-1"
@@ -488,88 +492,17 @@ const Profile = () => {
         >
           <LinkedInIcon />
         </div>
-        {/* <div
-          className="profile-social-box-1"
-          draggable
-          onDragStart={(e) => handleOnDrag(e, "social 4", "blue")}
-        >
-          <TwitterIcon />
-        </div> */}
       </div>
       <div className="profile-aboutme-main-1" style={{ background: "#3b3b3b" }}>
         <MySpecializations></MySpecializations>
-        {/* <h2
-          style={{
-            fontSize: "34px",
-            marginBottom: "10px",
-            color: "white",
-            marginLeft: "80px",
-            fontWeight: "500",
-          }}
-        >
-          My Specialization
-        </h2>
-        <div className="under-line" style={{ backgroundColor: "white" }}></div>
-        <div className="profile-cards-container">
-          <div
-            className="profile-cards"
-            style={{
-              backgroundImage: 'url("src/assets/yoga.jpg")',
-              backgroundSize: "cover",
-            }}
-          >
-            <h2>Yoga</h2>
-          </div>
-          <div
-            className="profile-cards"
-            style={{
-              backgroundImage: 'url("src/assets/nutrition.jpg")',
-              backgroundSize: "cover",
-            }}
-          >
-            <h2>Nutrition</h2>
-          </div>
-
-          <div
-            className="profile-cards"
-            style={{
-              backgroundImage: 'url("src/assets/sup.jpg")',
-              backgroundSize: "cover",
-            }}
-          >
-            <h2>SUP</h2>
-          </div>
-          <div
-            className="profile-cards"
-            style={{
-              backgroundImage: 'url("src/assets/stretching.jpg")',
-              backgroundSize: "cover",
-            }}
-          >
-            <h2>Stretching</h2>
-          </div>
-        </div> */}
       </div>
       <div className="profile-aboutme-main">
         <div
           className="profile-aboutme-left-box"
           style={{ background: "#e64588" }}
         >
-          <h2
-            style={{
-              fontSize: "34px",
-              color: "white",
-              marginLeft: "60px",
-              fontWeight: "500",
-              marginTop: "5px",
-              marginBottom: "5px",
-            }}
-          >
-            Media
-          </h2>
-          <div
-            className="under-line"
-          ></div>
+          <h2 className="media-heading">Media</h2>
+          <div className="media-under-line"></div>
           <div className="list-container" style={{ overflow: "hidden" }}>
             <ul className="list" style={{ color: "white" }}>
               {["Posts", "Blogs", "Photos", "Videos"].map((title, index) => (
@@ -585,10 +518,16 @@ const Profile = () => {
           </div>
         </div>
 
-        <div className="profile-aboutme-main-2" style={{ display: "flex" }}>
+        <div className="tab-component">
           {/* <div className="profile-aboutme-right-box" style={{ display: "flex" }}> */}
+         <TabComponent className="tab-component"
+        activeTab={selectedTab}
+        onTabChange={setSelectedTab}
+        mediaItems={mediaItems}
+         />
+         </div>
+         <div className="profile-aboutme-main-2">
 
-          {/* First Part */}
           <MyContent
             title="Posts"
             mediaItems={textMediaItems}
@@ -609,7 +548,7 @@ const Profile = () => {
             mediaItems={videoMediaItems}
             onViewAll={() => openPopup("videos")}
           />
-        </div>
+        </div>    
       </div>
       {isPopupOpen && (
         <MediaPopup
@@ -698,29 +637,8 @@ const Profile = () => {
           <MapComponent></MapComponent>
         </div>
       </div> */}
-
-     
-          <PictureTestimonials></PictureTestimonials>
-          {/* <PictureTestimonials
-            title={"Clara"}
-            content={"Quick delivery and great prices"}
-            image={Yoga}
-          ></PictureTestimonials>
-          <PictureTestimonials
-            title={"Rob"}
-            content={"Genuine products, loved it"}
-            image={Boxing}
-          ></PictureTestimonials>
-          <PictureTestimonials
-            title={"Madie"}
-            content={"Highly recommend it"}
-            image={Stretching}
-          ></PictureTestimonials> */}
-          {/* <Testimonials></Testimonials> */}
-        {/* </div> */}
-      {/* </div> */}
+      <PictureTestimonials></PictureTestimonials>    
       <Footer></Footer>
-      {/* <SignUpPage></SignUpPage> */}
     </div>
   );
 };
