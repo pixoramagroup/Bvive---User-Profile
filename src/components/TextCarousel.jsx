@@ -20,7 +20,7 @@ const TextCarousel = ({ items, itemsPerView }) => {
 
   return (
     <div className="certificate-main">
-      <div style={{backgroundColor: "#ae87ff"}}>
+      <div style={{backgroundColor: "rgb(219 216 224)"}}>
         <h1>My Certifications</h1>
         <div className="certificate-under-line"></div>   
         </div>   

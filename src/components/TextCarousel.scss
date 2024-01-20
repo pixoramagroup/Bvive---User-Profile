@@ -18,36 +18,29 @@
   font-weight: 500;
 }
 
-.certificate-under-line{
+.certificate-under-line {
   background-color: black;
-    height: 4px;
-    margin-left: 60px;
-    width: 100px;
-    margin-top: 10px;
-    margin-bottom: 20px;
+  height: 4px;
+  margin-left: 60px;
+  width: 100px;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
+
 .verified-icon {
   color: rgb(5, 158, 247);
-  /* Change the color as needed */
   margin-left: 5px;
-  /* Adjust spacing as needed */
   transform: translate(0px, 3px);
 }
 
 .watermark {
   width: 130px;
-  /* Adjust the width as needed */
   height: auto;
-  /* Maintain the aspect ratio */
   position: absolute;
   top: 10px;
-  /* Adjust the top position as needed */
   left: 5px;
-  /* Adjust the left position as needed */
   opacity: 0.4;
-  /* Adjust the opacity as needed */
   z-index: 1;
-  /* Ensure the image is behind the text */
 }
 
 .heading-container {
@@ -61,6 +54,7 @@
   display: flex;
   align-items: center;
   position: relative;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 
 }
 
@@ -138,50 +132,44 @@
   z-index: 1;
 }
 
-/* Add this media query at the end of your existing CSS */
-/* Add this media query at the end of your existing CSS */
 @media (max-width: 768px) {
   .carousel-content {
     overflow-x: scroll;
     white-space: nowrap;
     margin-bottom: 0px;
     margin-top: 0px;
-   
+
     &::-webkit-scrollbar {
       width: 0px;
-      /* Adjust the width as needed */
     }
 
     &::-webkit-scrollbar-thumb {
       background-color: #888;
-      /* Color of the scrollbar thumb */
       border-radius: 8px;
-      /* Round the corners of the thumb */
     }
 
     &::-webkit-scrollbar-track {
-      background-color: #ae87ff;;
-      /* Color of the scrollbar track */
+      background-color: rgb(219 216 224);
     }
   }
 
   .carousel-item {
     min-width: unset !important;
-    width: auto; /* Set width to auto to allow natural width for items */
-    margin: 0 10px; /* Add margin between items for better spacing */
-    scroll-snap-align: start; /* Add this line for better snapping behavior */
+    width: auto;
+    margin: 0 10px;
+    scroll-snap-align: start;
   }
 
   .carousel-button {
     display: none;
   }
 
-  .certificate-main h1{
+  .certificate-main h1 {
     margin-left: 0px;
     text-align: center;
   }
 
-  .certificate-under-line{
+  .certificate-under-line {
     margin-left: 0px;
     margin-bottom: 15px;
     margin-left: auto;

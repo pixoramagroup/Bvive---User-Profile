@@ -30,6 +30,7 @@ import { Link } from "react-router-dom";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import YouTubeIcon from "@mui/icons-material/YouTube";
 import Footer from "./Footer";
 import MySpecializations from "./MySpecializations";
 import TabComponent from "./TabComponent";
@@ -110,9 +111,8 @@ const Profile = () => {
       institute: "Fitness Institute Australia 2",
     },
   ];
-  
-  const [selectedTab, setSelectedTab] = useState('posts');
 
+  const [selectedTab, setSelectedTab] = useState("posts");
 
   const textMediaItems = [
     {
@@ -187,13 +187,13 @@ const Profile = () => {
     },
   ];
   const mediaItems =
-  selectedTab === 'posts'
-    ? textMediaItems
-    : selectedTab === 'photos'
-    ? photoMediaItems
-    : selectedTab === 'videos'
-    ? videoMediaItems
-    : [];
+    selectedTab === "posts"
+      ? textMediaItems
+      : selectedTab === "photos"
+      ? photoMediaItems
+      : selectedTab === "videos"
+      ? videoMediaItems
+      : [];
   const [selectedMediaType, setSelectedMediaType] = useState(null);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
@@ -474,23 +474,39 @@ const Profile = () => {
         <div
           className="profile-social-box-1"
           draggable
-          onDragStart={(e) => handleOnDrag(e, "social 1", "blue")}
+          onDragStart={(e) => handleOnDrag(e, "social 2", "blue")}
         >
-          <InstagramIcon />
+          <a href="https://www.facebook.com/profile.php?id=61551652394165" target="_blank">
+            <FacebookIcon style={{ color: "rgb(8, 102, 255)" }} />
+          </a>
         </div>
         <div
           className="profile-social-box-1"
           draggable
-          onDragStart={(e) => handleOnDrag(e, "social 2", "blue")}
+          onDragStart={(e) => handleOnDrag(e, "social 1", "blue")}
         >
-          <FacebookIcon />
+          <a href="https://www.instagram.com/bviveofficial/" target="_blank">
+            <InstagramIcon style={{ color: "rgb(228, 64, 95)" }} />
+          </a>
+        </div>
+
+        <div
+          className="profile-social-box-1"
+          draggable
+          onDragStart={(e) => handleOnDrag(e, "social 3", "blue")}
+        >
+          <a href="https://www.linkedin.com/company/bvive/" target="_blank">
+            <LinkedInIcon style={{ color: "rgb(10, 102, 194)" }} />
+          </a>
         </div>
         <div
           className="profile-social-box-1"
           draggable
           onDragStart={(e) => handleOnDrag(e, "social 3", "blue")}
         >
-          <LinkedInIcon />
+          <a href="https://www.youtube.com/channel/UC7De0VCT97KHKca4mQSugBQ" target="_blank">
+            <YouTubeIcon style={{ color: "rgb(255, 0, 0)" }} />
+          </a>
         </div>
       </div>
       <div className="profile-aboutme-main-1" style={{ background: "#3b3b3b" }}>
@@ -520,14 +536,14 @@ const Profile = () => {
 
         <div className="tab-component">
           {/* <div className="profile-aboutme-right-box" style={{ display: "flex" }}> */}
-         <TabComponent className="tab-component"
-        activeTab={selectedTab}
-        onTabChange={setSelectedTab}
-        mediaItems={mediaItems}
-         />
-         </div>
-         <div className="profile-aboutme-main-2">
-
+          <TabComponent
+            className="tab-component"
+            activeTab={selectedTab}
+            onTabChange={setSelectedTab}
+            mediaItems={mediaItems}
+          />
+        </div>
+        <div className="profile-aboutme-main-2">
           <MyContent
             title="Posts"
             mediaItems={textMediaItems}
@@ -548,7 +564,7 @@ const Profile = () => {
             mediaItems={videoMediaItems}
             onViewAll={() => openPopup("videos")}
           />
-        </div>    
+        </div>
       </div>
       {isPopupOpen && (
         <MediaPopup
@@ -637,7 +653,7 @@ const Profile = () => {
           <MapComponent></MapComponent>
         </div>
       </div> */}
-      <PictureTestimonials></PictureTestimonials>    
+      <PictureTestimonials></PictureTestimonials>
       <Footer></Footer>
     </div>
   );
