@@ -396,6 +396,19 @@
     }
   }
 
+  .editable-text{
+    width: 97%;
+  height: 55px; /* Adjust the height as needed */
+  padding: 8px;
+  border: none;
+  resize: none;
+  background: none;
+  color: white;
+  font-family: inherit;
+  overflow: hidden;
+  font-size: 14px;
+  }
+
   .tab-component{
     display: none;
     justify-content: flex-start;
@@ -510,8 +523,9 @@
 
   .profile-card-bottom {
     display: flex;
-    justify-content: center;
-    // align-items: center;
+    // justify-content: center;
+    justify-content: flex-end;
+    // align-items: flex-end;
     // margin: 3px;
     width: 100%;
     height: 100%;

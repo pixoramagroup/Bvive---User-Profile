@@ -41,6 +41,7 @@ import SignUpPage from "./SignUpPage";
 import MediaPopup from "./MediaPopUp";
 import MyContent from "./MyContent";
 import SearchBar from "./SearchBar";
+import ThreadPosts from "./ThreadPosts";
 const Profile = () => {
   // const images = [
   //   '',
@@ -112,7 +113,7 @@ const Profile = () => {
     },
   ];
 
-  const [selectedTab, setSelectedTab] = useState("posts");
+  const [selectedTab, setSelectedTab] = useState("waggle");
 
   const textMediaItems = [
     {
@@ -187,7 +188,7 @@ const Profile = () => {
     },
   ];
   const mediaItems =
-    selectedTab === "posts"
+    selectedTab === "waggle"
       ? textMediaItems
       : selectedTab === "photos"
       ? photoMediaItems
@@ -212,7 +213,35 @@ const Profile = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
+  const [editableText, setEditableText] = useState(
+    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. " +
+      "Facilis illum quis reprehenderit velit possimus eaque " +
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. " +
+      "Facilis illum quis reprehenderit velit possimus eaque"
+  );
 
+  const [isFocused, setIsFocused] = useState(false);
+
+  const handleTextChange = (event) => {
+    const newText = event.target.value;
+    const words = newText.split(/\s+/);
+    const wordLimit = 40;
+
+    if (words.length > wordLimit && isFocused) {
+      const truncatedText = words.slice(0, wordLimit).join(" ");
+      setEditableText(truncatedText);
+    } else {
+      setEditableText(newText);
+    }
+  };
+
+  const handleFocus = () => {
+    setIsFocused(true);
+  };
+
+  const handleBlur = () => {
+    setIsFocused(false);
+  };
   return (
     // <div className={classes.profile}>
     //   {/* Header Section */}
@@ -456,10 +485,13 @@ const Profile = () => {
             </div>
             <div className="profile-card-bottom">
               <div className="profile-card-bottom-text">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Facilis illum quis reprehenderit velit possimus eaque Lorem
-                ipsum dolor sit amet, consectetur adipisicing elit. Facilis
-                illum quis reprehenderit velit possimus eaque
+                <textarea
+                  className="editable-text"
+                  value={editableText}
+                  onChange={handleTextChange}
+                  onFocus={handleFocus}
+                  onBlur={handleBlur}
+                ></textarea>
               </div>
               <div className="profile-card-bottom-button">
                 <button className="transparent-button">Book Now</button>
@@ -528,7 +560,7 @@ const Profile = () => {
           <div className="media-under-line"></div>
           <div className="list-container" style={{ overflow: "hidden" }}>
             <ul className="list" style={{ color: "white" }}>
-              {["Posts", "Blogs", "Photos", "Videos"].map((title, index) => (
+              {["waggle", "Blogs", "Photos", "Videos"].map((title, index) => (
                 <li
                   className="list-items"
                   key={index}
@@ -551,10 +583,10 @@ const Profile = () => {
           />
         </div>
         <div className="profile-aboutme-main-2">
-          <MyContent
-            title="Posts"
+        <MyContent
+            title="Waggle"
             mediaItems={textMediaItems}
-            onViewAll={() => openPopup("posts")}
+            onViewAll={() => openPopup("waggle")}
           />
           <MyContent
             title="Blogs"
@@ -576,7 +608,7 @@ const Profile = () => {
       {isPopupOpen && (
         <MediaPopup
           mediaItems={
-            selectedMediaType === "posts"
+            selectedMediaType === "waggle"
               ? textMediaItems
               : selectedMediaType === "blogs"
               ? blogMediaItems
@@ -593,6 +625,7 @@ const Profile = () => {
           onClose={closePopup}
         />
       )}
+
 
       {/* <div className="profile-aboutme-main">
                 <div

@@ -6,10 +6,10 @@
 //     <div>
 //       <div className="tab-buttons">
 //         <button
-//           onClick={() => onTabChange('posts')}
-//           className={activeTab === 'posts' ? 'active' : ''}
+//           onClick={() => onTabChange('waggle')}
+//           className={activeTab === 'waggle' ? 'active' : ''}
 //         >
-//           Posts
+//           waggle
 //         </button>
 //         <button
 //           onClick={() => onTabChange('photos')}
@@ -76,13 +76,13 @@ const TabComponent = ({ activeTab, onTabChange, mediaItems }) => {
           activeTab === "videos"
             ? "photos"
             : activeTab === "photos"
-            ? "posts"
+            ? "waggle"
             : activeTab;
         onTabChange(prevTab);
       } else if (deltaX < -touchThreshold) {
         // Swipe left
         const nextTab =
-          activeTab === "posts"
+          activeTab === "waggle"
             ? "photos"
             : activeTab === "photos"
             ? "videos"
@@ -111,7 +111,7 @@ const TabComponent = ({ activeTab, onTabChange, mediaItems }) => {
       onTouchEnd={handleTouchEnd}
     >
       <div className="tab-buttons">
-        {["posts", "photos", "videos"].map((tab, index) => (
+        {["waggle", "photos", "videos"].map((tab, index) => (
           <React.Fragment key={tab}>
             <button
               onClick={() => onTabChange(tab)}
