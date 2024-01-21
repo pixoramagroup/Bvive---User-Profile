@@ -1,63 +1,72 @@
 .tab-buttons {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 10px;
-  }
-  
-  .tab-buttons button {
-    padding: 8px 16px;
-    font-size: 14px;
-    cursor: pointer;
-    border: none;
-    background-color: transparent;
-    color: #333;
-  }
-  
-  .tab-buttons button.active {
-    border-bottom: 2px solid #3498db;
-    color: #3498db;
-  }
-  
-  .media-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    // gap: 10px;
-  }
-  
-  .media-item {
-    border: 1px solid #ddd;
-    // padding: 10px;
-  }
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
 
-  /* Existing styles for TabComponent */
+.tab-buttons button {
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: #333;
+}
+
+.tab-buttons button.active {
+  border-bottom: 2px solid #3498db;
+  color: #3498db;
+}
+
+.media-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Set 2 columns */
+  // gap: 10px;
+}
+
+.media-item {
+  border: 1px solid #ddd;
+  width: 100% ;
+  height: 100%; /* Set initial height to 0 */
+  position: relative;
+}
+
+/* Adjust styles for images within .media-item */
+.media-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Maintain aspect ratio and cover entire container */
+}
+
+/* Existing styles for TabComponent */
 
 /* Add the following media query to style the media-overlay for screens up to 768px */
-  .media-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
+.media-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
 
-    img,
-    video {
-      max-width: 100%;
-      max-height: 100%;
-    }
-
-    button {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: none;
-      color: white;
-      border: none;
-      font-size: 16px;
-      cursor: pointer;
-    }
+  img,
+  video {
+    max-width: 100%;
+    max-height: 100%;
   }
+
+  button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+  }
+}
