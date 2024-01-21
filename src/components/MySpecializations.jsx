@@ -8,17 +8,57 @@ import JumpRope from "../assets/jumpropes_icon.png";
 import Meditation from "../assets/meditation_icon.png";
 import Power from "../assets/PowerLifting_icon.png";
 import "./MySpecializations.scss";
+import EditableText from "./EditableText";
 
 const Modal = ({ show, onClose, specialization }) => {
+  const stopPropagation = (e) => {
+    e.stopPropagation();
+  };
+  const [edit, setEdit] = useState(false);
+  const [value, setValue] = useState(
+    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis illum quis reprehenderit velit possimus eaque Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis illum quis reprehenderit velit possimus eaque"
+  );
+
+  const handleEdit = () => {
+    setEdit(true);
+  };
+
+  const save = (val) => {
+    setValue(val);
+    setEdit(false);
+  };
+
+  const close = () => {
+    setEdit(false);
+  };
   return (
     show && (
       <div className="modal-overlay" onClick={onClose}>
-        <div className="modal-content">
+        <div className="modal-content" onClick={stopPropagation}>
           <div className="close-button" onClick={onClose}>
             &times;
           </div>
           <div className="modal-heading">{specialization.name}</div>
           <div className="modal-content-item">
+            {/* <input
+              className="editable-input"
+              type="text"
+              value={editableText}
+              onChange={handleTextChange}
+            /> */}
+             {!edit ? (
+        <p onClick={handleEdit}>{value}</p>
+      ) : (
+        <EditableText
+          defaultValue={value}
+          saveText={save}
+          cancelEdit={close}
+          // checkIcon={<CheckIcon />}
+          // closeIcon={<CloseIcon />}
+        />
+      )}
+          </div>
+          {/* <div className="modal-content-item">
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -28,7 +68,7 @@ const Modal = ({ show, onClose, specialization }) => {
               nulla pariatur. Excepteur sint occaecat cupidatat non proident,
               sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
-          </div>
+          </div> */}
           <div
             style={{
               display: "flex",
