@@ -212,6 +212,7 @@ const Profile = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
+
   return (
     // <div className={classes.profile}>
     //   {/* Header Section */}
@@ -476,7 +477,10 @@ const Profile = () => {
           draggable
           onDragStart={(e) => handleOnDrag(e, "social 2", "blue")}
         >
-          <a href="https://www.facebook.com/profile.php?id=61551652394165" target="_blank">
+          <a
+            href="https://www.facebook.com/profile.php?id=61551652394165"
+            target="_blank"
+          >
             <FacebookIcon style={{ color: "rgb(8, 102, 255)" }} />
           </a>
         </div>
@@ -504,7 +508,10 @@ const Profile = () => {
           draggable
           onDragStart={(e) => handleOnDrag(e, "social 3", "blue")}
         >
-          <a href="https://www.youtube.com/channel/UC7De0VCT97KHKca4mQSugBQ" target="_blank">
+          <a
+            href="https://www.youtube.com/channel/UC7De0VCT97KHKca4mQSugBQ"
+            target="_blank"
+          >
             <YouTubeIcon style={{ color: "rgb(255, 0, 0)" }} />
           </a>
         </div>

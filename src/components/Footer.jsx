@@ -2,6 +2,7 @@ import React from "react";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import Logo from "../assets/white_logo.png";
 import "./Footer.scss";
 
 const Footer = () => {
@@ -9,7 +10,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-logo">
-          <img src="src/assets/white_logo.png" alt="Your Logo"></img>
+          <img src= {Logo} alt="Your Logo"></img>
         </div>
         <div className="footer-info" >
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis
