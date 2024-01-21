@@ -41,7 +41,7 @@ import SignUpPage from "./SignUpPage";
 import MediaPopup from "./MediaPopUp";
 import MyContent from "./MyContent";
 import SearchBar from "./SearchBar";
-import ThreadPosts from "./ThreadPosts";
+// import ThreadPosts from "./ThreadPosts";
 const Profile = () => {
   // const images = [
   //   '',
@@ -115,11 +115,33 @@ const Profile = () => {
 
   const [selectedTab, setSelectedTab] = useState("waggle");
 
-  const textMediaItems = [
+  // const textMediaItems = [
+  //   {
+  //     type: "text",
+  //     text: "Lorem ipsum dolor sit amet, consectetur adipisicing eli  ipsum dolor sit amet, consectetur adipisicing elit. Facilisillum quis reprehenderit velit possimus eaque",
+  //     date: "12-2-2023",
+  //   },
+  // ];
+  const waggleData = [
     {
-      type: "text",
-      text: "Lorem ipsum dolor sit amet, consectetur adipisicing eli  ipsum dolor sit amet, consectetur adipisicing elit. Facilisillum quis reprehenderit velit possimus eaque",
-      date: "12-2-2023",
+      id: 1,
+      user: {
+        username: "John Doe",
+        profilePic: "https://placekitten.com/50/50",
+      },
+      content: "This is the text content of the first post. It can be a professional update or share.",
+      likes: 10,
+      comments: 20,
+    },
+    {
+      id: 2,
+      user: {
+        username: "Jane Smith",
+        profilePic: "https://placekitten.com/50/51",
+      },
+      content: "Text content for the second post. It might include a project update or achievement.",
+      likes: 10,
+      comments: 30,
     },
   ];
 
@@ -189,7 +211,7 @@ const Profile = () => {
   ];
   const mediaItems =
     selectedTab === "waggle"
-      ? textMediaItems
+      ? waggleData
       : selectedTab === "photos"
       ? photoMediaItems
       : selectedTab === "videos"
@@ -585,7 +607,7 @@ const Profile = () => {
         <div className="profile-aboutme-main-2">
         <MyContent
             title="Waggle"
-            mediaItems={textMediaItems}
+            mediaItems={waggleData}
             onViewAll={() => openPopup("waggle")}
           />
           <MyContent
@@ -609,7 +631,7 @@ const Profile = () => {
         <MediaPopup
           mediaItems={
             selectedMediaType === "waggle"
-              ? textMediaItems
+              ? waggleData
               : selectedMediaType === "blogs"
               ? blogMediaItems
               : selectedMediaType === "photos"
