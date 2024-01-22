@@ -123,7 +123,7 @@ const Profile = () => {
   //   },
   // ];
   const waggleData = [
-    {
+    { type : "waggle",
       id: 1,
       user: {
         username: "John Doe",
@@ -134,6 +134,7 @@ const Profile = () => {
       comments: 20,
     },
     {
+      type : "waggle",
       id: 2,
       user: {
         username: "Jane Smith",

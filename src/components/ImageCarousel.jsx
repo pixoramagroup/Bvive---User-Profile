@@ -55,7 +55,7 @@ const ImageCarousel = ({ mediaItems }) => {
             </video>
           ) : (
             // Render waggle content
-            <div key={currentMedia.id} className="post">
+            <div key={currentMedia.id} className="post" style={{background:"lightgray"}}>
             <div className="user-info">
               <Avatar
                 src={currentMedia.user.profilePic}
