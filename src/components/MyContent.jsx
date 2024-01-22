@@ -7,6 +7,30 @@ import Avatar from "@mui/material/Avatar";
 import "./MyContent.scss";
 import "./ThreadPosts.scss";
 
+const Message = ({ size = 24, fill, ...props }) => {
+    return (
+      <svg height={size} role="img" viewBox="0 0 24 24" width={size} {...props}>
+        <line
+          fill="none"
+          stroke={fill}
+          strokeLinejoin="round"
+          strokeWidth="2"
+          x1="22"
+          x2="9.218"
+          y1="3"
+          y2="10.083"
+        />
+        <polygon
+          fill="none"
+          points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334"
+          stroke={fill}
+          strokeLinejoin="round"
+          strokeWidth="2"
+        />
+      </svg>
+    );
+  };
+
 const MyContent = ({ title, mediaItems, onViewAll }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -72,7 +96,7 @@ const MyContent = ({ title, mediaItems, onViewAll }) => {
             </video>
           ) : (
             // Render waggle content
-            <div key={currentMedia.id} className="post">
+            <div key={currentMedia.id} className="post" style={{background:"lightgray"}}>
             <div className="user-info">
               <Avatar
                 src={currentMedia.user.profilePic}
@@ -87,7 +111,7 @@ const MyContent = ({ title, mediaItems, onViewAll }) => {
             <div className="post-actions">
               <FavoriteBorderIcon className="action-icon" />
               <ChatBubbleOutlineOutlinedIcon className="action-icon" />
-              {/* <Message size={24} fill="#333" />{" "} */}
+              <Message size={24} fill="#333" />{" "}
             </div>
         
             <div className="post-likes">

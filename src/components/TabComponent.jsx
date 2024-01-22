@@ -50,7 +50,35 @@
 
 // export default TabComponent;
 import React, { useRef, useState } from "react";
+import Avatar from "@mui/material/Avatar";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 import "./TabComponent.scss";
+import "./ThreadPosts.scss";
+
+const Message = ({ size = 24, fill, ...props }) => {
+    return (
+      <svg height={size} role="img" viewBox="0 0 24 24" width={size} {...props}>
+        <line
+          fill="none"
+          stroke={fill}
+          strokeLinejoin="round"
+          strokeWidth="2"
+          x1="22"
+          x2="9.218"
+          y1="3"
+          y2="10.083"
+        />
+        <polygon
+          fill="none"
+          points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334"
+          stroke={fill}
+          strokeLinejoin="round"
+          strokeWidth="2"
+        />
+      </svg>
+    );
+  };
 
 const TabComponent = ({ activeTab, onTabChange, mediaItems }) => {
   const touchStartX = useRef(null);
@@ -123,26 +151,54 @@ const TabComponent = ({ activeTab, onTabChange, mediaItems }) => {
           </React.Fragment>
         ))}
       </div>
-      <div className="media-container">
-        {mediaItems.map((media, index) => (
-          <div key={index} className="media-item">
-            {media.type === "text" && <p>{media.text}</p>}
-            {media.type === "image" && (
+      {/* <div className="media-container"> */}
+      <div className={activeTab === "waggle" ? "waggle-container" : "media-container"}>
+        {mediaItems.map((currentMedia, index) => (
+          <div key={index}>
+            {currentMedia.type === "waggle" && (
+              <div key={currentMedia.id} className="post" style={{padding:"6px"}}>
+                <div className="user-info">
+                  {/* Assuming that Avatar component accepts 'src' and 'alt' props */}
+                  <Avatar
+                    src={currentMedia.user.profilePic}
+                    alt="Profile"
+                    className="profile-pic"
+                  />
+                  <span className="username">{currentMedia.user.username}</span>
+                </div>
+
+                <p>{currentMedia.content}</p>
+
+                <div className="post-actions">
+                  <FavoriteBorderIcon className="action-icon" />
+                  <ChatBubbleOutlineOutlinedIcon className="action-icon" />
+                  <Message size={24} fill="#333" />{" "}
+                </div>
+
+                <div className="post-likes">
+                  {currentMedia.likes} likes . {currentMedia.comments} comments
+                </div>
+              </div>
+            )}
+
+            {currentMedia.type === "image" && (
+              
               <img
-                src={media.src}
-                alt={media.caption}
-                onClick={() => openMedia(media)}
+              className="Image-carousel-image"
+                src={currentMedia.src}
+                alt={currentMedia.caption}
+                onClick={() => openMedia(currentMedia)}
               />
             )}
-            {media.type === "video" && (
-              <div className="video-container" onClick={() => openMedia(media)}>
+            {currentMedia.type === "video" && (
+              <div className="video-container" onClick={() => openMedia(currentMedia)}>
                 <video
                   className="Image-carousel-image"
                   loop
                   muted
                   style={{ objectFit: "cover", width: "100%", height: "100%" }}
                 >
-                  <source src={media.src} type="video/mp4" />
+                  <source src={currentMedia.src} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>
@@ -178,3 +234,4 @@ const TabComponent = ({ activeTab, onTabChange, mediaItems }) => {
 };
 
 export default TabComponent;
+
