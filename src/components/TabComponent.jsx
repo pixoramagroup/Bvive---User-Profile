@@ -57,28 +57,28 @@ import "./TabComponent.scss";
 import "./ThreadPosts.scss";
 
 const Message = ({ size = 24, fill, ...props }) => {
-    return (
-      <svg height={size} role="img" viewBox="0 0 24 24" width={size} {...props}>
-        <line
-          fill="none"
-          stroke={fill}
-          strokeLinejoin="round"
-          strokeWidth="2"
-          x1="22"
-          x2="9.218"
-          y1="3"
-          y2="10.083"
-        />
-        <polygon
-          fill="none"
-          points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334"
-          stroke={fill}
-          strokeLinejoin="round"
-          strokeWidth="2"
-        />
-      </svg>
-    );
-  };
+  return (
+    <svg height={size} role="img" viewBox="0 0 24 24" width={size} {...props}>
+      <line
+        fill="none"
+        stroke={fill}
+        strokeLinejoin="round"
+        strokeWidth="2"
+        x1="22"
+        x2="9.218"
+        y1="3"
+        y2="10.083"
+      />
+      <polygon
+        fill="none"
+        points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334"
+        stroke={fill}
+        strokeLinejoin="round"
+        strokeWidth="2"
+      />
+    </svg>
+  );
+};
 
 const TabComponent = ({ activeTab, onTabChange, mediaItems }) => {
   const touchStartX = useRef(null);
@@ -151,20 +151,38 @@ const TabComponent = ({ activeTab, onTabChange, mediaItems }) => {
           </React.Fragment>
         ))}
       </div>
+
       {/* <div className="media-container"> */}
-      <div className={activeTab === "waggle" ? "waggle-container" : "media-container"}>
+      <div
+        className={
+          activeTab === "waggle" ? "waggle-container" : "media-container"
+        }
+      >
         {mediaItems.map((currentMedia, index) => (
-          <div key={index}>
+          <div
+            key={index}
+            className={
+              activeTab === "waggle" ? "waggle-content" : "media-items"
+            }
+          >
             {currentMedia.type === "waggle" && (
-              <div key={currentMedia.id} className="post" style={{padding:"6px"}}>
+              <div
+                key={currentMedia.id}
+                className="post"
+                style={{ padding: "15px" }}
+              >
+                <div className="user-data">
                 <div className="user-info">
-                  {/* Assuming that Avatar component accepts 'src' and 'alt' props */}
                   <Avatar
                     src={currentMedia.user.profilePic}
                     alt="Profile"
                     className="profile-pic"
                   />
-                  <span className="username">{currentMedia.user.username}</span>
+                  <span className="username">
+                    {currentMedia.user.username}</span>
+                   
+                </div>
+                <div className="post-date">{currentMedia.date}</div>
                 </div>
 
                 <p>{currentMedia.content}</p>
@@ -182,16 +200,18 @@ const TabComponent = ({ activeTab, onTabChange, mediaItems }) => {
             )}
 
             {currentMedia.type === "image" && (
-              
               <img
-              className="Image-carousel-image"
+                className="Image-carousel-image"
                 src={currentMedia.src}
                 alt={currentMedia.caption}
                 onClick={() => openMedia(currentMedia)}
               />
             )}
             {currentMedia.type === "video" && (
-              <div className="video-container" onClick={() => openMedia(currentMedia)}>
+              <div
+                className="video-container"
+                onClick={() => openMedia(currentMedia)}
+              >
                 <video
                   className="Image-carousel-image"
                   loop
@@ -234,4 +254,3 @@ const TabComponent = ({ activeTab, onTabChange, mediaItems }) => {
 };
 
 export default TabComponent;
-

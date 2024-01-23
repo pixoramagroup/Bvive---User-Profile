@@ -132,6 +132,8 @@ const Profile = () => {
       content: "This is the text content of the first post. It can be a professional update or share.",
       likes: 10,
       comments: 20,
+      date: "3w",
+
     },
     {
       type : "waggle",
@@ -143,6 +145,8 @@ const Profile = () => {
       content: "Text content for the second post. It might include a project update or achievement.",
       likes: 10,
       comments: 30,
+      date: "2w",
+
     },
   ];
 
@@ -603,8 +607,8 @@ const Profile = () => {
             activeTab={selectedTab}
             onTabChange={setSelectedTab}
             mediaItems={mediaItems}
-          />
-        </div>
+          />        
+        </div> 
         <div className="profile-aboutme-main-2">
         <MyContent
             title="Waggle"

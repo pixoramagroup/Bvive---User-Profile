@@ -4,6 +4,12 @@
   margin-bottom: 10px;
 }
 
+.tab-divider {
+  height: 34px;
+  width: 1px;
+  background-color: #3333334d;
+}
+
 .tab-buttons button {
   padding: 8px 16px;
   font-size: 14px;
@@ -20,14 +26,16 @@
 
 .media-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Set 2 columns */
+  grid-template-columns: repeat(2, 1fr);
+  /* Set 2 columns */
   // gap: 10px;
 }
 
 .media-item {
   border: 1px solid #ddd;
-  width: 100% ;
-  height: 100%; /* Set initial height to 0 */
+  width: 100%;
+  height: 100%;
+  /* Set initial height to 0 */
   position: relative;
 }
 
@@ -35,7 +43,8 @@
 .media-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Maintain aspect ratio and cover entire container */
+  object-fit: cover;
+  /* Maintain aspect ratio and cover entire container */
 }
 
 /* Existing styles for TabComponent */
@@ -70,9 +79,32 @@
     cursor: pointer;
   }
 
-  
+
 }
-.waggle-container{
+
+.waggle-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
+
+}
+
+.waggle-content {
+  margin: 5px 20px 5px 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+  max-width: 559px;
+  background-color: #fff;
+  border: 1px solid #e24486;
+  box-shadow: 0 0 10px #e24486;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  height: 100%;
+}
+
+.user-data{
+  display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
 }
