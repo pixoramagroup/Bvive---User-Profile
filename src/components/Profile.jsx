@@ -35,7 +35,7 @@ import Footer from "./Footer";
 import MySpecializations from "./MySpecializations";
 import TabComponent from "./TabComponent";
 import Fit1 from "../assets/fit1.jpeg";
-import BviveLogo from "../assets/white_logo.png";
+import BviveLogo from "../assets/whitelogo.png";
 import PictureTestimonials from "./PictureTestimonials";
 import SignUpPage from "./SignUpPage";
 import MediaPopup from "./MediaPopUp";
