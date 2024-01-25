@@ -23,6 +23,12 @@ body {
     // width: 100%;
     height: 100%;
   }
+
+  .user-data{
+  display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
   
   .user-info {
     display: flex;
@@ -46,6 +52,7 @@ body {
       font-weight: bold;
       display: flex;
       align-items: center;
+      color: black;
     }
   
   
@@ -66,10 +73,13 @@ body {
   .action-icon {
     cursor: pointer;
     font-size: 1.2rem;
+    color: black;
   }
   
   .post-likes{
     margin-top: 10px;
     font-size: small;
+    color: black;
   }
+  
   

@@ -126,10 +126,10 @@ const Profile = () => {
     { type : "waggle",
       id: 1,
       user: {
-        username: "John Doe",
+        username: "James Osborn",
         profilePic: "https://placekitten.com/50/50",
       },
-      content: "This is the text content of the first post. It can be a professional update or share.",
+      content: "Fall in love with taking care of yourself. Mind, body, spirit",
       likes: 10,
       comments: 20,
       date: "3w",
@@ -139,10 +139,10 @@ const Profile = () => {
       type : "waggle",
       id: 2,
       user: {
-        username: "Jane Smith",
-        profilePic: "https://placekitten.com/50/51",
+        username: "James Osborn",
+        profilePic: "https://placekitten.com/50/50",
       },
-      content: "Text content for the second post. It might include a project update or achievement.",
+      content: "Fitness is not about being better than someone else; it's about being better than you used to be",
       likes: 10,
       comments: 30,
       date: "2w",
@@ -587,7 +587,7 @@ const Profile = () => {
           <div className="media-under-line"></div>
           <div className="list-container" style={{ overflow: "hidden" }}>
             <ul className="list" style={{ color: "white" }}>
-              {["waggle", "Blogs", "Photos", "Videos"].map((title, index) => (
+              {["Waggle", "Blogs", "Photos", "Videos"].map((title, index) => (
                 <li
                   className="list-items"
                   key={index}
@@ -609,6 +609,7 @@ const Profile = () => {
             mediaItems={mediaItems}
           />        
         </div> 
+        
         <div className="profile-aboutme-main-2">
         <MyContent
             title="Waggle"

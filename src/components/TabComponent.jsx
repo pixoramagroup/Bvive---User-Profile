@@ -1,90 +1,17 @@
-// import React from 'react';
-// import "./TabComponent.scss";
-
-// const TabComponent = ({ activeTab, onTabChange, mediaItems }) => {
-//   return (
-//     <div>
-//       <div className="tab-buttons">
-//         <button
-//           onClick={() => onTabChange('waggle')}
-//           className={activeTab === 'waggle' ? 'active' : ''}
-//         >
-//           waggle
-//         </button>
-//         <button
-//           onClick={() => onTabChange('photos')}
-//           className={activeTab === 'photos' ? 'active' : ''}
-//         >
-//           Photos
-//         </button>
-//         <button
-//           onClick={() => onTabChange('videos')}
-//           className={activeTab === 'videos' ? 'active' : ''}
-//         >
-//           Videos
-//         </button>
-//       </div>
-//       <div className="media-container">
-//         {mediaItems.map((media, index) => (
-//           <div key={index} className="media-item">
-//             {media.type === 'text' && <p>{media.text}</p>}
-//             {media.type === 'image' && <img src={media.src} alt={media.caption} />}
-//             {media.type === 'video' && (
-//                <video
-//                className="Image-carousel-image"
-//                controls
-//                loop
-//                muted
-//                style={{ objectFit: "cover" }}
-//              >
-//                 <source src={media.src} type="video/mp4" />
-//                 Your browser does not support the video tag.
-//               </video>
-//             )}
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default TabComponent;
 import React, { useRef, useState } from "react";
-import Avatar from "@mui/material/Avatar";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
 import "./TabComponent.scss";
-import "./ThreadPosts.scss";
-
-const Message = ({ size = 24, fill, ...props }) => {
-  return (
-    <svg height={size} role="img" viewBox="0 0 24 24" width={size} {...props}>
-      <line
-        fill="none"
-        stroke={fill}
-        strokeLinejoin="round"
-        strokeWidth="2"
-        x1="22"
-        x2="9.218"
-        y1="3"
-        y2="10.083"
-      />
-      <polygon
-        fill="none"
-        points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334"
-        stroke={fill}
-        strokeLinejoin="round"
-        strokeWidth="2"
-      />
-    </svg>
-  );
-};
+import "./WagglePosts.scss";
+import WagglePosts from "./WagglePosts";
 
 const TabComponent = ({ activeTab, onTabChange, mediaItems }) => {
   const touchStartX = useRef(null);
   const touchEndX = useRef(null);
   const touchThreshold = 50; // Adjust as needed
   const [selectedMedia, setSelectedMedia] = useState(null);
+  const [openTabModal, setOpenTabModal] = useState(false);
 
   const handleTouchStart = (e) => {
     touchStartX.current = e.touches[0].clientX;
@@ -132,17 +59,67 @@ const TabComponent = ({ activeTab, onTabChange, mediaItems }) => {
     setSelectedMedia(null);
   };
 
+  const handleOpenTabModal = () => {
+    setOpenTabModal(true);
+  };
+
+  const handleCloseTabModal = () => {
+    setOpenTabModal(false);
+  };
+  const renderTabContent = () => {
+    // render the content of the selected tab
+    return mediaItems.map((currentMedia, index) => (
+      <div
+        key={index}
+        className={activeTab === "waggle" ? "waggle-content" : "media-items"}
+        
+      >
+        {currentMedia.type === "waggle" && (
+          <WagglePosts key={currentMedia.id} currentMedia={currentMedia} />
+        )}
+
+        {currentMedia.type === "image" && (
+          <img
+            className="Image-carousel-image"
+            src={currentMedia.src}
+            alt={currentMedia.caption}
+            onClick={() => openMedia(currentMedia)}
+          />
+        )}
+        {currentMedia.type === "video" && (
+          <div
+            className="video-container"
+            onClick={() => openMedia(currentMedia)}
+          >
+            <video
+              className="Image-carousel-image"
+              loop
+              muted
+              style={{ objectFit: "cover", width: "100%", height: "100%" }}
+            >
+              <source src={currentMedia.src} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        )}
+      </div>
+    ));
+  };
+
   return (
     <div
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
+      className="tab-component-container"
     >
       <div className="tab-buttons">
         {["waggle", "photos", "videos"].map((tab, index) => (
           <React.Fragment key={tab}>
             <button
-              onClick={() => onTabChange(tab)}
+              onClick={() => {
+                onTabChange(tab);
+              }}
               className={activeTab === tab ? "active" : ""}
             >
               {tab.charAt(0).toUpperCase() + tab.slice(1)}
@@ -151,86 +128,23 @@ const TabComponent = ({ activeTab, onTabChange, mediaItems }) => {
           </React.Fragment>
         ))}
       </div>
-
-      {/* <div className="media-container"> */}
       <div
         className={
           activeTab === "waggle" ? "waggle-container" : "media-container"
         }
       >
-        {mediaItems.map((currentMedia, index) => (
-          <div
-            key={index}
-            className={
-              activeTab === "waggle" ? "waggle-content" : "media-items"
-            }
-          >
-            {currentMedia.type === "waggle" && (
-              <div
-                key={currentMedia.id}
-                className="post"
-                style={{ padding: "15px" }}
-              >
-                <div className="user-data">
-                <div className="user-info">
-                  <Avatar
-                    src={currentMedia.user.profilePic}
-                    alt="Profile"
-                    className="profile-pic"
-                  />
-                  <span className="username">
-                    {currentMedia.user.username}</span>
-                   
-                </div>
-                <div className="post-date">{currentMedia.date}</div>
-                </div>
+        {renderTabContent()}
 
-                <p>{currentMedia.content}</p>
-
-                <div className="post-actions">
-                  <FavoriteBorderIcon className="action-icon" />
-                  <ChatBubbleOutlineOutlinedIcon className="action-icon" />
-                  <Message size={24} fill="#333" />{" "}
-                </div>
-
-                <div className="post-likes">
-                  {currentMedia.likes} likes . {currentMedia.comments} comments
-                </div>
-              </div>
-            )}
-
-            {currentMedia.type === "image" && (
-              <img
-                className="Image-carousel-image"
-                src={currentMedia.src}
-                alt={currentMedia.caption}
-                onClick={() => openMedia(currentMedia)}
-              />
-            )}
-            {currentMedia.type === "video" && (
-              <div
-                className="video-container"
-                onClick={() => openMedia(currentMedia)}
-              >
-                <video
-                  className="Image-carousel-image"
-                  loop
-                  muted
-                  style={{ objectFit: "cover", width: "100%", height: "100%" }}
-                >
-                  <source src={currentMedia.src} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-            )}
-          </div>
-        ))}
+        {/* Always show the "View All" button */}
       </div>
+      <button onClick={handleOpenTabModal} className="view-all-button">
+        View All
+      </button>
 
       {/* Render a modal or overlay for displaying the selected media */}
       {selectedMedia && (
         <div className="media-overlay" onClick={closeMedia}>
-          {selectedMedia.type === "text" && <p>{selectedMedia.text}</p>}
+          {selectedMedia.type === "text" && <p>{selectedMedia.text}</p> }
 
           {selectedMedia.type === "image" && (
             <img src={selectedMedia.src} alt={selectedMedia.caption} />
@@ -249,6 +163,24 @@ const TabComponent = ({ activeTab, onTabChange, mediaItems }) => {
           )}
         </div>
       )}
+
+      {/* Modal for displaying all items of the selected tab */}
+      <Dialog
+        open={openTabModal}
+        onClose={handleCloseTabModal}
+        fullWidth
+        maxWidth="md"
+        style={{ top: "60px" }}
+      >
+        <DialogTitle
+          style={{ background: "black", color: "white", textAlign: "center" }}
+        >
+          {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}
+        </DialogTitle>
+        <DialogContent style={{ background: "black", color: "white" }}  >
+          {renderTabContent()}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

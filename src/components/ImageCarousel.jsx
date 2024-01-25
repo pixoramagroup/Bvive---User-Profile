@@ -5,6 +5,7 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
 import Avatar from "@mui/material/Avatar";
+import WagglePosts from "./WagglePosts";
 // import Message from "./ThreadPosts"; // Assuming you have the Message component from ThreadPosts.jsx
 
 const ImageCarousel = ({ mediaItems }) => {
@@ -53,41 +54,14 @@ const ImageCarousel = ({ mediaItems }) => {
             >
               <source src={currentMedia.src} type="video/mp4" />
             </video>
-          ) : (
+          ) : 
             // Render waggle content
-            <div key={currentMedia.id} className="post" style={{background:"lightgray"}}>
-            <div className="user-info">
-              <Avatar
-                src={currentMedia.user.profilePic}
-                alt="Profile"
-                className="profile-pic"
-              />
-              <span className="username">{currentMedia.user.username}</span>
-            </div>
-        
-            <p>{currentMedia.content}</p>
-        
-            <div className="post-actions">
-              <FavoriteBorderIcon className="action-icon" />
-              <ChatBubbleOutlineOutlinedIcon className="action-icon" />
-              {/* <Message size={24} fill="#333" />{" "} */}
-            </div>
-        
-            <div className="post-likes">
-              {currentMedia.likes} likes . {currentMedia.comments} comments
-            </div>
-          </div>
-        )}
-
-          <div className="Image-carousel-overlay">
-            {currentMedia.type !== "text" && (
-              <div className="Image-carousel-caption">
-                {currentMedia.caption}
+            currentMedia.type === "waggle" && (
+              <div className="waggle-content">
+              <WagglePosts key={currentMedia.id} currentMedia={currentMedia}  />
               </div>
-            )}
-            <div className="Image-carousel-date">{currentMedia.date}</div>
-          </div>
-        </div>
+            )}         
+</div>
 
         {shouldShowButtons && (
           <button className="Image-carousel-button" onClick={nextSlide}>

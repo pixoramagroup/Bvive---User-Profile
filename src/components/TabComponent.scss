@@ -27,16 +27,16 @@
 .media-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  /* Set 2 columns */
-  // gap: 10px;
+  gap: 1px;
 }
 
 .media-item {
-  border: 1px solid #ddd;
+  // border: 1px solid #ddd;
   width: 100%;
   height: 100%;
   /* Set initial height to 0 */
   position: relative;
+  gap: 1px;
 }
 
 /* Adjust styles for images within .media-item */
@@ -46,10 +46,6 @@
   object-fit: cover;
   /* Maintain aspect ratio and cover entire container */
 }
-
-/* Existing styles for TabComponent */
-
-/* Add the following media query to style the media-overlay for screens up to 768px */
 .media-overlay {
   position: fixed;
   top: 0;
@@ -93,7 +89,7 @@
   margin: 5px 20px 5px 20px;
   border: 1px solid black;
   border-radius: 10px;
-  max-width: 559px;
+  // max-width: 559px;
   background-color: #fff;
   border: 1px solid #e24486;
   box-shadow: 0 0 10px #e24486;
@@ -101,10 +97,32 @@
   flex-direction: column;
   align-items: stretch;
   height: 100%;
+
+  @media (min-width: 426px) and (max-width: 768px) {
+    width: 80%;
+  }
+}
+ 
+
+
+
+
+.tab-component-container {
+  position: relative;
+  height: 100%; // Ensure the container takes full height
 }
 
-.user-data{
-  display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+.view-all-button {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 10px; // Adjust the margin as needed
+  padding: 5px 10px;
+  border: 1px solid darkgrey;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s, color 0.3s;
+
 }
