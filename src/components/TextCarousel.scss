@@ -183,3 +183,11 @@
     height: 3px;
   }
 }
+
+.dialog-carousel-content{
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

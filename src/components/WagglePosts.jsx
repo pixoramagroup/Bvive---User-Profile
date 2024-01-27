@@ -28,35 +28,34 @@ const Message = ({ size = 24, fill, ...props }) => {
   );
 };
 const WagglePosts = ({ currentMedia }) => {
-    const { content, date, user, likes, comments } = currentMedia;
+  const { content, date, user, likes, comments } = currentMedia;
 
-    return (
-      <div  className="post" style={{ padding: "15px" }}>
-        <div className="user-data">
-          <div className="user-info">
-            <Avatar
-              src={user.profilePic}
-              alt="Profile"
-              className="profile-pic"
-            />
-            <span className="username">{user.username}</span>
+  return (
+    <div className="post" style={{ padding: "15px" }}>
+      <div className="user-data">
+        <div className="user-info">
+          <Avatar src={user.profilePic} alt="Profile" className="profile-pic" />
+          <div>
+            <span className="username">{user.name}</span>
+            <div className="title-username">{user.username}</div>
           </div>
-          <div className="post-date">{date}</div>
         </div>
-  
-        <p>{content}</p>
-  
-        <div className="post-actions">
-          <FavoriteBorderIcon className="action-icon" />
-          <ChatBubbleOutlineOutlinedIcon className="action-icon" />
-          <Message size={24} fill="#333" />{" "}
-        </div>
-  
-        <div className="post-likes">
-          {likes} likes . {comments} comments
-        </div>
+        <div className="post-date">{date}</div>
       </div>
-    );
-  };
-  
-  export default WagglePosts;
+
+      <p>{content}</p>
+
+      <div className="post-actions">
+        <FavoriteBorderIcon className="action-icon" />
+        <ChatBubbleOutlineOutlinedIcon className="action-icon" />
+        <Message size={24} fill="#333" />{" "}
+      </div>
+
+      <div className="post-likes">
+        {likes} likes . {comments} comments
+      </div>
+    </div>
+  );
+};
+
+export default WagglePosts;

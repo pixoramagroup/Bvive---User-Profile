@@ -9,6 +9,11 @@ import Meditation from "../assets/meditation_icon.png";
 import Power from "../assets/PowerLifting_icon.png";
 import "./MySpecializations.scss";
 import EditableText from "./EditableText";
+import { DialogContent } from "@mui/material";
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import { DialogActions, Button } from "@mui/material";
+
 
 const Modal = ({ show, onClose, specialization }) => {
   const stopPropagation = (e) => {
@@ -31,6 +36,9 @@ const Modal = ({ show, onClose, specialization }) => {
   const close = () => {
     setEdit(false);
   };
+
+ 
+
   return (
     show && (
       <div className="modal-overlay" onClick={onClose}>
@@ -119,13 +127,42 @@ const MySpecializations = () => {
     setSelectedSpecialization(null);
   };
 
+  const [isServiceOpen , setServiceOpen]=useState(false);
+
+  const handleServiceOpen = () =>{
+ setServiceOpen(true);
+  };
+
+  const handleServiceClose = () =>  {
+    setServiceOpen(false);
+  };
+
   return (
     <div className="profile-aboutme-main">
       <div
         className="profile-aboutme-left-box"
         style={{ background: "#3b3b3b" }}
       >
-        <h2 className="services-heading">Services</h2>
+        <h2 className="services-heading" onClick={handleServiceOpen}>
+          Services
+          </h2>
+          <Dialog  open={isServiceOpen}
+          onClose={handleServiceClose}>
+            <DialogContent  style={{backgroundColor:"black" , color:"white", borderRadius:"5px", height:"500px"}}>
+            <ul className="list">
+            {specializations.map((specialization, index) => (
+              <li
+                key={index}
+                className="list-item"
+                onClick={() => handleSpecializationClick(specialization)}
+              >
+                {specialization.name}
+              </li>
+            ))}
+          </ul>
+
+            </DialogContent>
+          </Dialog>
         <div className="services-under-line"></div>
         <div className="list-container">
           <ul className="list">

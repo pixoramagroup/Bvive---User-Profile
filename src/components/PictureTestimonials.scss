@@ -68,8 +68,16 @@ p {
 
 .title {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   width: 80%;
+}
+
+.title-username {
+  font-style: italic;
+  margin-bottom: 4px;
+  margin-top: 4px;
 }
 
 .starText_1 {
@@ -159,7 +167,13 @@ p {
   border-radius: 5px;
   overflow-y: scroll;
   max-height: 70vh;
+
+  @media(max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+  }
 }
+
 
 // .modal-testimonial h2 {
 //   grid-column: span 3; /* Make the title span across all three columns */
@@ -178,6 +192,9 @@ p {
   font-size: 20px;
   color: rgb(8, 8, 8);
   cursor: pointer;
+  @media(max-width: 768px){
+    display: none;
+  }
 }
 
 .modal-testimonial h2 {
@@ -189,12 +206,15 @@ p {
   font-weight: normal;
   position: sticky;
   padding: 20px;
-  top: 0;
+  top: -12px;
   /* Stick to the top of the .modal-testimonial container */
   background: black;
   /* Set a background color to make it visually distinct */
   z-index: 1;
   /* Ensure it's above other content */
+  @media(max-width: 768px){
+    display: none;
+  }
 }
 
 .testimonial-feedback-button {
@@ -210,12 +230,12 @@ p {
 
 
 @media (max-width: 768px) {
-  .testimonial-heading{
+  .testimonial-heading {
     margin-left: 0px;
     text-align: center;
   }
 
-  .testimonial-under-line{
+  .testimonial-under-line {
     margin-left: 0px;
     margin-bottom: 15px;
     margin-left: auto;
@@ -289,7 +309,7 @@ p {
     overflow-x: scroll;
     width: fit-content;
     overflow-y: hidden;
-    background-color:rgb(67 206 175) ;
+    background-color: rgb(67 206 175);
   }
 
 }

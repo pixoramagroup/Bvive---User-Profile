@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
-import VerifiedIcon from '@mui/icons-material/Verified';
+import React, { useState } from "react";
+import VerifiedIcon from "@mui/icons-material/Verified";
 import Badge from "../assets/badge_watermark.png";
-import './TextCarousel.scss'; // Import the CSS file
+import "./TextCarousel.scss";
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
+import { DialogActions, Button } from "@mui/material";
 
 const TextCarousel = ({ items, itemsPerView }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -17,41 +21,72 @@ const TextCarousel = ({ items, itemsPerView }) => {
       prevIndex > 0 ? prevIndex - 1 : items.length - itemsPerView
     );
   };
+  const [isCertificateOpen, setCertificateOpen] = useState(false);
+
+  const handleCertificatesOpen = () => {
+    setCertificateOpen(true);
+  };
+
+  const handleCertificatesClose = () => {
+    setCertificateOpen(false);
+  };
 
   return (
     <div className="certificate-main">
-      <div style={{backgroundColor: "rgb(121 120 122)"}}>
-        <h1>My Certifications</h1>
-        <div className="certificate-under-line"></div>   
-        </div>   
-    <div className="carousel-container">
-      <button className="carousel-button" onClick={goToPrev}>
-        &lt;
-      </button>
-      <div className="carousel-content">
-        {items
-          .slice(currentIndex, currentIndex + itemsPerView)
-          .map((item, index) => (
-            <div key={index} className="carousel-item">
-                <img src={Badge} alt="Watermark" className="watermark" />
-              <div className="icon-container">
-              </div>
-              <div className="heading-container">
-                <div className="carousel-heading">
-                  {item.heading}
-                  <VerifiedIcon className="verified-icon" />
-                </div>
-              </div>
-              <div className="carousel-subHeading">{item.subHeading}</div>
-              <div className="line"></div>
-              <div className="carousel-institute">{item.institute}</div>
-            </div>
-          ))}
+      <div style={{ backgroundColor: "rgb(121 120 122)" }}>
+        <h1 onClick={handleCertificatesOpen}>My Certifications</h1>
+        <div className="certificate-under-line"></div>
       </div>
-      <button className="carousel-button" onClick={goToNext}>
-        &gt;
-      </button>
-    </div>
+      <Dialog open={isCertificateOpen} onClick={handleCertificatesClose}>
+        <DialogContent style={{borderRadius:"5px", height:"500px"}}>
+          <div className="dialog-carousel-content">
+            {items
+              .slice(currentIndex, currentIndex + itemsPerView)
+              .map((item, index) => (
+                <div key={index} className="carousel-item">
+                  <img src={Badge} alt="Watermark" className="watermark" />
+                  <div className="icon-container"></div>
+                  <div className="heading-container">
+                    <div className="carousel-heading">
+                      {item.heading}
+                      <VerifiedIcon className="verified-icon" />
+                    </div>
+                  </div>
+                  <div className="carousel-subHeading">{item.subHeading}</div>
+                  <div className="line"></div>
+                  <div className="carousel-institute">{item.institute}</div>
+                </div>
+              ))}
+          </div>
+        </DialogContent>
+      </Dialog>
+      <div className="carousel-container">
+        <button className="carousel-button" onClick={goToPrev}>
+          &lt;
+        </button>
+        <div className="carousel-content">
+          {items
+            .slice(currentIndex, currentIndex + itemsPerView)
+            .map((item, index) => (
+              <div key={index} className="carousel-item">
+                <img src={Badge} alt="Watermark" className="watermark" />
+                <div className="icon-container"></div>
+                <div className="heading-container">
+                  <div className="carousel-heading">
+                    {item.heading}
+                    <VerifiedIcon className="verified-icon" />
+                  </div>
+                </div>
+                <div className="carousel-subHeading">{item.subHeading}</div>
+                <div className="line"></div>
+                <div className="carousel-institute">{item.institute}</div>
+              </div>
+            ))}
+        </div>
+        <button className="carousel-button" onClick={goToNext}>
+          &gt;
+        </button>
+      </div>
     </div>
   );
 };

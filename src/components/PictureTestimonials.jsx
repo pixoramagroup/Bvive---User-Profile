@@ -4,24 +4,63 @@ import StarRatingComponent from "react-star-rating-component";
 import Yoga from "../assets/yoga_1.jpg";
 import Stretching from "../assets/stretching_1.jpg";
 import Boxing from "../assets/boxing.jpg";
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
+import { DialogActions, Button } from "@mui/material";
+
 
 const testimonialsData = [
-  { title: "Clara", content: "Quick delivery ", image: Yoga },
-  { title: "Rob", content: "Genuine products, loved it", image: Boxing },
-  { title: "Madie", content: "Highly recommend it", image: Stretching },
-  { title: "Sara", content: "Quick delivery ", image: Yoga },
-  { title: "Mob", content: "Genuine products,loved it", image: Boxing },
-  { title: "Manny", content: "Highly recommend it", image: Stretching },
+  {
+    title: "Clara",
+    username: "@clara",
+    content: "Quick delivery ",
+    image: Yoga,
+  },
+  {
+    title: "Rob",
+    username: "@rob",
+    content: "Genuine products, loved it",
+    image: Boxing,
+  },
+  {
+    title: "Madie",
+    username: "@madie",
+    content: "Highly recommend it",
+    image: Stretching,
+  },
+  { title: "Sara", username: "@sara", content: "Quick delivery ", image: Yoga },
+  {
+    title: "Mob",
+    username: "@mob",
+    content: "Genuine products,loved it",
+    image: Boxing,
+  },
+  {
+    title: "Manny",
+    username: "@manny",
+    content: "Highly recommend it",
+    image: Stretching,
+  },
 ];
 
-function IndividualTestimonial({ title, content, image, rating, onStarClick }) {
+function IndividualTestimonial({
+  title,
+  content,
+  image,
+  rating,
+  onStarClick,
+  username,
+}) {
   return (
     <div className="card">
       <div className="upper-main">
-        <h3>What Our Client Says</h3>
+        {/* <h3>What Our Client Says</h3> */}
         <img className="circle" src={image} alt={title} />
         <div className="title">
           <h4>{title}</h4>
+          <h5 className="title-username">{username}</h5>
+
         </div>
       </div>
       <div
@@ -94,7 +133,7 @@ const PictureTestimonials = () => {
         draggable
         onDragStart={(e) => handleOnDrag(e, "contact me", "green")}
       >
-        <h2 className="testimonial-heading">Testimonials</h2>
+        <h2 className="testimonial-heading" onClick={openModal}>Testimonials</h2>
         <div className="testimonial-under-line"></div>
         <div className="rating-content">
           <h3
@@ -200,6 +239,7 @@ const PictureTestimonials = () => {
               <IndividualTestimonial
                 key={index}
                 title={testimonialsData[currentIndex + index].title}
+                username={testimonialsData[currentIndex + index].username}
                 content={testimonialsData[currentIndex + index].content}
                 image={testimonialsData[currentIndex + index].image}
                 rating={5}
@@ -245,7 +285,7 @@ const PictureTestimonials = () => {
             </button>
           </div>
 
-          {isModalOpen && (
+          <Dialog open = {isModalOpen} onClick={closeModal}>
             <div className="modal-overlay-testimonial" onClick={closeModal}>
               <div className="modal-testimonial">
                 <h2>Testimonials</h2>
@@ -253,6 +293,7 @@ const PictureTestimonials = () => {
                   <IndividualTestimonial
                     key={index}
                     title={testimonial.title}
+                    username={testimonial.username}
                     content={testimonial.content}
                     image={testimonial.image}
                     rating={5}
@@ -264,7 +305,8 @@ const PictureTestimonials = () => {
                 </button>
               </div>
             </div>
-          )}
+                      </Dialog>
+
         </div>
       </div>
     </div>

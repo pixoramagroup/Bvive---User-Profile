@@ -41,7 +41,18 @@ import SignUpPage from "./SignUpPage";
 import MediaPopup from "./MediaPopUp";
 import MyContent from "./MyContent";
 import SearchBar from "./SearchBar";
-// import ThreadPosts from "./ThreadPosts";
+import Dialog from "@mui/material/Dialog";
+import DialogContent from "@mui/material/DialogContent";
+import DatePicker from "react-date-picker";
+import "react-datepicker/dist/react-datepicker.css";
+import 'react-date-picker/dist/DatePicker.css';
+import 'react-calendar/dist/Calendar.css';
+import 'react-datetime-picker/dist/DateTimePicker.css';
+import 'react-calendar/dist/Calendar.css';
+import 'react-clock/dist/Clock.css';
+import DateTimePicker from 'react-datetime-picker';
+
+
 const Profile = () => {
   // const images = [
   //   '',
@@ -73,6 +84,38 @@ const Profile = () => {
   const onStarClick = (nextValue) => {
     setRating(nextValue);
   };
+
+  const [isBookingModalOpen, setBookingModalOpen] = useState(false);
+  const [isMessageModalOpen, setMessageModalOpen] = useState(false);
+  const [isScheduleModalOpen, setScheduleModalOpen] = useState(false);
+
+  const handleBookNowClick = () => {
+    setBookingModalOpen(true);
+  };
+
+  const handleMessageNowClick = () => {
+    setMessageModalOpen(true);
+  };
+
+  const handleViewScheduleClick = () => {
+    setScheduleModalOpen(true);
+  };
+
+  const handleCloseBookingModal = () => {
+    setBookingModalOpen(false);
+  };
+
+  const handleCloseMessageModal = () => {
+    setMessageModalOpen(false);
+  };
+
+  const handleCloseScheduleModal = () => {
+    setScheduleModalOpen(false);
+  };
+
+  const [startDate, setStartDate] = useState();
+  const [value, onChange] = useState(new Date());
+
   const textItems = [
     {
       heading: "Personal Training",
@@ -123,30 +166,33 @@ const Profile = () => {
   //   },
   // ];
   const waggleData = [
-    { type : "waggle",
+    {
+      type: "waggle",
       id: 1,
       user: {
-        username: "James Osborn",
+        name: "James Osborn",
+        username: "@jamesosborn",
+
         profilePic: "https://placekitten.com/50/50",
       },
       content: "Fall in love with taking care of yourself. Mind, body, spirit",
       likes: 10,
       comments: 20,
       date: "3w",
-
     },
     {
-      type : "waggle",
+      type: "waggle",
       id: 2,
       user: {
-        username: "James Osborn",
+        name: "James Osborn",
+        username: "@jamesosborn",
         profilePic: "https://placekitten.com/50/50",
       },
-      content: "Fitness is not about being better than someone else; it's about being better than you used to be",
+      content:
+        "Fitness is not about being better than someone else; it's about being better than you used to be",
       likes: 10,
       comments: 30,
       date: "2w",
-
     },
   ];
 
@@ -269,6 +315,26 @@ const Profile = () => {
   const handleBlur = () => {
     setIsFocused(false);
   };
+
+  const [isFollowerOpen, setFollowerOpen] = useState(false);
+  const [isFollowingOpen, setFollowingOpen] = useState(false);
+
+  const handleFollowerOpen = () => {
+    setFollowerOpen(true);
+  };
+
+  const handleFollowerClose = () => {
+    setFollowerOpen(false);
+  };
+
+  const handleFollowingOpen = () => {
+    setFollowingOpen(true);
+  };
+
+  const handleFollowingClose = () => {
+    setFollowingOpen(false);
+  };
+
   return (
     // <div className={classes.profile}>
     //   {/* Header Section */}
@@ -381,14 +447,6 @@ const Profile = () => {
           // onDragStart={(e) => handleOnDrag(e, 'profile box', 'orange')}
         >
           <div className="profile-card-main">
-            <div className="creditscore-box-blue">
-              <CreditScoreIcon className="icon-button-creditscore-blue" />
-            </div>
-
-            {/* Yellow CreditScoreIcon */}
-            <div className="creditscore-box-yellow">
-              <CreditScoreIcon className="icon-button-creditscore-yellow" />
-            </div>
             {/* <div className="ribbon-box-red">
             </div>
             <div className="ribbon-box-blue">
@@ -404,6 +462,15 @@ const Profile = () => {
               </div>
               <div className="profile-card-top-right">
                 <div className="profile-tag">Personal Trainer</div>
+                <div className="creditscore-box-blue">
+                  <CreditScoreIcon className="icon-button-creditscore-blue" />
+                </div>
+
+                {/* Yellow CreditScoreIcon */}
+                <div className="creditscore-box-yellow">
+                  <CreditScoreIcon className="icon-button-creditscore-yellow" />
+                </div>
+
                 <div className="profile-name">
                   <h2 style={{ marginBottom: "4px", marginTop: "0px" }}>
                     James Osborn
@@ -483,7 +550,7 @@ const Profile = () => {
                   Sessions
                 </div>
               </div>
-              <div className="sessions">
+              <div className="sessions" onClick={handleFollowerOpen}>
                 <div className="sessions1">600</div>
                 <div
                   className="sessions1"
@@ -496,7 +563,28 @@ const Profile = () => {
                   Hive
                 </div>
               </div>
-              <div className="sessions">
+              <Dialog open={isFollowerOpen} onClick={handleFollowerClose}>
+                <DialogContent
+                  style={{
+                    backgroundColor: "black",
+                    color: "white",
+                    borderRadius: "5px",
+                  }}
+                >
+                  <ul>
+                    <li>Follower 1</li>
+                    <li>Follower 2</li>
+                    <li>Follower 3</li>
+                    <li>Follower 4</li>
+                    <li>Follower 5</li>
+                    <li>Follower 6</li>
+                    <li>Follower 7</li>
+                    <li>Follower 8</li>
+                    <li>Follower 9</li>
+                  </ul>
+                </DialogContent>
+              </Dialog>
+              <div className="sessions" onClick={handleFollowingOpen}>
                 <div className="sessions1">500</div>
                 <div
                   className="sessions1"
@@ -509,6 +597,27 @@ const Profile = () => {
                   Bees
                 </div>
               </div>
+              <Dialog open={isFollowingOpen} onClick={handleFollowingClose}>
+                <DialogContent
+                  style={{
+                    backgroundColor: "black",
+                    color: "white",
+                    borderRadius: "5px",
+                  }}
+                >
+                  <ul>
+                    <li>Following 1</li>
+                    <li>Following 2</li>
+                    <li>Following 3</li>
+                    <li>Following 4</li>
+                    <li>Following 5</li>
+                    <li>Following 6</li>
+                    <li>Following 7</li>
+                    <li>Following 8</li>
+                    <li>Following 9</li>
+                  </ul>
+                </DialogContent>
+              </Dialog>
             </div>
             <div className="profile-card-bottom">
               <div className="profile-card-bottom-text">
@@ -521,10 +630,80 @@ const Profile = () => {
                 ></textarea>
               </div>
               <div className="profile-card-bottom-button">
-                <button className="transparent-button">Book Now</button>
-                <button className="transparent-button">View Schedule</button>
-                <button className="transparent-button">Contact Now</button>
+                <button
+                  className="transparent-button"
+                  onClick={handleBookNowClick}
+                >
+                  {" "}
+                  Book Now
+                </button>
+                <button
+                  className="transparent-button"
+                  onClick={handleViewScheduleClick}
+                >
+                  View Schedule
+                </button>
+                <button
+                  className="transparent-button"
+                  onClick={handleMessageNowClick}
+                >
+                  Message Now
+                </button>
               </div>
+              <Dialog
+                open={isBookingModalOpen}
+                onClose={handleCloseBookingModal}
+              >
+                <DialogContent>
+                  <div className="list">
+                    <ul style={{ listStyle: "none" }}>
+                      <li>Cardio</li>
+                      <li>Power Lifting</li>
+                      <li>Swimming</li>
+                      <li>Meditation</li>
+                      <li>Yoga</li>
+                    </ul>
+                  </div>
+                </DialogContent>
+                {/* <DialogActions>
+                  <Button onClick={handleCloseBookingModal}>Close</Button>
+                </DialogActions> */}
+              </Dialog>
+
+              {/* Message Modal */}
+              <Dialog
+                open={isMessageModalOpen}
+                onClose={handleCloseMessageModal}
+              >
+                <DialogContent>
+                  <p>
+                    Contact us at:
+                    <a>sales@pixoramagroup.com</a>
+                  </p>
+                </DialogContent>
+                {/* <DialogActions>
+                  <Button onClick={handleCloseMessageModal}>Close</Button>
+                </DialogActions> */}
+              </Dialog>
+
+              {/* Schedule Modal */}
+              <Dialog
+                open={isScheduleModalOpen}
+                onClose={handleCloseScheduleModal}
+              >
+               <DialogContent style={{borderRadius:"5px", height:"300px"}}>
+               <DateTimePicker onChange={onChange} value={value} 
+                    selected={startDate}
+                    // onChange={(date) => setStartDate(date)}
+                    timeInputLabel="Time:"
+                    dateFormat="MM/dd/yyyy h:mm aa"
+                    showTimeInput
+                  />
+                  </DialogContent>
+                {/* <DialogActions>
+                  <Button onClick={handleCloseScheduleModal}>Close</Button>
+                </DialogActions> */}
+              </Dialog>
             </div>
           </div>
         </div>
@@ -607,11 +786,11 @@ const Profile = () => {
             activeTab={selectedTab}
             onTabChange={setSelectedTab}
             mediaItems={mediaItems}
-          />        
-        </div> 
-        
+          />
+        </div>
+
         <div className="profile-aboutme-main-2">
-        <MyContent
+          <MyContent
             title="Waggle"
             mediaItems={waggleData}
             onViewAll={() => openPopup("waggle")}
@@ -653,7 +832,6 @@ const Profile = () => {
           onClose={closePopup}
         />
       )}
-
 
       {/* <div className="profile-aboutme-main">
                 <div
