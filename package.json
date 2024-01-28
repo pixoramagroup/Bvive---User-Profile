@@ -19,6 +19,7 @@
     "@mui/material": "^5.15.6",
     "@mui/x-date-pickers": "^6.19.2",
     "@reusejs/react-text-input": "^0.0.8",
+    "animate.css": "^4.1.1",
     "date-fns": "^3.3.1",
     "dayjs": "^1.11.10",
     "leaflet": "^1.9.4",

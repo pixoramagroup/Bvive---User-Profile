@@ -13,7 +13,8 @@ import { DialogContent } from "@mui/material";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import { DialogActions, Button } from "@mui/material";
-import Slide from "@mui/material/Slide";
+// import Slide from "@mui/material/Slide";
+import 'animate.css';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -153,8 +154,10 @@ const MySpecializations = () => {
           </h2>
           <Dialog  open={isServiceOpen}
           onClose={handleServiceClose}
-          keepMounted
-          TransitionComponent={Transition}>
+          className="animate__animated animate__zoomIn"
+          // keepMounted
+          // TransitionComponent={Transition}
+          >
             <DialogContent  style={{backgroundColor:"black" , color:"white", borderRadius:"5px", height:"500px"}}>
             <ul className="list">
             {specializations.map((specialization, index) => (

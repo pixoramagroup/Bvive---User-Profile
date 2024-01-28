@@ -6,11 +6,12 @@ import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import { DialogActions, Button } from "@mui/material";
-import Slide from "@mui/material/Slide";
+// import Slide from "@mui/material/Slide";
+import "animate.css";
 
-const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
+//  const Transition = React.forwardRef(function Transition(props, ref) {
+//     return <Slide direction="up" ref={ref} {...props} />;
+//   });
 
 const TextCarousel = ({ items, itemsPerView }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -35,24 +36,24 @@ const TextCarousel = ({ items, itemsPerView }) => {
   const handleCertificatesClose = () => {
     setCertificateOpen(false);
   };
-  
- 
 
   return (
     <div className="certificate-main">
       <div style={{ backgroundColor: "rgb(121 120 122)" }}>
         <h1 onClick={handleCertificatesOpen}>My Certifications</h1>
         <div className="certificate-under-line"></div>
-        </div>
+      </div>
       <Dialog
         open={isCertificateOpen}
         onClose={handleCertificatesClose}
-        TransitionComponent={Transition}
-        keepMounted
+        className="animate__animated animate__zoomIn"
+        // TransitionComponent={Transition}
+        // keepMounted
         aria-describedby="alert-dialog-slide-description"
-
       >
-        <DialogContent style={{ borderRadius: "5px", height: "500px" }}>
+        <DialogContent
+          style={{ borderRadius: "5px", height: "500px" }}
+        >
           <div className="dialog-carousel-content">
             {items
               .slice(currentIndex, currentIndex + itemsPerView)
@@ -74,7 +75,6 @@ const TextCarousel = ({ items, itemsPerView }) => {
           </div>
         </DialogContent>
       </Dialog>
-      
 
       <div className="carousel-container">
         <button className="carousel-button" onClick={goToPrev}>

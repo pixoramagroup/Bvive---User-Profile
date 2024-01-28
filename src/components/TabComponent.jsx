@@ -5,11 +5,12 @@ import DialogContent from "@mui/material/DialogContent";
 import Slide from "@mui/material/Slide";
 import "./TabComponent.scss";
 import "./WagglePosts.scss";
+import 'animate.css';
 import WagglePosts from "./WagglePosts";
 
-const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
+// const Transition = React.forwardRef(function Transition(props, ref) {
+//   return <Slide direction="up" ref={ref} {...props} />;
+// });
 
 
 
@@ -176,8 +177,10 @@ const TabComponent = ({ activeTab, onTabChange, mediaItems }) => {
       <Dialog
         open={openTabModal}
         onClose={handleCloseTabModal}
-        TransitionComponent={Transition}
-        keepMounted
+        // TransitionComponent={Transition}
+        // keepMounted
+        className="animate__animated animate__zoomIn"
+
         aria-describedby="alert-dialog-slide-description"
 
         fullWidth

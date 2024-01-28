@@ -9,12 +9,11 @@ import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import { DialogActions, Button } from "@mui/material";
 import Slide from "@mui/material/Slide";
-
+import 'animate.css';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
-
 
 const testimonialsData = [
   {
@@ -66,7 +65,6 @@ function IndividualTestimonial({
         <div className="title">
           <h4>{title}</h4>
           <h5 className="title-username">{username}</h5>
-
         </div>
       </div>
       <div
@@ -139,7 +137,9 @@ const PictureTestimonials = () => {
         draggable
         onDragStart={(e) => handleOnDrag(e, "contact me", "green")}
       >
-        <h2 className="testimonial-heading" onClick={openModal}>Testimonials</h2>
+        <h2 className="testimonial-heading" onClick={openModal}>
+          Testimonials
+        </h2>
         <div className="testimonial-under-line"></div>
         <div className="rating-content">
           <h3
@@ -291,30 +291,37 @@ const PictureTestimonials = () => {
             </button>
           </div>
 
-          <Dialog open = {isModalOpen} onClick={closeModal}
-          keepMounted
-          TransitionComponent={Transition}>
-            <div className="modal-overlay-testimonial" onClick={closeModal}>
-              <div className="modal-testimonial">
-                <h2>Testimonials</h2>
-                {testimonialsData.map((testimonial, index) => (
-                  <IndividualTestimonial
-                    key={index}
-                    title={testimonial.title}
-                    username={testimonial.username}
-                    content={testimonial.content}
-                    image={testimonial.image}
-                    rating={5}
-                    onStarClick={() => {}}
-                  />
-                ))}
-                <button onClick={closeModal} className="close-button">
-                  &times;
-                </button>
+          <Dialog
+            open={isModalOpen}
+            onClick={closeModal}
+            className="animate__animated animate__zoomIn"
+            // keepMounted
+            // TransitionComponent={Transition}
+          >
+            <DialogContent
+              style={{ borderRadius: "5px", height: "500px" }}
+            >
+              <div className="modal-overlay-testimonial" onClick={closeModal}>
+                <div className="modal-testimonial">
+                  <h2>Testimonials</h2>
+                  {testimonialsData.map((testimonial, index) => (
+                    <IndividualTestimonial
+                      key={index}
+                      title={testimonial.title}
+                      username={testimonial.username}
+                      content={testimonial.content}
+                      image={testimonial.image}
+                      rating={5}
+                      onStarClick={() => {}}
+                    />
+                  ))}
+                  <button onClick={closeModal} className="close-button">
+                    &times;
+                  </button>
+                </div>
               </div>
-            </div>
-                      </Dialog>
-
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
     </div>

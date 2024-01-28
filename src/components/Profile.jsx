@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { useState, useEffect } from "react";
 //import classes from './Profile.module.scss'; // Assume CSS modules are set up
 import "./Profile.scss";
@@ -51,7 +51,7 @@ import "react-datetime-picker/dist/DateTimePicker.css";
 import "react-calendar/dist/Calendar.css";
 import "react-clock/dist/Clock.css";
 import DateTimePicker from "react-datetime-picker";
-import Slide from "@mui/material/Slide";
+import "animate.css";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -813,11 +813,14 @@ const Profile = () => {
       </div> */}
       <PictureTestimonials></PictureTestimonials>
       <Footer></Footer>
+      {/* <Schedule></Schedule> */}
       <Dialog
         open={isFollowerOpen}
         onClick={handleFollowerClose}
-        keepMounted
-        TransitionComponent={Transition}
+        className="animate__animated animate__zoomIn"
+
+        // keepMounted
+        // TransitionComponent={Transition}
       >
         <DialogContent
           style={{
@@ -826,7 +829,7 @@ const Profile = () => {
             borderRadius: "5px",
           }}
         >
-          <ul style={{listStyle:"none", padding:"0px"}}>
+          <ul style={{ listStyle: "none", padding: "0px" }}>
             <li>Follower 1</li>
             <li>Follower 2</li>
             <li>Follower 3</li>
@@ -842,8 +845,10 @@ const Profile = () => {
       <Dialog
         open={isFollowingOpen}
         onClick={handleFollowingClose}
-        keepMounted
-        TransitionComponent={Transition}
+        className="animate__animated animate__zoomIn"
+
+        // keepMounted
+        // TransitionComponent={Transition}
       >
         <DialogContent
           style={{
@@ -852,7 +857,7 @@ const Profile = () => {
             borderRadius: "5px",
           }}
         >
-          <ul style={{listStyle:"none", padding:"0px"}}>
+          <ul style={{ listStyle: "none", padding: "0px" }}>
             <li>Following 1</li>
             <li>Following 2</li>
             <li>Following 3</li>
@@ -868,12 +873,16 @@ const Profile = () => {
       <Dialog
         open={isBookingModalOpen}
         onClose={handleCloseBookingModal}
-        keepMounted
-        TransitionComponent={Transition}
+        className="animate__animated animate__zoomIn"
+
+        // keepMounted
+        // TransitionComponent={Transition}
       >
-        <DialogContent style={{ background: "black", color: "white", textAlign: "center" }}>
+        <DialogContent
+          style={{ background: "black", color: "white", textAlign: "center" }}
+        >
           <div className="list">
-            <ul style={{listStyle:"none", padding:"0px"}}>
+            <ul style={{ listStyle: "none", padding: "0px" }}>
               <li>Cardio</li>
               <li>Power Lifting</li>
               <li>Swimming</li>
@@ -891,15 +900,17 @@ const Profile = () => {
       <Dialog
         open={isMessageModalOpen}
         onClose={handleCloseMessageModal}
-        keepMounted
-        TransitionComponent={Transition}
+        className="animate__animated animate__zoomIn"
+
+        // keepMounted
+        // TransitionComponent={Transition}
       >
-        <DialogContent style={{ background: "black", color: "white", textAlign: "center" }}>
-          
-            Contact us at:
-            <br></br>
-            <a>sales@pixoramagroup.com</a>
-          
+        <DialogContent
+          style={{ background: "black", color: "white", textAlign: "center" }}
+        >
+          Contact us at:
+          <br></br>
+          <a>sales@pixoramagroup.com</a>
         </DialogContent>
       </Dialog>
 
@@ -907,8 +918,10 @@ const Profile = () => {
       <Dialog
         open={isScheduleModalOpen}
         onClose={handleCloseScheduleModal}
-        keepMounted
-        TransitionComponent={Transition}
+        className="animate__animated animate__zoomIn"
+
+        // keepMounted
+        // TransitionComponent={Transition}
       >
         <DialogContent style={{ borderRadius: "5px", height: "300px" }}>
           <DateTimePicker
