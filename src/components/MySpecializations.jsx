@@ -13,6 +13,11 @@ import { DialogContent } from "@mui/material";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import { DialogActions, Button } from "@mui/material";
+import Slide from "@mui/material/Slide";
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 
 const Modal = ({ show, onClose, specialization }) => {
@@ -147,7 +152,9 @@ const MySpecializations = () => {
           Services
           </h2>
           <Dialog  open={isServiceOpen}
-          onClose={handleServiceClose}>
+          onClose={handleServiceClose}
+          keepMounted
+          TransitionComponent={Transition}>
             <DialogContent  style={{backgroundColor:"black" , color:"white", borderRadius:"5px", height:"500px"}}>
             <ul className="list">
             {specializations.map((specialization, index) => (
@@ -162,7 +169,7 @@ const MySpecializations = () => {
           </ul>
 
             </DialogContent>
-          </Dialog>
+          </Dialog >
         <div className="services-under-line"></div>
         <div className="list-container">
           <ul className="list">

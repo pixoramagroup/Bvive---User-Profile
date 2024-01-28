@@ -8,6 +8,12 @@ import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import { DialogActions, Button } from "@mui/material";
+import Slide from "@mui/material/Slide";
+
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 
 const testimonialsData = [
@@ -285,7 +291,9 @@ const PictureTestimonials = () => {
             </button>
           </div>
 
-          <Dialog open = {isModalOpen} onClick={closeModal}>
+          <Dialog open = {isModalOpen} onClick={closeModal}
+          keepMounted
+          TransitionComponent={Transition}>
             <div className="modal-overlay-testimonial" onClick={closeModal}>
               <div className="modal-testimonial">
                 <h2>Testimonials</h2>

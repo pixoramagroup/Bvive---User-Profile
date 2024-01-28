@@ -492,7 +492,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 25px;
+    margin-top: 10px;
     //margin: 3px;
     // height: 100%;
     width: 100%;
@@ -725,17 +725,17 @@
     /* Smooth transition for hover effects */
   }
 
-  .creditscore-box-blue {
-    // position: relative;
-    width: 100%;
-    // margin-top: 20px;
-    /* Adjust the margin as needed */
-  }
+  // .creditscore-box-blue {
+  //   // position: relative;
+  //   // width: 100%;
+  //   // margin-top: 20px;
+  //   /* Adjust the margin as needed */
+  // }
 
   .creditscore-box-blue .icon-button-creditscore-blue {
-    position: absolute;
-    top: 0;
-    right: 50px;
+    // position: absolute;
+    // top: 0;
+    // right: 50px;
     cursor: pointer;
     color: #039cff;
     /* Set the desired color */
@@ -751,16 +751,16 @@
     /* Optional: Increase size on hover */
   }
 
-  .creditscore-box-yellow {
-    // position: relative;
-    width: 100%;
-    // margin-top: 20px; /* Adjust the margin as needed */
-  }
+  // .creditscore-box-yellow {
+  //   // position: relative;
+  //   // width: 100%;
+  //   // margin-top: 20px; /* Adjust the margin as needed */
+  // }
 
   .creditscore-box-yellow .icon-button-creditscore-yellow {
-    position: absolute;
-    top: 0;
-    right: 0;
+    // position: absolute;
+    // top: 0;
+    // right: 0;
     cursor: pointer;
     color: yellow;
     /* Set the desired color */
@@ -882,7 +882,7 @@
     }
 
     .profile-tag {
-      font-size: 20px;
+      font-size: 19px;
     }
 
     .profile-name h2 {
@@ -895,7 +895,7 @@
 
     .creditscore-box-blue,
     .creditscore-box-yellow {
-      width: 100%;
+      // width: 100%;
       margin-top: 10px;
       // position: static;
       /* Add spacing between image and credit cards */
@@ -973,7 +973,7 @@
 
 
     .profile-tag {
-      font-size: 20px;
+      font-size: 19px;
     }
 
     .profile-name h2 {
@@ -986,7 +986,7 @@
 
     .creditscore-box-blue,
     .creditscore-box-yellow {
-      width: 100%;
+      // width: 100%;
       margin-top: 0px;
       // position: static;
     }

@@ -145,8 +145,27 @@
 // // export default CircularImagePicker;
 
 import React, { useState, useRef, useEffect } from "react";
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
 import Avatar from "@mui/material/Avatar";
 import "./CircularImagePicker.scss";
+import  Slide from "@mui/material/Slide";
+
+// const Transition = React.forwardRef(function Transition(props, ref) {
+//   return <Slide direction="up" ref={ref} {...props} />;
+// });
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return (
+    <Slide
+      direction="up" // Change the direction if needed
+      ref={ref}
+      {...props}
+      style={{ transition: 'transform 500ms cubic-bezier(0.2, 0.8, 0.2, 1)' }}
+    />
+  );
+});
 
 const CircularImagePicker = ({ images, onImageChange }) => {
   const [localImages, setLocalImages] = useState(images);
@@ -172,6 +191,9 @@ const CircularImagePicker = ({ images, onImageChange }) => {
       setShowPopup(false);
       setShowOverlay(false);
     }
+  };
+  const handleClosePopup = () => {
+    setShowPopup(false);
   };
 
   const handleOptionClick = (option) => {
@@ -217,31 +239,45 @@ const CircularImagePicker = ({ images, onImageChange }) => {
           onClick={(event) => handleImageClick(index, event)}
         >
           {/* <img src={image} alt={`image-${index}`} className="circular-image" /> */}
-          <Avatar src={image} alt={`avatar-${index}`} sx={{ width: 100, height: 100 }} className="circular-image"></Avatar>
+          <Avatar
+            src={image}
+            alt={`avatar-${index}`}
+            sx={{ width: 100, height: 100 }}
+            className="circular-image"
+          ></Avatar>
         </div>
       ))}
-      {showPopup && (
-        <div ref={popupRef} className="popup-container">
-          <div
-            className="popup-option"
-            onClick={() => handleOptionClick("seeProfilePic")}
-          >
-            See Profile Picture
+      <Dialog
+        open={showPopup}
+        onClose={handleClosePopup}
+        keepMounted
+        TransitionComponent={Transition}
+        aria-describedby="alert-dialog-slide-description"
+
+      >
+        <DialogContent style={{ background: "black", color: "white" }} >
+          <div ref={popupRef} >
+            <div
+              className="popup-option"
+              onClick={() => handleOptionClick("seeProfilePic")}
+            >
+              See Profile Picture
+            </div>
+            <div
+              className="popup-option"
+              onClick={() => handleOptionClick("changeProfilePic")}
+            >
+              Change or Add Profile Picture
+            </div>
+            <div
+              className="popup-option"
+              onClick={() => handleOptionClick("seeIntroVideo")}
+            >
+              See Intro Video
+            </div>
           </div>
-          <div
-            className="popup-option"
-            onClick={() => handleOptionClick("changeProfilePic")}
-          >
-            Change or Add Profile Picture
-          </div>
-          <div
-            className="popup-option"
-            onClick={() => handleOptionClick("seeIntroVideo")}
-          >
-            See Intro Video
-          </div>
-        </div>
-      )}
+        </DialogContent>
+      </Dialog>
       {showOverlay && (
         <div
           ref={overlayRef}
@@ -256,7 +292,7 @@ const CircularImagePicker = ({ images, onImageChange }) => {
           />
         </div>
       )}
-      
+
       <input
         type="file"
         ref={fileInputRef}

@@ -2,9 +2,16 @@ import React, { useRef, useState } from "react";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
+import Slide from "@mui/material/Slide";
 import "./TabComponent.scss";
 import "./WagglePosts.scss";
 import WagglePosts from "./WagglePosts";
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
+
+
 
 const TabComponent = ({ activeTab, onTabChange, mediaItems }) => {
   const touchStartX = useRef(null);
@@ -66,6 +73,7 @@ const TabComponent = ({ activeTab, onTabChange, mediaItems }) => {
   const handleCloseTabModal = () => {
     setOpenTabModal(false);
   };
+  
   const renderTabContent = () => {
     // render the content of the selected tab
     return mediaItems.map((currentMedia, index) => (
@@ -168,6 +176,10 @@ const TabComponent = ({ activeTab, onTabChange, mediaItems }) => {
       <Dialog
         open={openTabModal}
         onClose={handleCloseTabModal}
+        TransitionComponent={Transition}
+        keepMounted
+        aria-describedby="alert-dialog-slide-description"
+
         fullWidth
         maxWidth="md"
         style={{ top: "60px" }}

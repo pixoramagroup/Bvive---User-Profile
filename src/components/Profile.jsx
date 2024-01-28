@@ -1,4 +1,4 @@
-// import React from 'react';
+import React from 'react';
 import { useState, useEffect } from "react";
 //import classes from './Profile.module.scss'; // Assume CSS modules are set up
 import "./Profile.scss";
@@ -45,13 +45,17 @@ import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import DatePicker from "react-date-picker";
 import "react-datepicker/dist/react-datepicker.css";
-import 'react-date-picker/dist/DatePicker.css';
-import 'react-calendar/dist/Calendar.css';
-import 'react-datetime-picker/dist/DateTimePicker.css';
-import 'react-calendar/dist/Calendar.css';
-import 'react-clock/dist/Clock.css';
-import DateTimePicker from 'react-datetime-picker';
+import "react-date-picker/dist/DatePicker.css";
+import "react-calendar/dist/Calendar.css";
+import "react-datetime-picker/dist/DateTimePicker.css";
+import "react-calendar/dist/Calendar.css";
+import "react-clock/dist/Clock.css";
+import DateTimePicker from "react-datetime-picker";
+import Slide from "@mui/material/Slide";
 
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 const Profile = () => {
   // const images = [
@@ -461,16 +465,19 @@ const Profile = () => {
                 {/* {introVideo} */}
               </div>
               <div className="profile-card-top-right">
-                <div className="profile-tag">Personal Trainer</div>
-                <div className="creditscore-box-blue">
-                  <CreditScoreIcon className="icon-button-creditscore-blue" />
-                </div>
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <div className="profile-tag">Personal Trainer</div>
+                  <div style={{ display: "flex" }}>
+                    <div className="creditscore-box-blue">
+                      <CreditScoreIcon className="icon-button-creditscore-blue" />
+                    </div>
 
-                {/* Yellow CreditScoreIcon */}
-                <div className="creditscore-box-yellow">
-                  <CreditScoreIcon className="icon-button-creditscore-yellow" />
+                    {/* Yellow CreditScoreIcon */}
+                    <div className="creditscore-box-yellow">
+                      <CreditScoreIcon className="icon-button-creditscore-yellow" />
+                    </div>
+                  </div>
                 </div>
-
                 <div className="profile-name">
                   <h2 style={{ marginBottom: "4px", marginTop: "0px" }}>
                     James Osborn
@@ -563,27 +570,7 @@ const Profile = () => {
                   Hive
                 </div>
               </div>
-              <Dialog open={isFollowerOpen} onClick={handleFollowerClose}>
-                <DialogContent
-                  style={{
-                    backgroundColor: "black",
-                    color: "white",
-                    borderRadius: "5px",
-                  }}
-                >
-                  <ul>
-                    <li>Follower 1</li>
-                    <li>Follower 2</li>
-                    <li>Follower 3</li>
-                    <li>Follower 4</li>
-                    <li>Follower 5</li>
-                    <li>Follower 6</li>
-                    <li>Follower 7</li>
-                    <li>Follower 8</li>
-                    <li>Follower 9</li>
-                  </ul>
-                </DialogContent>
-              </Dialog>
+
               <div className="sessions" onClick={handleFollowingOpen}>
                 <div className="sessions1">500</div>
                 <div
@@ -597,27 +584,6 @@ const Profile = () => {
                   Bees
                 </div>
               </div>
-              <Dialog open={isFollowingOpen} onClick={handleFollowingClose}>
-                <DialogContent
-                  style={{
-                    backgroundColor: "black",
-                    color: "white",
-                    borderRadius: "5px",
-                  }}
-                >
-                  <ul>
-                    <li>Following 1</li>
-                    <li>Following 2</li>
-                    <li>Following 3</li>
-                    <li>Following 4</li>
-                    <li>Following 5</li>
-                    <li>Following 6</li>
-                    <li>Following 7</li>
-                    <li>Following 8</li>
-                    <li>Following 9</li>
-                  </ul>
-                </DialogContent>
-              </Dialog>
             </div>
             <div className="profile-card-bottom">
               <div className="profile-card-bottom-text">
@@ -650,60 +616,6 @@ const Profile = () => {
                   Message Now
                 </button>
               </div>
-              <Dialog
-                open={isBookingModalOpen}
-                onClose={handleCloseBookingModal}
-              >
-                <DialogContent>
-                  <div className="list">
-                    <ul style={{ listStyle: "none" }}>
-                      <li>Cardio</li>
-                      <li>Power Lifting</li>
-                      <li>Swimming</li>
-                      <li>Meditation</li>
-                      <li>Yoga</li>
-                    </ul>
-                  </div>
-                </DialogContent>
-                {/* <DialogActions>
-                  <Button onClick={handleCloseBookingModal}>Close</Button>
-                </DialogActions> */}
-              </Dialog>
-
-              {/* Message Modal */}
-              <Dialog
-                open={isMessageModalOpen}
-                onClose={handleCloseMessageModal}
-              >
-                <DialogContent>
-                  <p>
-                    Contact us at:
-                    <a>sales@pixoramagroup.com</a>
-                  </p>
-                </DialogContent>
-                {/* <DialogActions>
-                  <Button onClick={handleCloseMessageModal}>Close</Button>
-                </DialogActions> */}
-              </Dialog>
-
-              {/* Schedule Modal */}
-              <Dialog
-                open={isScheduleModalOpen}
-                onClose={handleCloseScheduleModal}
-              >
-               <DialogContent style={{borderRadius:"5px", height:"300px"}}>
-               <DateTimePicker onChange={onChange} value={value} 
-                    selected={startDate}
-                    // onChange={(date) => setStartDate(date)}
-                    timeInputLabel="Time:"
-                    dateFormat="MM/dd/yyyy h:mm aa"
-                    showTimeInput
-                  />
-                  </DialogContent>
-                {/* <DialogActions>
-                  <Button onClick={handleCloseScheduleModal}>Close</Button>
-                </DialogActions> */}
-              </Dialog>
             </div>
           </div>
         </div>
@@ -901,6 +813,118 @@ const Profile = () => {
       </div> */}
       <PictureTestimonials></PictureTestimonials>
       <Footer></Footer>
+      <Dialog
+        open={isFollowerOpen}
+        onClick={handleFollowerClose}
+        keepMounted
+        TransitionComponent={Transition}
+      >
+        <DialogContent
+          style={{
+            backgroundColor: "black",
+            color: "white",
+            borderRadius: "5px",
+          }}
+        >
+          <ul style={{listStyle:"none", padding:"0px"}}>
+            <li>Follower 1</li>
+            <li>Follower 2</li>
+            <li>Follower 3</li>
+            <li>Follower 4</li>
+            <li>Follower 5</li>
+            <li>Follower 6</li>
+            <li>Follower 7</li>
+            <li>Follower 8</li>
+            <li>Follower 9</li>
+          </ul>
+        </DialogContent>
+      </Dialog>
+      <Dialog
+        open={isFollowingOpen}
+        onClick={handleFollowingClose}
+        keepMounted
+        TransitionComponent={Transition}
+      >
+        <DialogContent
+          style={{
+            backgroundColor: "black",
+            color: "white",
+            borderRadius: "5px",
+          }}
+        >
+          <ul style={{listStyle:"none", padding:"0px"}}>
+            <li>Following 1</li>
+            <li>Following 2</li>
+            <li>Following 3</li>
+            <li>Following 4</li>
+            <li>Following 5</li>
+            <li>Following 6</li>
+            <li>Following 7</li>
+            <li>Following 8</li>
+            <li>Following 9</li>
+          </ul>
+        </DialogContent>
+      </Dialog>
+      <Dialog
+        open={isBookingModalOpen}
+        onClose={handleCloseBookingModal}
+        keepMounted
+        TransitionComponent={Transition}
+      >
+        <DialogContent style={{ background: "black", color: "white", textAlign: "center" }}>
+          <div className="list">
+            <ul style={{listStyle:"none", padding:"0px"}}>
+              <li>Cardio</li>
+              <li>Power Lifting</li>
+              <li>Swimming</li>
+              <li>Meditation</li>
+              <li>Yoga</li>
+            </ul>
+          </div>
+        </DialogContent>
+        {/* <DialogActions>
+                  <Button onClick={handleCloseBookingModal}>Close</Button>
+                </DialogActions> */}
+      </Dialog>
+
+      {/* Message Modal */}
+      <Dialog
+        open={isMessageModalOpen}
+        onClose={handleCloseMessageModal}
+        keepMounted
+        TransitionComponent={Transition}
+      >
+        <DialogContent style={{ background: "black", color: "white", textAlign: "center" }}>
+          
+            Contact us at:
+            <br></br>
+            <a>sales@pixoramagroup.com</a>
+          
+        </DialogContent>
+      </Dialog>
+
+      {/* Schedule Modal */}
+      <Dialog
+        open={isScheduleModalOpen}
+        onClose={handleCloseScheduleModal}
+        keepMounted
+        TransitionComponent={Transition}
+      >
+        <DialogContent style={{ borderRadius: "5px", height: "300px" }}>
+          <DateTimePicker
+            onChange={onChange}
+            value={value}
+            selected={startDate}
+            // onChange={(date) => setStartDate(date)}
+            timeInputLabel="Time:"
+            dateFormat="MM/dd/yyyy h:mm aa"
+            showTimeInput
+          />
+        </DialogContent>
+        {/* <DialogActions>
+                  <Button onClick={handleCloseScheduleModal}>Close</Button>
+                </DialogActions> */}
+      </Dialog>
     </div>
   );
 };
