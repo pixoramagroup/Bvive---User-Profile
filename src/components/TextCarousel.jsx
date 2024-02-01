@@ -1,3 +1,4 @@
+//My certifications section//
 import React, { useState } from "react";
 import VerifiedIcon from "@mui/icons-material/Verified";
 import Badge from "../assets/badge_watermark.png";

@@ -1,3 +1,5 @@
+//Media section for mobile view//
+
 import React, { useRef, useState } from "react";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";

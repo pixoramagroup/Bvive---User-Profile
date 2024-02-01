@@ -1,3 +1,5 @@
+//Waggle tab of media section in mobile view//
+
 import React from "react";
 import Avatar from "@mui/material/Avatar";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
