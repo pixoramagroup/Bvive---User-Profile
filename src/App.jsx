@@ -47,23 +47,22 @@
 //   );
 // }
 
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect, useState } from "react";
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-
-import Profile from './components/Profile';
-import SignUpPage from './components/SignUpPage';
-import SignIn from './components/SignIn';
+import Profile from "./components/Profile";
+import SignUpPage from "./components/SignUpPage";
+import SignIn from "./components/SignIn";
 
 export default function App() {
+  console.log("App component rendering");
   return (
     <div className="app">
-      <BrowserRouter basename="/NDIS-React">
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Profile />} />
           <Route path="/SignUpPage" element={<SignUpPage />} />
           <Route path="/SignIn" element={<SignIn />} />
-
         </Routes>
       </BrowserRouter>
     </div>
